@@ -15,14 +15,14 @@ class Device(models.Model):
 
 class PyEntries(models.Model):
     entry_id=models.AutoField(primary_key=True)
-    dev_uid=models.ForeignKey(Device)
+    dev_uid=models.ForeignKey(Device,on_delete=models.CASCADE)
     entry_date=models.DateTimeField()
     light=models.FloatField()
     temperature=models.FloatField()
 
 class LhtEntries(models.Model):
     entry_id=models.AutoField(primary_key=True)
-    dev_uid=models.ForeignKey(Device)
+    dev_uid=models.ForeignKey(Device,on_delete=models.CASCADE)
     entry_date=models.DateTimeField()
     BatV=models.FloatField()
     Bat_status=models.IntegerField()
@@ -30,6 +30,6 @@ class LhtEntries(models.Model):
     ILL_lx=models.FloatField()
     TempC_SHT=models.FloatField()
     Work_mode=models.TextField()
-    
+
 
 
