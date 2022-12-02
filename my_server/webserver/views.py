@@ -7,3 +7,6 @@ from django.template import loader
 def init(request):
     tem=loader.get_template("index.html")
     return HttpResponse(tem.render())
+
+#def fetch_api(request):
+    
