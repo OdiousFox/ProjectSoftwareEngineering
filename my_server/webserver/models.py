@@ -19,6 +19,8 @@ class PyEntries(models.Model):
     entry_date=models.DateTimeField()
     light=models.FloatField()
     temperature=models.FloatField()
+    pressure=models.FloatField(default=0)
+    
 
 class LhtEntries(models.Model):
     entry_id=models.AutoField(primary_key=True)
@@ -27,9 +29,10 @@ class LhtEntries(models.Model):
     BatV=models.FloatField()
     Bat_status=models.IntegerField()
     Hum_SHT=models.FloatField()
-    ILL_lx=models.FloatField()
+    ILL_lx=models.FloatField(default=None)
+    TempC_DS=models.FloatField(default=None)
     TempC_SHT=models.FloatField()
-    Work_mode=models.TextField()
+   
 
 
 

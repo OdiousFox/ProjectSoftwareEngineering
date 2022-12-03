@@ -11,14 +11,41 @@ import re
 
 def find_between(s, first, last):
     try:
-        start = s.index(bytes(first, 'utf-8')) + len(first)
-        end = s.index(bytes(last, 'utf-8'), start)
+        start = s.index(first) + len(first)
+        end = s.index(last, start)
         return s[start:end]
     except ValueError:
         return ""
 
 
 def formatMessage(message):
+    list = []
+    message = message.decode()
+    print(message)
+    list.append(find_between(message, "\"device_id\":\"", "\",\"application_ids\""))
+    if message.__contains__("packetbroker"):
+        list.append(find_between(message, "\"gateway_id\":\"", "\"},"))
+    else:
+        list.append(find_between(message, "\"gateway_id\":\"", ","))
+
+    list.append(find_between(message, "\"time\":\"", "T"))
+    time = find_between(message, "\"time\":\"", "\",\"")
+    list.append(find_between(time, "T", "Z"))
+    if message.__contains__("BatV"):
+        list.append(find_between(message, "\"ILL_lmessage\":", ","))
+        list.append(find_between(message, "\"Hum_SHT\":", ","))
+        list.append(find_between(message, "\"TempC_SHT\":", ","))
+        list.append(find_between(message, "\"BatV\":", ","))
+    else:
+        list.append(find_between(message, "\"light\":", "\""))
+        list.append(find_between(message, "\"pressure\":", ","))
+        list.append(find_between(message, "\"temperature\":", "}"))
+    print(list)
+    return list
+
+
+
+def returnMessage(message):
     list = []
 
     list.append(find_between(message, "\"device_id\":\"", "\",\"application_ids\""))
@@ -44,5 +71,5 @@ def formatMessage(message):
         list.append(find_between(message, "\"temperature\":", "}"))
         list.append("inf")
         list.append("Temperature Sensor")
-    print(list)
+    return list
 
