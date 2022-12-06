@@ -25,9 +25,12 @@ def start(func,*args):
     return
 start(my_view)
 
+#returns result in webformat
 def init(request):
     tem=loader.get_template("index.html")
     return HttpResponse(tem.render())
+
+#takes data from tables and returns it in json format to be used to pass it to the website.
 def formatJson(data):
     out=dict()
     for container in data:
@@ -41,12 +44,14 @@ def formatJson(data):
                     out[key]=[]
                 d=container[key]
                 if key=='entry_date':
+                    #format the date in the format
                    d=d.strftime("%Y/%m/%d %H:%M:%S")
                 out[key].append(d)
             else:
                 continue
+    #return the resulting json of data.
     return out
-
+#fetches and returns the data on request depending on the request query.
 def fetch_api(request):
     t1=PyEntries.objects.filter(dev_uid="py-wierden").values()
     t2=PyEntries.objects.filter(dev_uid="py-saxion").values()
@@ -64,5 +69,5 @@ def fetch_api(request):
     dat4["lht-wierden"]=formatJson(t4)
     dat5["lht-gronau"]=formatJson(t5)
     merge={**dat1,**dat2,**dat3,**dat4,**dat5}
-    
+    #returns result in json.
     return JsonResponse(merge)
