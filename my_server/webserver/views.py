@@ -22,7 +22,7 @@ def start(func,*args):
     
     t.start()
      
-    return
+    return t
 start(my_view)
 
 def init(request):
