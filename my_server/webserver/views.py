@@ -63,11 +63,11 @@ def fetch_api(request):
     dat3={}
     dat4={}
     dat5={}
-    dat1["py-wierden"]=formatJson(t1)
-    dat2["py-saxion"]=formatJson(t2)
-    dat3["lht-saxion"]=formatJson(t3)
-    dat4["lht-wierden"]=formatJson(t4)
-    dat5["lht-gronau"]=formatJson(t5)
+    dat1["py_wierden"]=formatJson(t1)
+    dat2["py_saxion"]=formatJson(t2)
+    dat3["lht_saxion"]=formatJson(t3)
+    dat4["lht_wierden"]=formatJson(t4)
+    dat5["lht_gronau"]=formatJson(t5)
     merge={**dat1,**dat2,**dat3,**dat4,**dat5}
     #returns result in json.
     return JsonResponse(merge)
