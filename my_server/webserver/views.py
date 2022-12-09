@@ -51,23 +51,15 @@ def formatJson(data):
                 continue
     #return the resulting json of data.
     return out
+
 #fetches and returns the data on request depending on the request query.
 def fetch_api(request):
-    t1=PyEntries.objects.filter(dev_uid="py-wierden").values()
-    t2=PyEntries.objects.filter(dev_uid="py-saxion").values()
-    t3=LhtEntries.objects.filter(dev_uid="lht-saxion").values()
-    t4=LhtEntries.objects.filter(dev_uid="lht-wierden").values()
-    t5=LhtEntries.objects.filter(dev_uid="lht-gronau").values()
+    t1=PyEntries.objects.filter(dev_uid__contains = "py").values()
+    t2=LhtEntries.objects.filter(dev_uid__contains = "lht").values()
     dat1={}
     dat2={}
-    dat3={}
-    dat4={}
-    dat5={}
-    dat1["py_wierden"]=formatJson(t1)
-    dat2["py_saxion"]=formatJson(t2)
-    dat3["lht_saxion"]=formatJson(t3)
-    dat4["lht_wierden"]=formatJson(t4)
-    dat5["lht_gronau"]=formatJson(t5)
-    merge={**dat1,**dat2,**dat3,**dat4,**dat5}
+    dat1["py_readings"]=formatJson(t1)
+    dat2["lht_readings"]=formatJson(t2)
+    merge={**dat1,**dat2}
     #returns result in json.
     return JsonResponse(merge)

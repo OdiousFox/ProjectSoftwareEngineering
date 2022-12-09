@@ -34,35 +34,6 @@ def my_view( *args, **kwargs):
     # Add data to deviceType and Device for all available devices
     # Try catch/except statements to avoid error if a duplicate entry already exists. 
     # A pass statement is given meaning nothing should happen amd ignore the error.
-    try:
-        #directly referencing the fields to avoid error of entering in wrong field
-        DeviceType.objects.create(type_id="py", type_name="pycom",attributes="battery powered, time, temperature, light, pressure")
-    except:
-        pass
-    try:
-        DeviceType.objects.create(type_id="lht", type_name="lhtcom",attributes="plugIn, time, temperature, light, Humidity, workmode, batteryVoltage")
-    except:
-        pass
-    try:
-        Device.objects.create(dev_uid="py-saxion", device_type=DeviceType.objects.get(type_id="py"), address="M.H. Tromplaan 28, 7513 AB, Enschede, Netherlands")
-    except:
-        pass
-    try:
-        Device.objects.create(dev_uid="py-wierden",device_type=DeviceType.objects.get(type_id="py") , address="Burgemeester J.C. van Den Bergplein 17-18, 7642 GS, Wierden")
-    except:
-        pass
-    try:
-        Device.objects.create(dev_uid="lht-gronau", device_type=DeviceType.objects.get(type_id="lht"), address="48599 Gronau, North Rhine-Westphalia, Germany")
-    except:
-        pass
-    try:
-        Device.objects.create(dev_uid="lht-wierden", device_type=DeviceType.objects.get(type_id="lht"), address="Burgemeester J.C. van Den Bergplein 17-18, 7642 GS, Wierden")
-    except:
-        pass
-    try:
-        Device.objects.create(dev_uid="lht-saxion", device_type=DeviceType.objects.get(type_id="lht"), address="M.H. Tromplaan 28, 7513 AB, Enschede, Netherlands")
-    except:
-        pass
     #call client method  to enter the actual data to the pyEntries and lhtEntries tables
     client()
 
@@ -90,7 +61,7 @@ def client():
             
             PyEntries.objects.create(
             #primary field has to directly reference that value
-            dev_uid=Device.objects.get(dev_uid=values["dev_id"]), 
+            dev_uid=values["dev_id"], 
             entry_date=values["time"],
             light=values["payload"]["light"],
             temperature=values["payload"]["temperature"],
@@ -100,7 +71,7 @@ def client():
             #try catch statement to deal with the difference of ILL_lx and TempC_DS values
             try:
                 LhtEntries.objects.create(
-                dev_uid=Device.objects.get(dev_uid=values["dev_id"]),
+                dev_uid=values["dev_id"],
                 entry_date=values["time"],
                 BatV=values["payload"]["BatV"],
                 Bat_status=values["payload"]["Bat_status"],
@@ -110,7 +81,7 @@ def client():
                 )
             except:
                 LhtEntries.objects.create(
-                dev_uid=Device.objects.get(dev_uid=values["dev_id"]),
+                dev_uid=values["dev_id"],
                 entry_date=values["time"],
                 BatV=values["payload"]["BatV"],
                 Bat_status=values["payload"]["Bat_status"],
@@ -124,6 +95,11 @@ def client():
     #debugging method to check if everything connected successfully
     def on_log(client, userdata, level, buf):
         print("log: ", buf)
+
+    def calculate_Avgs():
+
+
+
 
     #connect to the client to start collecting data
     client = mqtt.Client()
