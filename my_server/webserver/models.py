@@ -13,7 +13,7 @@ from django.db import models
 #Table for the pycom device entries
 class PyEntries(models.Model):
     entry_id=models.AutoField(primary_key=True)
-    dev_uid=models.ForeignKey(Device,on_delete=models.CASCADE)
+    dev_uid=models.CharField(max_length=25)
     entry_date=models.DateTimeField()
     light=models.FloatField()
     temperature=models.FloatField()
@@ -23,8 +23,8 @@ class PyEntries(models.Model):
 #Table for the pycom device hourly avgs
 class Py_Averages(models.Model):
     entry_id=models.AutoField(primary_key=True)
-    dev_uid=models.ForeignKey(Device,on_delete=models.CASCADE)
-    entry_date=models.DateTimeField()
+    dev_uid=models.CharField(max_length=25)
+    entry_date=models.IntegerField()
     light=models.FloatField()
     temperature=models.FloatField()
     pressure=models.FloatField(default=0)
@@ -32,7 +32,7 @@ class Py_Averages(models.Model):
 #Table for the lht device entries.
 class LhtEntries(models.Model):
     entry_id=models.AutoField(primary_key=True)
-    dev_uid=models.ForeignKey(Device,on_delete=models.CASCADE)
+    dev_uid=models.CharField(max_length=25)
     entry_date=models.DateTimeField()
     BatV=models.FloatField()
     Bat_status=models.IntegerField()
@@ -45,8 +45,8 @@ class LhtEntries(models.Model):
 #Table for the lht device hourly avgs.
 class Lht_Averages(models.Model):
     entry_id=models.AutoField(primary_key=True)
-    dev_uid=models.ForeignKey(Device,on_delete=models.CASCADE)
-    entry_date=models.DateTimeField()
+    dev_uid=models.CharField(max_length=25)
+    entry_date=models.IntegerField()
     BatV=models.FloatField()
     Bat_status=models.IntegerField()
     Hum_SHT=models.FloatField()

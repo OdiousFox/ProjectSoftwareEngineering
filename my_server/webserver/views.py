@@ -4,8 +4,7 @@ from django.http import HttpResponse,JsonResponse
 
 from django.template import loader
 
-from .models import DeviceType
-from .models import Device
+
 from .models import PyEntries
 from .models import LhtEntries
 
