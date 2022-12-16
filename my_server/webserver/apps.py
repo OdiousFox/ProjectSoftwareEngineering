@@ -15,6 +15,7 @@ class WebserverConfig(AppConfig):
             
             # Get the dev server port (defaults to 8000 for Django, can be overridden with the
             # last arg when calling `runserver`)
+            conf.get_default().region = "eu"
             addrport = urlparse("http://{}".format(sys.argv[-1]))
             port = addrport.port if addrport.netloc and addrport.port else 8000
 
