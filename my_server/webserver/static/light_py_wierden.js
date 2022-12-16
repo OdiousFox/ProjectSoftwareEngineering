@@ -1,4 +1,3 @@
-// this is to get the information from py_wierden and put it into a graph
 
 var url = window.location.href+"api";
 
@@ -13,22 +12,22 @@ async function getData() {
   console.log(length);
 
   time = [];
-  temperature = [];
+  light = [];
 
   for (i = 0; i < length; i++) {
     time.push(data.py_wierden.entry_date[i]);
-    temperature.push(data.py_wierden.temperature[i]);
+    light.push(data.py_wierden.light[i]);
   }
 
   // this is used to create the graph
-  new Chart(document.getElementById("test_json"),{
+  new Chart(document.getElementById("light_py_wierden"),{
     type: 'line',
     data: {
       labels: time,
       datasets: [
       {
-        label: "Temperature ",
-        data: temperature,
+        label: "Light",
+        data: light,
       },
       ],
     },
@@ -38,7 +37,7 @@ async function getData() {
         y: {
           title: {
             display: 'true',
-            text: 'temp'
+            text: 'light level'
           }
         },
         x: {
@@ -51,7 +50,7 @@ async function getData() {
       plugins: {
         title: {
           display: true,
-          text: 'Temperature py_wierden',
+          text: 'Light py-Wierden',
           padding: {
             top: 10,
             bottom: 10

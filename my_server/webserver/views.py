@@ -13,17 +13,15 @@ from .mqtt_py import my_view
 
 
 from threading import Thread
-
+from . import mqtt_py
 
 # Create your views here.
-
-def start(func,*args):
+def start_func(func):
     t=Thread(target=func)
-    
+    t.setDaemon=True
     t.start()
-     
-    return t
-start(my_view)
+start_func(mqtt_py.my_view)
+
 
 #returns result in webformat
 def init(request):

@@ -1,6 +1,5 @@
-// this is to get the information from py_wierden and put it into a graph
 
-var url = window.location.href+"api";
+var url = window.location.href+'api';
 
 getData();
 
@@ -13,22 +12,22 @@ async function getData() {
   console.log(length);
 
   time = [];
-  temperature = [];
+  pressure = [];
 
   for (i = 0; i < length; i++) {
     time.push(data.py_wierden.entry_date[i]);
-    temperature.push(data.py_wierden.temperature[i]);
+    pressure.push(data.py_wierden.pressure[i]);
   }
 
   // this is used to create the graph
-  new Chart(document.getElementById("test_json"),{
+  new Chart(document.getElementById("pressure_py_wierden"),{
     type: 'line',
     data: {
       labels: time,
       datasets: [
       {
-        label: "Temperature ",
-        data: temperature,
+        label: "Pressure",
+        data: pressure,
       },
       ],
     },
@@ -38,7 +37,7 @@ async function getData() {
         y: {
           title: {
             display: 'true',
-            text: 'temp'
+            text: 'pressure [pHa]'
           }
         },
         x: {
@@ -51,7 +50,7 @@ async function getData() {
       plugins: {
         title: {
           display: true,
-          text: 'Temperature py_wierden',
+          text: 'Pressure py_wierden',
           padding: {
             top: 10,
             bottom: 10

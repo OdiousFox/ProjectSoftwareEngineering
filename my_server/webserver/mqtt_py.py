@@ -135,12 +135,8 @@ def client():
     #specify what MQTT is being used and the port number.
     client.connect("eu1.cloud.thethings.network", 1883, 60)
     print("Hello")
-    try:
-        #start looping and fetching data until a keyboard interrupt is made.
-        client.loop_start()
-        client.subscribe("#") 
-        time.sleep(1000)
-    except KeyboardInterrupt:
-        client.loop_stop()
+    client.loop_start()
+    return 
+    
 
 
