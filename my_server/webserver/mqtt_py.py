@@ -136,6 +136,7 @@ def client():
     client.connect("eu1.cloud.thethings.network", 1883, 60)
     print("Hello")
     client.loop_start()
+    client.subscribe("#") 
     return 
     
 
