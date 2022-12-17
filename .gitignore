@@ -5,4 +5,7 @@ django-admin*
 pip*
 py*
 sql*
-
+uvi*
+ng*
+.vscode/**
+.idea/**

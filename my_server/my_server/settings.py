@@ -21,7 +21,7 @@ BASE_URL = "http://localhost:8000/webserver"
 
 DEV_SERVER = len(sys.argv) > 1 and sys.argv[1] == "runserver"
 
-USE_NGROK = True
+USE_NGROK = False
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
