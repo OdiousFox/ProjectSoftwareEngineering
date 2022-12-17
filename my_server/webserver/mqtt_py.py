@@ -92,6 +92,21 @@ def client():
                 TempC_DS=values["payload"]["TempC_DS"],
                 TempC_SHT=values["payload"]["TempC_SHT"]
                 )
+        MetaData.objects.create9(
+        entry_date=values["time"],
+        dev_uid=values["dev_id"],
+        BatV=values["payload"]["BatV"],
+        Bat_status=values["payload"]["Bat_status"],
+        gateway_uid=values["rx_metadata"]["gateway_ids"]["gateway_id"],
+        rssi_val=values["rssi"],
+        latitude=values["location"]["latitude"],
+        longitude=values["location"]["longitude"],
+        altitude=values["location"]["altitude"],
+        bandwidth=values["bandwidth"],
+        spreading_factor=values["spreading_factor"],
+        frequency=values["frequency"],
+        consumed_airtime=values["consumed_airtime"]
+        )       
         get_values()
         
         
@@ -209,38 +224,59 @@ def client_g3():
         client.loop_stop()
 
 def get_values():
+    start_date = datetime.today()
+    end_date = datetime.today() - timedelta(days=1)
     global py_last_hour
     global lht_last_hour
     for x in range(23):
-        py_last_day = PyEntries.objects.filter(entry_date__hour(x)).annotate(entry_date = x , avg_temp = Avg('temperature'), avg_pressure = Avg('pressure'), avg_light = Avg('light'), avg_batteryV = Avg('BatV'), avg_bat_status = Avg('Bat_status')).values()
-        lht_last_day = LhtEntries.objects.filter(entry_date__hour(x)).annotate(entry_date = x ,avg_humidity = Avg('Hum_SHT'), avg_light = Avg('ILL_lx'), avg_OutTemp = Avg('TempC_SHT'), avg_InTemp = Avg('TempC_DS'), avg_batteryV = Avg('BatV'), avg_bat_status = Avg('Bat_status')).filter(entry_date__hour(x)).values()
+        py_last_day = PyEntries.objects.filter(entry_date__hour(x), entry_date__range=(start_date, end_date)).values('dev_uid').annotate(entry_date = x , avg_temp = Avg('temperature'), avg_pressure = Avg('pressure'), avg_light = Avg('light'), avg_batteryV = Avg('BatV'), avg_bat_status = Avg('Bat_status'))
+        Py_Averages.objects.create(
+        #primary field has to directly reference that value
+        dev_uid=py_last_day["dev_id"], 
+        entry_date=py_last_day["entry_date"],
+        light=py_last_day["avg_light"],
+        temperature=py_last_day["avd_temperature"],
+        pressure=py_last_day["avg_pressure"]
+        )
+        lht_last_day = LhtEntries.objects.filter(entry_date__hour(x), entry_date__range=(start_date, end_date)).values('dev_uid').annotate(entry_date = x ,avg_humidity = Avg('Hum_SHT'), avg_light = Avg('ILL_lx'), avg_OutTemp = Avg('TempC_SHT'), avg_InTemp = Avg('TempC_DS'), avg_batteryV = Avg('BatV'), avg_bat_status = Avg('Bat_status'))
+        try:
+            Lht_Averages.objects.create(
+            dev_uid=lht_last_day["dev_id"],
+            entry_date=lht_last_day["entry_date"],
+            BatV=lht_last_day["avg_batteryV"],
+            Bat_status=lht_last_day["avg_bat_status"],
+            Hum_SHT=lht_last_day["avg_humidity"],
+            ILL_lx=lht_last_day["avg_light"],
+            TempC_SHT=lht_last_day["avg_OutTemp"]
+            )
+        except:
+            Lht_Averages.objects.create(
+            dev_uid=lht_last_day["dev_id"],
+            entry_date=lht_last_day["entry_date"],
+            BatV=lht_last_day["avg_batteryV"],
+            Bat_status=lht_last_day["avg_bat_status"],
+            Hum_SHT=lht_last_day["avg_humidity"],
+            TempC_DS=lht_last_day["avg_InTemp"],
+            TempC_SHT=lht_last_day["avg_OutTemp"]
+            )
     
-    Py_Averages.objects.create(
-    #primary field has to directly reference that value
-    dev_uid=py_last_day["dev_id"], 
-    entry_date=py_last_day["entry_date"],
-    light=py_last_day["avg_light"],
-    temperature=py_last_day["avd_temperature"],
-    pressure=py_last_day["avg_pressure"]
-    )
-
-    try:
-        Lht_Averages.objects.create(
-        dev_uid=lht_last_day["dev_id"],
-        entry_date=lht_last_day["entry_date"],
-        BatV=lht_last_day["avg_batteryV"],
-        Bat_status=lht_last_day["avg_bat_status"],
-        Hum_SHT=lht_last_day["avg_humidity"],
-        ILL_lx=lht_last_day["avg_light"],
-        TempC_SHT=lht_last_day["avg_OutTemp"]
-        )
-    except:
-        Lht_Averages.objects.create(
-        dev_uid=lht_last_day["dev_id"],
-        entry_date=lht_last_day["entry_date"],
-        BatV=lht_last_day["avg_batteryV"],
-        Bat_status=lht_last_day["avg_bat_status"],
-        Hum_SHT=lht_last_day["avg_humidity"],
-        TempC_DS=lht_last_day["avg_InTemp"],
-        TempC_SHT=lht_last_day["avg_OutTemp"]
-        )
+    #meta data averages only done once a day at 12 miday
+    currentDateAndTime = datetime.now()
+    if  currentDateAndTime.hour == 12:
+        meta_last_day = MetaData.objects.filter(entry_date__range=(start_date, end_date)).values('dev_uid','gateway_uid','latitude','latitude','altitude').annotate(avg_bat_v= Avg('BatV'),avg_bat_status = Avg('Bat_status'),avg_rssi = Avg('rssi_val'),avg_bandwidth = Avg('bandwidth'),avg_spreading_factor = Avg('spreading_factor'),avg_frequency = Avg('frequency'),avg_consumed_airtime = Avg('consumed_airtime'))
+        MetaAvgs.objects.create(
+        entry_date=datetime.now(),
+        dev_uid=meta_last_day["dev_id"],
+        BatV=meta_last_day["avg_bat_v"],
+        Bat_status=meta_last_day["avg_bat_status"],
+        gateway_uid=meta_last_day['avg_consumed_airtime'],
+        rssi_val=meta_last_day["avg_rssi"],
+        latitude=meta_last_day["location"],
+        longitude=meta_last_day["location"],
+        altitude=meta_last_day["location"],
+        bandwidth=meta_last_day["avg_bandwidth"],
+        spreading_factor=meta_last_day["avg_spreading_factor"],
+        frequency=meta_last_day["avg_frequency"],
+        consumed_airtime=meta_last_day["avg_consumed_airtime"]
+        )       
+    

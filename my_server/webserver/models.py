@@ -56,3 +56,35 @@ class Lht_Averages(models.Model):
     TempC_SHT=models.FloatField()
 
 
+class MetaData(models.Model):
+    entry_id=models.AutoField(primary_key=True)
+    entry_date=models.DateTimeField()
+    dev_uid=models.CharField(max_length=25)
+    BatV=models.FloatField()
+    Bat_status=models.IntegerField()
+    gateway_uid=models.CharField(max_length=40)
+    rssi_val=models.FloatField()
+    latitude=models.FloatField()
+    longitude=models.FloatField()
+    altitude=models.FloatField()
+    bandwidth=models.FloatField()
+    spreading_factor=models.FloatField()
+    frequency=models.FloatField()
+    consumed_airtime=models.FloatField()
+
+class MetaAvgs(models.Model):
+    entry_id=models.AutoField(primary_key=True)
+    entry_date=models.DateTimeField()
+    dev_uid=models.CharField(max_length=25)
+    BatV=models.FloatField()
+    Bat_status=models.IntegerField()
+    gateway_uid=models.CharField(max_length=40)
+    rssi_val=models.FloatField()
+    latitude=models.FloatField()
+    longitude=models.FloatField()
+    altitude=models.FloatField()
+    bandwidth=models.FloatField()
+    spreading_factor=models.FloatField()
+    frequency=models.FloatField()
+    consumed_airtime=models.FloatField()
+
