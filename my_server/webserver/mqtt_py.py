@@ -176,7 +176,8 @@ def client():
                 )
 
         ## Store metadata
-        Meta_data.objects.create(
+        try:
+            Meta_data.objects.create(
             dev_uid = values["dev_id"],
             gateway_id = values["gate_id"],
             longitude = values["long"],    # Location longitude
@@ -185,7 +186,9 @@ def client():
             snr = values["snr"],
             airtime = values["airtime"]
             )
-        updata_avg(values["dev_id"])
+            updata_avg(values["dev_id"])
+        except:
+            print("Cannot update metadat for"+values["dev_id"])
         #get_values()
         
         

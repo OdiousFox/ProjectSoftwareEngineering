@@ -20,13 +20,15 @@ D:\ACmeasure\my_proj\Scripts>activate.bat
 
 (my_proj) D:\ACmeasure\my_proj\Scripts>
 ```
+Go to bin folder
 Then install django framework by running command
 ```cmd=
-(my_proj) D:\ACmeasure\my_proj\Scripts>pip install Django
+(my_proj) D:\ACmeasure\my_proj\Scripts>cd bin 
+(my_proj) D:\ACmeasure\my_proj\Scripts\bin>pip.exe install Django
 ```
 Then install paho-mqtt library bu running command
 ```cmd=
-(my_proj) D:\ACmeasure\my_proj\Scripts>pip install paho-mqtt
+(my_proj) D:\ACmeasure\my_proj\Scripts\bin>pip.exe install paho-mqtt
 ```
 
 On Linux or Mac OS, the process is the same just when you activate virtual environment, you need to run "source bin/activate"
