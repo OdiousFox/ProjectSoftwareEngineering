@@ -68,4 +68,10 @@ def fetch_api(request):
         out[ndev_id]=formatJson(a)
         r=formatMetadata(Meta_data.objects.filter(dev_uid=dev_id).values().last())
         out[ndev_id]["meta_data"]=r
-    return JsonResponse(out)
+    response=JsonResponse(out)
+    response["Access-Control-Allow-Origin"] = "*"
+    response["Access-Control-Allow-Methods"] = "GET, OPTIONS, POST"
+    response["Access-Control-Max-Age"] = "1000"
+    response["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type"
+    response["Access-Control-Allow-Credentials"] = True
+    return response
