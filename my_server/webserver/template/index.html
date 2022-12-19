@@ -5,21 +5,38 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{% static 'weatherAtLocation.js' %}"></script>
+  <script src="{% static 'dropDown.js' %}"></script>
+  <script src="{% static 'addRemoveElements.js' %}"></script>
+  <script src="{% static 'addWeatherChart.js' %}"></script>
+
+  <!-- <link rel="stylesheet" href="styles/styles.css"> -->
   <title>Weather App</title>
 </head>
+
 <body>
-  <div class="container">
-    <!-- <canvas id="weather-chart"></canvas> -->
-    <!-- <canvas id="line_chart"></canvas> -->
-    <canvas id="test_json"></canvas>
-    <canvas id="light_py_wierden"></canvas>
-    <canvas id="pressure_py_wierden"></canvas>
-  </div> 
-    <!-- <script src="src/linechart.js"></script> -->
-    <!-- <script src="src/test_weather_api.js"></script> -->
-    <script src="{% static 'test_data.js' %}"></script>
-    <script src="{% static 'light_py_wierden.js' %}"></script>
-    <script src="{% static 'pressure_py_wierden.js' %}"></script>
+  <div id="div1">
+    <form>
+      Select an output type:
+      <select id="output_type">
+        <option>Winnipeg</option>
+        <option>Doha</option>
+        <option>pressure</option>
+      </select>
+
+      Select one or more devices
+      <select id="devices" multiple>
+        <option>py_wierden</option>
+        <option>py_saxion</option>
+        <option>lht_saxion</option>
+        <option>lht_wierden</option>
+        <option>lht_gronau</option>
+      </select>
+
+    </form>
+  </div>
+  <button onclick="addWeatherChart('Doha')">Add Element</button>
 </body>
 </html>

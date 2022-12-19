@@ -47,6 +47,7 @@ def formatJson(data):
     return out 
 #fetches and returns the data on request depending on the request query.
 def fetch_api(request):
+    print(request.headers)
     out={}
     res=Lht_Averages.objects.values("dev_uid").distinct()
     for id in res:
@@ -72,6 +73,6 @@ def fetch_api(request):
     response["Access-Control-Allow-Origin"] = "*"
     response["Access-Control-Allow-Methods"] = "GET, OPTIONS, POST"
     response["Access-Control-Max-Age"] = "1000"
-    response["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type"
+    response["Access-Control-Allow-Headers"] = "X-Requested-With, Content-Type, "
     response["Access-Control-Allow-Credentials"] = True
     return response
