@@ -43,7 +43,7 @@ def updata_avg(id):
     if "py" in id:
         res= PyEntries.objects.filter(dev_uid=id)\
         .annotate(hour=ExtractHour("entry_date"))\
-            .values("hour","temperature","light","pressure")
+            .values("hour","temperature","light","pressure","humidity")
     else:
         res=LhtEntries.objects.filter(dev_uid=id)\
             .annotate(hour=ExtractHour("entry_date"))\
@@ -90,13 +90,15 @@ def updata_avg(id):
                 entry_hour=i,
                 light=avg_sto[i]["light"],
                 temperature=avg_sto[i]["temperature"],
-                pressure=avg_sto[i]["pressure"])
+                pressure=avg_sto[i]["pressure"],
+                humidity=avg_sto[i]["humidity"])
             else:
                 Py_Averages.objects.filter(dev_uid=id, entry_hour=i).update(
             #primary field has to directly reference that value
                 light=avg_sto[i]["light"],
                 temperature=avg_sto[i]["temperature"],
-                pressure=avg_sto[i]["pressure"])
+                pressure=avg_sto[i]["pressure"],
+                humidity=avg_sto[i]["humidity"])
         else:
             que=Lht_Averages.objects.filter(dev_uid=id,entry_hour=i)
             if(len(que)==0):
@@ -241,38 +243,33 @@ def client_g3():
         values = returnMessage(msg.payload)
         #since the values is a dictionary type you can directly check values in keys
         # if dev_id contains 'py' then store data in the PyEntries table 
-        if "py" in values["dev_id"]: 
+        
             
-            PyEntries.objects.create(
+        PyEntries.objects.create(
             #primary field has to directly reference that value
             dev_uid=values["dev_id"], 
             entry_date=values["time"],
-            light=values["payload"]["light"],
+            humidity=values["payload"]["humidity"],
             temperature=values["payload"]["temperature"],
             pressure=values["payload"]["pressure"])
-        #else store in the lhtEntries table.
-        else:
-            #try catch statement to deal with the difference of ILL_lx and TempC_DS values
-            try:
-                LhtEntries.objects.create(
-                dev_uid=values["dev_id"],
-                entry_date=values["time"],
-                BatV=values["payload"]["BatV"],
-                Bat_status=values["payload"]["Bat_status"],
-                Hum_SHT=values["payload"]["Hum_SHT"],
-                ILL_lx=values["payload"]["ILL_lx"],
-                TempC_SHT=values["payload"]["TempC_SHT"]
-                )
-            except:
-                LhtEntries.objects.create(
-                dev_uid=values["dev_id"],
-                entry_date=values["time"],
-                BatV=values["payload"]["BatV"],
-                Bat_status=values["payload"]["Bat_status"],
-                Hum_SHT=values["payload"]["Hum_SHT"],
-                TempC_DS=values["payload"]["TempC_DS"],
-                TempC_SHT=values["payload"]["TempC_SHT"]
-                )
+        
+        
+        updata_avg(values["dev_id"])
+        try:
+            Meta_data.objects.create(
+            dev_uid = values["dev_id"],
+            gateway_id = values["gate_id"],
+            longitude = values["long"],    # Location longitude
+            latitude = values["lat"],  # Location 
+            rssi = values["rssi"],
+            snr = values["snr"],
+            airtime = values["airtime"]
+            )
+            updata_avg(values["dev_id"])
+        except:
+            print("Cannot update metadat for"+values["dev_id"])
+       
+        
             
 
             
@@ -294,14 +291,12 @@ def client_g3():
     client.username_pw_set(username, password)
     #specify what MQTT is being used and the port number.
     client.connect("eu1.cloud.thethings.network", 1883, 60)
-    print("Hello")
-    try:
-        #start looping and fetching data until a keyboard interrupt is made.
-        client.loop_start()
-        client.subscribe("#") 
-        time.sleep(1000)
-    except KeyboardInterrupt:
-        client.loop_stop()
+    print("Hello1")
+   
+    client.loop_start()
+    client.subscribe("#") 
+    return 
+    
 
 def get_values():
     global py_last_hour

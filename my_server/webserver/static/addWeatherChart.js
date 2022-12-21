@@ -27,7 +27,7 @@ async function getDataFromUrl(url){
 
 async function addWeatherChart(location){
 
-    var url =  "https://209a-2001-1c06-180b-b600-b151-d6a6-4ee-e23c.eu.ngrok.io/webserver/api/";
+    var url =  window.location.href+'api';
 
     const data = await getDataFromUrl(url)
     .catch((error) => {
@@ -50,49 +50,49 @@ async function addWeatherChart(location){
     // const data = await response.json();
     // alert(data);
         
-    // time = [];
-    // temperature_2m = [];
+    time = [];
+    temperature_2m = [];
 
-    // for(i=0; i< 24; i++){
-    //     time.push(data.py_wierden.entry_date[i]);
-    //     temperature_2m.push(data.py_wierden.temperature[i]);
-    // }
+    for(i=0; i< 24; i++){
+        time.push(data.py_wierden.entry_date[i]);
+        temperature_2m.push(data.py_wierden.temperature[i]);
+    }
 
-    // alert(time);
-    // alert(temperature_2m);
+    alert(time);
+    alert(temperature_2m);
 
-    // removeElement("div1");
+    removeElement("div1");
     
-    // addElement("div1", "canvas", location);
+    addElement("div1", "canvas", location);
         
-    // new Chart(document.getElementById(location),{
-    //     type: 'line',
-    //     data:{
-    //         labels: time,
-    //         datasets: [
-    //             {
-    //                 label: "Temperature",
-    //                 data: temperature_2m
-    //             }
-    //         ]
-    //     },
-    //     options: {
-    //         legend: { display: false },
-    //         plugins:{
-    //             title: {
-    //                 display: true,
-    //                 text: "TestLocation"
-    //             }
-    //         }
-    //     }
-    // });
+    new Chart(document.getElementById(location),{
+        type: 'line',
+        data:{
+            labels: time,
+            datasets: [
+                {
+                    label: "Temperature",
+                    data: temperature_2m
+                }
+            ]
+        },
+        options: {
+            legend: { display: false },
+            plugins:{
+                title: {
+                    display: true,
+                    text: "TestLocation"
+                }
+            }
+        }
+    });
     
-    //response = await fetch(someURL);
-    //console.log(response);
+    response = await fetch(someURL);
+    console.log(response);
     //const data = await response.json();
-    //console.log(response);
-    //length = data.hourly.time.length;
-    //console.log(response);
+    console.log(response);
+    length = data.hourly.time.length;
+    console.log(response);
 
     
 }

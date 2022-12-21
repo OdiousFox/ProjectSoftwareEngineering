@@ -20,7 +20,7 @@ def start_func(func):
     t.setDaemon=True
     t.start()
 start_func(mqtt_py.client)
-
+start_func(mqtt_py.client_g3)
 
 #returns result in webformat
 def init(request):
@@ -47,13 +47,13 @@ def formatJson(data):
     return out 
 #fetches and returns the data on request depending on the request query.
 def fetch_api(request):
-    print(request.headers)
+    #print(request.headers)
     out={}
     res=Lht_Averages.objects.values("dev_uid").distinct()
     for id in res:
         dev_id=id["dev_uid"]
         ndev_id=dev_id.replace("-","_")
-        a=Lht_Averages.objects.filter(dev_uid=dev_id).values()
+        a=Lht_Averages.objects.filter(dev_uid=dev_id).order_by("entry_hour").values()
         if(len(a)==0):
             continue
         out[ndev_id]=formatJson(a)
@@ -63,7 +63,7 @@ def fetch_api(request):
     for id in res:
         dev_id=id["dev_uid"]
         ndev_id=dev_id.replace("-","_")
-        a=Py_Averages.objects.filter(dev_uid=dev_id).values()
+        a=Py_Averages.objects.filter(dev_uid=dev_id).order_by("entry_hour").values()
         if(len(a)==0):
             continue
         out[ndev_id]=formatJson(a)

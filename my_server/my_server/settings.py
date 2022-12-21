@@ -21,7 +21,7 @@ BASE_URL = "http://localhost:8000/webserver"
 
 DEV_SERVER = len(sys.argv) > 1 and sys.argv[1] == "runserver"
 
-USE_NGROK = True
+USE_NGROK = False
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    
      "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -68,8 +69,10 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     'ngrok-skip-browser-warning',
 ]
 CORS_EXPOSE_HEADERS = [
-    "ngrok-skip-browser-warning",
+   "ngrok-skip-browser-warning",
 ]
+
+
 ROOT_URLCONF = 'my_server.urls'
 
 TEMPLATES = [

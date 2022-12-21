@@ -10,9 +10,10 @@ class PyEntries(models.Model):
     entry_id=models.AutoField(primary_key=True)
     dev_uid=models.CharField(max_length=25)
     entry_date=models.DateTimeField()
-    light=models.FloatField()
+    light=models.FloatField(default=None,null=True,blank=True)
     temperature=models.FloatField()
     pressure=models.FloatField(default=0)
+    humidity=models.FloatField(default=None,null=True,blank=True)
     
 
 #Table for the pycom device hourly avgs
@@ -20,9 +21,10 @@ class Py_Averages(models.Model):
     entry_id=models.AutoField(primary_key=True)
     dev_uid=models.CharField(max_length=25)
     entry_hour=models.IntegerField()
-    light=models.FloatField()
+    light=models.FloatField(default=None,null=True,blank=True)
     temperature=models.FloatField()
     pressure=models.FloatField()
+    humidity=models.FloatField(default=None,null=True,blank=True)
 
 #Table for the lht device entries.
 class LhtEntries(models.Model):
