@@ -200,7 +200,7 @@ def client_g3():
     def on_log(client, userdata, level, buf):
         print("log: ", buf)
 
-    def calculate_Avgs():
+    
 
 
 
