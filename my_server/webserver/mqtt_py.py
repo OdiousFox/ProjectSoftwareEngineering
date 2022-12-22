@@ -145,14 +145,16 @@ def client():
         #since the values is a dictionary type you can directly check values in keys
         # if dev_id contains 'py' then store data in the PyEntries table 
         if "py" in values["dev_id"]: 
-            
-            PyEntries.objects.create(
+            try:
+                PyEntries.objects.create(
             #primary field has to directly reference that value
             dev_uid=values["dev_id"], 
             entry_date=values["time"],
             light=values["payload"]["light"],
             temperature=values["payload"]["temperature"],
             pressure=values["payload"]["pressure"])
+            except:
+                print("Cannot insert data from {}".format(values["dev_id"]))
         #else store in the lhtEntries table.
         else:
             #try catch statement to deal with the difference of ILL_lx and TempC_DS values
@@ -244,15 +246,16 @@ def client_g3():
         #since the values is a dictionary type you can directly check values in keys
         # if dev_id contains 'py' then store data in the PyEntries table 
         
-            
-        PyEntries.objects.create(
+        try:
+            PyEntries.objects.create(
             #primary field has to directly reference that value
             dev_uid=values["dev_id"], 
             entry_date=values["time"],
             humidity=values["payload"]["humidity"],
             temperature=values["payload"]["temperature"],
             pressure=values["payload"]["pressure"])
-        
+        except:
+            print("Cannot insert data from py-group3")
         
         updata_avg(values["dev_id"])
         try:

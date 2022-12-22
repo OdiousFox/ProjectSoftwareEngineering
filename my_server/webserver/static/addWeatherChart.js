@@ -1,65 +1,32 @@
 async function getDataFromUrl(url){
-    
-        const response = await fetch(url,{
-            method: "get",
-            
-            headers: {
-              "ngrok-skip-browser-warning": "69420",
-          "Accept": "application/json",
+    const response = await fetch(url,{
+        method: "get",
+        headers: new Headers({
+          "ngrok-skip-browser-warning": "69420",
           "Content-Type": "application/json"
-        
-            }
-        }).then(res => {
-          if(!res.ok) {
-            return res.text().then(text => { throw new Error(text) })
-           }
-          else {
-        console.log(res.clone().json()); //To view json parse successfully or not
-           return res.json();
-         }    
         })
-        .catch(err => {
-           console.log('caught it!',err);
-        });
-        return response;
+    }).catch((error) =>{
+        alert(error);
+    });
+    return response.json();
 }
 
+async function addWeatherChart(output_type, devices){
 
-async function addWeatherChart(location){
+    var url = window.location.href +'api';
 
-    var url =  window.location.href+'api';
+    var data = await getDataFromUrl(url);
 
-    const data = await getDataFromUrl(url)
-    .catch((error) => {
-        alert(error)
-    });
-    alert(data);
+    console.log(data)
 
-    // const response = await fetch(url, {
-    //     method: "get",
-    //     mode: "no-cors",
-    //     headers: new Headers({
-    //       "ngrok-skip-browser-warning": "69420",
-    //     })
-    // }).catch((error) =>{
-    //     alert(error);
-    // }).then((response) => response.json())
-    // .then((data) => alert(data));
-
-
-    // const data = await response.json();
-    // alert(data);
-        
     time = [];
     temperature_2m = [];
 
-    for(i=0; i< 24; i++){
-        time.push(data.py_wierden.entry_date[i]);
-        temperature_2m.push(data.py_wierden.temperature[i]);
+    for(i=0; i< data[devices[0]].entry_hour.length; i++){
+        time.push(data[devices[0]]?.entry_hour[i]);
+        console.log(data[devices[0]]?.[output_type]);
+        temperature_2m.push(data[devices[0]]?.[output_type]?.[i]);
     }
-
-    alert(time);
-    alert(temperature_2m);
 
     removeElement("div1");
     
@@ -71,7 +38,7 @@ async function addWeatherChart(location){
             labels: time,
             datasets: [
                 {
-                    label: "Temperature",
+                    label: output_type,
                     data: temperature_2m
                 }
             ]
@@ -81,18 +48,10 @@ async function addWeatherChart(location){
             plugins:{
                 title: {
                     display: true,
-                    text: "TestLocation"
+                    text: devices[0]
                 }
             }
         }
     });
-    
-    response = await fetch(someURL);
-    console.log(response);
-    //const data = await response.json();
-    console.log(response);
-    length = data.hourly.time.length;
-    console.log(response);
-
     
 }

@@ -1,42 +1,28 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="{% static 'weatherAtLocation.js' %}"></script>
-  <script src="{% static 'dropDown.js' %}"></script>
-  <script src="{% static 'addRemoveElements.js' %}"></script>
-  <script src="{% static 'addWeatherChart.js' %}"></script>
-
-  <!-- <link rel="stylesheet" href="styles/styles.css"> -->
-  <title>Weather App</title>
-</head>
-
-<body>
-  <div id="div1">
-    <form>
-      Select an output type:
-      <select id="output_type">
-        <option>Winnipeg</option>
-        <option>Doha</option>
-        <option>pressure</option>
-      </select>
-
-      Select one or more devices
-      <select id="devices" multiple>
-        <option>py_wierden</option>
-        <option>py_saxion</option>
-        <option>lht_saxion</option>
-        <option>lht_wierden</option>
-        <option>lht_gronau</option>
-      </select>
-
-    </form>
-  </div>
-  <button onclick="addWeatherChart('Doha')">Add Element</button>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'weatherAtLocation.js' %}"></script>
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+  </head>
+  <body>
+    <div class="grid">
+      <h1>Weather Chart</h1>
+      <aside><p>Menu options: </p></aside>
+      <figure class="chart-wrap">
+        <canvas id="line-chart"></canvas>
+        <canvas id="pressure_py_wierden"></canvas>
+      </figure>
+      <footer>
+        <!-- <p>Here is some stuff at the bottom of the page.</p> -->
+      </footer>
+    </div> 
+    <script src="{% static 'multiple_lines.js' %}"></script>
+    <script src="{% static 'pressure_py_wierden.js' %}"></script>
+  </body>
 </html>
