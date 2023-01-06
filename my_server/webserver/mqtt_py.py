@@ -3,10 +3,11 @@ from .models import PyEntries
 from .models import LhtEntries
 from .models import Py_Averages
 from .models import Lht_Averages
+from datetime import timedelta
 from django.db.models.functions import ExtractHour, ExtractMinute
 from django.db.models import Avg, Value, Case, When
 import paho.mqtt.client as mqtt
-import time
+import re
 import json
 
 #function that takes a json format message and decodes it into dictionary value/pairs.
@@ -124,6 +125,7 @@ def updata_avg(id):
 
         
     return 
+
 
 def client():
     #login required to connect to the server

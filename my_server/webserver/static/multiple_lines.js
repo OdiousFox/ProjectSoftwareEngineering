@@ -7,7 +7,8 @@ async function getDataFromUrl(/*url*/){
         method: "get",
         headers: new Headers({
           "ngrok-skip-browser-warning": "69420",
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "time-period":"0d7h",
         })
     }).catch((error) =>{
         alert(error);

@@ -67,9 +67,11 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = list(default_headers) + [
     'ngrok-skip-browser-warning',
+    'time-period',
 ]
 CORS_EXPOSE_HEADERS = [
    "ngrok-skip-browser-warning",
+   'time-period',
 ]
 
 
