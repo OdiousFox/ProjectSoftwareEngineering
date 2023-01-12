@@ -6,7 +6,14 @@ from django.db import models
 - Table to store the different types of devices. 
 - Ensures that there is no redundancy by not repeating the info in other tables.
 '''
+
+
 class PyEntries(models.Model):
+    ## @class PyEntries models.py "webserver/models.py"
+    # @brief This class is used to store data of all Pycom device data from all locations
+    # the following data is stored: 
+    #
+
     entry_id=models.AutoField(primary_key=True)
     dev_uid=models.CharField(max_length=25)
     entry_date=models.DateTimeField()
@@ -18,6 +25,10 @@ class PyEntries(models.Model):
 
 #Table for the pycom device hourly avgs
 class Py_Averages(models.Model):
+    ## @class Py_averages models.py "webserver/models.py"
+    # @brief This class is used to store average data of all Pycom device data from all locations
+    # the following data is stored: 
+    #
     entry_id=models.AutoField(primary_key=True)
     dev_uid=models.CharField(max_length=25)
     entry_hour=models.IntegerField()
@@ -28,6 +39,11 @@ class Py_Averages(models.Model):
 
 #Table for the lht device entries.
 class LhtEntries(models.Model):
+    ## @class LhtEntries models.py "webserver/models.py"
+    # @brief This class is used to store data of all LHT device data from all locations
+    # the following data is stored: 
+    #
+
     entry_id=models.AutoField(primary_key=True)
     dev_uid=models.CharField(max_length=25)
     entry_date=models.DateTimeField()
@@ -41,6 +57,11 @@ class LhtEntries(models.Model):
    
 #Table for the lht device hourly avgs.
 class Lht_Averages(models.Model):
+    ## @class Lht_Averages models.py "webserver/models.py"
+    # @brief This class is used to store average data of all LHT device data from all locations
+    # the following data is stored: 
+    #
+
     entry_id=models.AutoField(primary_key=True)
     dev_uid=models.CharField(max_length=25)
     entry_hour=models.IntegerField()
@@ -54,6 +75,11 @@ class Lht_Averages(models.Model):
 
 #Table for metadata
 class Meta_data(models.Model):
+    ## @class Meta_data models.py "webserver/models.py"
+    # @brief This class is used to store average meta data of all devices from all locations
+    # the following data is stored: 
+    #
+    
     entry_id=models.AutoField(primary_key=True)
     dev_uid=models.CharField(max_length=25)
     gateway_id=models.CharField(max_length=100)
