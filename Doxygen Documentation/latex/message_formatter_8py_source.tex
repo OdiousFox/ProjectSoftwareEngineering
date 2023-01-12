@@ -1,0 +1,81 @@
+\hypertarget{message_formatter_8py_source}{}\doxysection{message\+Formatter.\+py}
+\label{message_formatter_8py_source}\index{JulianReceiver/messageFormatter.py@{JulianReceiver/messageFormatter.py}}
+\mbox{\hyperlink{message_formatter_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00001}\mbox{\hyperlink{namespacemessage_formatter}{00001}}\ \textcolor{keyword}{import}\ re}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00004}00004\ \textcolor{comment}{\#\ def\ splitter(message):}}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00005}00005\ \textcolor{comment}{\#\ \ \ \ \ for\ x\ in\ message:}}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00006}00006\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ if\ len(message)\ <\ 100:}}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00007}00007\ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ message.remove(message)}}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00008}00008\ \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00009}00009\ \textcolor{comment}{\#\ \ \ \ \ return\ message}}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00012}\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{00012}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(s,\ first,\ last):}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00013}00013\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00014}00014\ \ \ \ \ \ \ \ \ start\ =\ s.index(first)\ +\ len(first)}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00015}00015\ \ \ \ \ \ \ \ \ end\ =\ s.index(last,\ start)}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ s[start:end]}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{except}\ ValueError:}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}"{}}}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00021}\mbox{\hyperlink{namespacemessage_formatter_a3c77723c693ea7180c74a3fca7a1f173}{00021}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemessage_formatter_a3c77723c693ea7180c74a3fca7a1f173}{formatMessage}}(message):}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00022}00022\ \ \ \ \ list\ =\ []}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00023}00023\ \ \ \ \ message\ =\ message.decode()}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00024}00024\ \ \ \ \ print(message)}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00025}00025\ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}device\_id\(\backslash\)"{}:\(\backslash\)"{}"{}},\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)"{}application\_ids\(\backslash\)"{}"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{if}\ message.\_\_contains\_\_(\textcolor{stringliteral}{"{}packetbroker"{}}):}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}gateway\_id\(\backslash\)"{}:\(\backslash\)"{}"{}},\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\},"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}gateway\_id\(\backslash\)"{}:\(\backslash\)"{}"{}},\ \textcolor{stringliteral}{"{},"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00031}00031\ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}time\(\backslash\)"{}:\(\backslash\)"{}"{}},\ \textcolor{stringliteral}{"{}T"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00032}00032\ \ \ \ \ time\ =\ \mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}time\(\backslash\)"{}:\(\backslash\)"{}"{}},\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)"{}"{}})}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00033}00033\ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(time,\ \textcolor{stringliteral}{"{}T"{}},\ \textcolor{stringliteral}{"{}Z"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{if}\ message.\_\_contains\_\_(\textcolor{stringliteral}{"{}BatV"{}}):}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}ILL\_lmessage\(\backslash\)"{}:"{}},\ \textcolor{stringliteral}{"{},"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}Hum\_SHT\(\backslash\)"{}:"{}},\ \textcolor{stringliteral}{"{},"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}TempC\_SHT\(\backslash\)"{}:"{}},\ \textcolor{stringliteral}{"{},"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}BatV\(\backslash\)"{}:"{}},\ \textcolor{stringliteral}{"{},"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}light\(\backslash\)"{}:"{}},\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}pressure\(\backslash\)"{}:"{}},\ \textcolor{stringliteral}{"{},"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}temperature\(\backslash\)"{}:"{}},\ \textcolor{stringliteral}{"{}\}"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00043}00043\ \ \ \ \ print(list)}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{return}\ list}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00048}\mbox{\hyperlink{namespacemessage_formatter_a9966a8febe5a2ad399b8d84a7f2778af}{00048}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemessage_formatter_a9966a8febe5a2ad399b8d84a7f2778af}{returnMessage}}(message):}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00049}00049\ \ \ \ \ list\ =\ []}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00051}00051\ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}device\_id\(\backslash\)"{}:\(\backslash\)"{}"{}},\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)"{}application\_ids\(\backslash\)"{}"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{if}\ message.\_\_contains\_\_(bytes(\textcolor{stringliteral}{"{}packetbroker"{}},\ \textcolor{stringliteral}{'utf-\/8'})):}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}gateway\_id\(\backslash\)"{}:\(\backslash\)"{}"{}},\ \textcolor{stringliteral}{"{}\(\backslash\)"{}\},"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}gateway\_id\(\backslash\)"{}:\(\backslash\)"{}"{}},\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)"{}eui\(\backslash\)"{}:"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00057}00057\ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}time\(\backslash\)"{}:\(\backslash\)"{}"{}},\ \textcolor{stringliteral}{"{}T"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00058}00058\ \ \ \ \ time\ =\ \mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}time\(\backslash\)"{}:\(\backslash\)"{}"{}},\ \textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)"{}"{}})}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00059}00059\ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(time,\ \textcolor{stringliteral}{"{}T"{}},\ \textcolor{stringliteral}{"{}Z"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{if}\ message.\_\_contains\_\_(bytes(\textcolor{stringliteral}{"{}BatV"{}},\ \textcolor{stringliteral}{'utf-\/8'})):}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}ILL\_lmessage\(\backslash\)"{}:"{}},\ \textcolor{stringliteral}{"{},"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ list.append(\textcolor{stringliteral}{"{}NaN"{}})}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}Hum\_SHT\(\backslash\)"{}:"{}},\ \textcolor{stringliteral}{"{},"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}TempC\_SHT\(\backslash\)"{}:"{}},\ \textcolor{stringliteral}{"{},"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}BatV\(\backslash\)"{}:"{}},\ \textcolor{stringliteral}{"{},"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}Work\_mode\(\backslash\)"{}:\(\backslash\)"{}"{}},\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}light\(\backslash\)"{}:"{}},\ \textcolor{stringliteral}{"{},"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}pressure\(\backslash\)"{}:"{}},\ \textcolor{stringliteral}{"{},"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ list.append(\textcolor{stringliteral}{"{}NaN"{}})}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ list.append(\mbox{\hyperlink{namespacemessage_formatter_a0a7e90ee0a773a6b6a70c17769b999db}{find\_between}}(message,\ \textcolor{stringliteral}{"{}\(\backslash\)"{}temperature\(\backslash\)"{}:"{}},\ \textcolor{stringliteral}{"{}\}"{}}))}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ list.append(\textcolor{stringliteral}{"{}inf"{}})}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ list.append(\textcolor{stringliteral}{"{}Temperature\ Sensor"{}})}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{return}\ list}
+\DoxyCodeLine{\Hypertarget{message_formatter_8py_source_l00075}00075\ }
+
+\end{DoxyCode}

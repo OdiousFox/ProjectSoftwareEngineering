@@ -1,0 +1,82 @@
+\hypertarget{colorful_8py_source}{}\doxysection{colorful.\+py}
+\label{colorful_8py_source}\index{PSE\_LoPy/colorful.py@{PSE\_LoPy/colorful.py}}
+\mbox{\hyperlink{colorful_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00001}\mbox{\hyperlink{namespacecolorful_a540ee912ce299db44d37e760471436b5}{00001}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacecolorful_a540ee912ce299db44d37e760471436b5}{hex\_to\_RGB}}(hex):}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00002}00002\ \ \ \textcolor{stringliteral}{'''\ "{}\#FFFFFF"{}\ -\/>\ [255,255,255]\ '''}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00003}00003\ \ \ \textcolor{comment}{\#\ Pass\ 16\ to\ the\ integer\ function\ for\ change\ of\ base}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00004}00004\ \ \ \textcolor{keywordflow}{return}\ [int(hex[i:i+2],\ 16)\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(1,6,2)]}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00007}\mbox{\hyperlink{namespacecolorful_aff6c4d1dc3d7dd4053bf1cbcffc0b033}{00007}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacecolorful_aff6c4d1dc3d7dd4053bf1cbcffc0b033}{RGB\_to\_hex}}(RGB):}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00008}00008\ \ \ \textcolor{stringliteral}{'''\ [255,255,255]\ -\/>\ "{}\#FFFFFF"{}\ '''}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00009}00009\ \ \ \textcolor{comment}{\#\ Components\ need\ to\ be\ integers\ for\ hex\ to\ make\ sense}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00010}00010\ \ \ RGB\ =\ [int(x)\ \textcolor{keywordflow}{for}\ x\ \textcolor{keywordflow}{in}\ RGB]}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00011}00011\ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}\#"{}}+\textcolor{stringliteral}{"{}"{}}.join([\textcolor{stringliteral}{"{}0\{0:x\}"{}}.format(v)\ \textcolor{keywordflow}{if}\ v\ <\ 16\ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\{0:x\}"{}}.format(v)\ \textcolor{keywordflow}{for}\ v\ \textcolor{keywordflow}{in}\ RGB])}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00014}\mbox{\hyperlink{namespacecolorful_a4c1ef8dc71c7be1b84eeb52afae20008}{00014}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacecolorful_a4c1ef8dc71c7be1b84eeb52afae20008}{color\_dict}}(gradient):}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00015}00015\ \ \ \textcolor{stringliteral}{'''\ Takes\ in\ a\ list\ of\ RGB\ sub-\/lists\ and\ returns\ dictionary\ of}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00016}00016\ \textcolor{stringliteral}{\ \ \ \ colors\ }\textcolor{keywordflow}{in}\ RGB\ \textcolor{keywordflow}{and}\ hex\ form\ \textcolor{keywordflow}{for}\ use\ \textcolor{keywordflow}{in}\ a\ graphing\ function}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00017}00017\ \ \ \ \ defined\ later\ on\ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00018}00018\ \textcolor{stringliteral}{\ \ }\textcolor{keywordflow}{return}\ \{\textcolor{stringliteral}{"{}hex"{}}:[\mbox{\hyperlink{namespacecolorful_aff6c4d1dc3d7dd4053bf1cbcffc0b033}{RGB\_to\_hex}}(RGB)\ \textcolor{keywordflow}{for}\ RGB\ \textcolor{keywordflow}{in}\ gradient],}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00019}00019\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}r"{}}:[RGB[0]\ \textcolor{keywordflow}{for}\ RGB\ \textcolor{keywordflow}{in}\ gradient],}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00020}00020\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}g"{}}:[RGB[1]\ \textcolor{keywordflow}{for}\ RGB\ \textcolor{keywordflow}{in}\ gradient],}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00021}00021\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}b"{}}:[RGB[2]\ \textcolor{keywordflow}{for}\ RGB\ \textcolor{keywordflow}{in}\ gradient]\}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00024}\mbox{\hyperlink{namespacecolorful_ae6152c835645029efde61e950880c653}{00024}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacecolorful_ae6152c835645029efde61e950880c653}{linear\_gradient}}(start\_hex,\ finish\_hex="{}\#FFFFFF"{},\ n=10):}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00025}00025\ \ \ \textcolor{stringliteral}{'''\ returns\ a\ gradient\ list\ of\ (n)\ colors\ between}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00026}00026\ \textcolor{stringliteral}{\ \ \ \ two\ hex\ colors.\ start\_hex\ }\textcolor{keywordflow}{and}\ finish\_hex}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00027}00027\ \ \ \ \ should\ be\ the\ full\ six-\/digit\ color\ string,}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00028}00028\ \ \ \ \ inlcuding\ the\ number\ sign\ (\textcolor{stringliteral}{"{}\#FFFFFF"{}})\ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00029}00029\ \textcolor{stringliteral}{\ \ }\textcolor{comment}{\#\ Starting\ and\ ending\ colors\ in\ RGB\ form}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00030}00030\ \ \ s\ =\ \mbox{\hyperlink{namespacecolorful_a540ee912ce299db44d37e760471436b5}{hex\_to\_RGB}}(start\_hex)}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00031}00031\ \ \ f\ =\ \mbox{\hyperlink{namespacecolorful_a540ee912ce299db44d37e760471436b5}{hex\_to\_RGB}}(finish\_hex)}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00032}00032\ \ \ \textcolor{comment}{\#\ Initilize\ a\ list\ of\ the\ output\ colors\ with\ the\ starting\ color}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00033}00033\ \ \ RGB\_list\ =\ [s]}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00034}00034\ \ \ \textcolor{comment}{\#\ Calcuate\ a\ color\ at\ each\ evenly\ spaced\ value\ of\ t\ from\ 1\ to\ n}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00035}00035\ \ \ \textcolor{keywordflow}{for}\ t\ \textcolor{keywordflow}{in}\ range(1,\ n):}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00036}00036\ \ \ \ \ \textcolor{comment}{\#\ Interpolate\ RGB\ vector\ for\ color\ at\ the\ current\ value\ of\ t}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00037}00037\ \ \ \ \ curr\_vector\ =\ [}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00038}00038\ \ \ \ \ \ \ int(s[j]\ +\ (float(t)/(n-\/1))*(f[j]-\/s[j]))}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00039}00039\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ j\ \textcolor{keywordflow}{in}\ range(3)}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00040}00040\ \ \ \ \ ]}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00041}00041\ \ \ \ \ \textcolor{comment}{\#\ Add\ it\ to\ our\ list\ of\ output\ colors}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00042}00042\ \ \ \ \ RGB\_list.append(curr\_vector)}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00044}00044\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacecolorful_a4c1ef8dc71c7be1b84eeb52afae20008}{color\_dict}}(RGB\_list)}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00046}\mbox{\hyperlink{namespacecolorful_a375be76aa6c6ebd3402e8260c78f0d8a}{00046}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacecolorful_a375be76aa6c6ebd3402e8260c78f0d8a}{rand\_hex\_color}}(num=1):}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00047}00047\ \ \ \textcolor{stringliteral}{'''\ Generate\ random\ hex\ colors,\ default\ is\ one,}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00048}00048\ \textcolor{stringliteral}{\ \ \ \ \ \ returning\ a\ string.\ If\ num\ }\textcolor{keywordflow}{is}\ greater\ than}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00049}00049\ \ \ \ \ \ \ 1,\ an\ array\ of\ strings\ \textcolor{keywordflow}{is}\ returned.\ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00050}00050\ \textcolor{stringliteral}{\ \ colors\ =\ [}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00051}00051\ \textcolor{stringliteral}{\ \ \ \ \mbox{\hyperlink{namespacecolorful_aff6c4d1dc3d7dd4053bf1cbcffc0b033}{RGB\_to\_hex}}([x*255\ }\textcolor{keywordflow}{for}\ x\ \textcolor{keywordflow}{in}\ rnd.rand(3)])}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(num)}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00053}00053\ \ \ ]}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00054}00054\ \ \ \textcolor{keywordflow}{if}\ num\ ==\ 1:}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ colors[0]}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00056}00056\ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{return}\ colors}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00060}\mbox{\hyperlink{namespacecolorful_a9de30e7e092f6173faef0cd3d0674ca8}{00060}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacecolorful_a9de30e7e092f6173faef0cd3d0674ca8}{polylinear\_gradient}}(colors,\ n):}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00061}00061\ \ \ \textcolor{stringliteral}{'''\ returns\ a\ list\ of\ colors\ forming\ linear\ gradients\ between}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00062}00062\ \textcolor{stringliteral}{\ \ \ \ \ \ all\ sequential\ pairs\ of\ colors.\ "{}n"{}}\ specifies\ the\ total}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00063}00063\ \ \ \ \ \ \ number\ of\ desired\ output\ colors\ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00064}00064\ \textcolor{stringliteral}{\ \ }\textcolor{comment}{\#\ The\ number\ of\ colors\ per\ individual\ linear\ gradient}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00065}00065\ \ \ n\_out\ =\ int(float(n)\ /\ (len(colors)\ -\/\ 1))}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00066}00066\ \ \ \textcolor{comment}{\#\ returns\ dictionary\ defined\ by\ color\_dict()}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00067}00067\ \ \ gradient\_dict\ =\ \mbox{\hyperlink{namespacecolorful_ae6152c835645029efde61e950880c653}{linear\_gradient}}(colors[0],\ colors[1],\ n\_out)}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00069}00069\ \ \ \textcolor{keywordflow}{if}\ len(colors)\ >\ 1:}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{for}\ col\ \textcolor{keywordflow}{in}\ range(1,\ len(colors)\ -\/\ 1):}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00071}00071\ \ \ \ \ \ \ next\ =\ \mbox{\hyperlink{namespacecolorful_ae6152c835645029efde61e950880c653}{linear\_gradient}}(colors[col],\ colors[col+1],\ n\_out)}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00072}00072\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ k\ \textcolor{keywordflow}{in}\ (\textcolor{stringliteral}{"{}hex"{}},\ \textcolor{stringliteral}{"{}r"{}},\ \textcolor{stringliteral}{"{}g"{}},\ \textcolor{stringliteral}{"{}b"{}}):}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Exclude\ first\ point\ to\ avoid\ duplicates}}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ gradient\_dict[k]\ +=\ next[k][1:]}
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{colorful_8py_source_l00076}00076\ \ \ \textcolor{keywordflow}{return}\ gradient\_dict}
+
+\end{DoxyCode}

@@ -1,0 +1,83 @@
+\hypertarget{namespacewebserver_1_1mqtt__py}{}\doxysection{webserver.\+mqtt\+\_\+py Namespace Reference}
+\label{namespacewebserver_1_1mqtt__py}\index{webserver.mqtt\_py@{webserver.mqtt\_py}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a862c6932db900b17cbe0586902c7c0bd}{return\+Message}} (message)
+\begin{DoxyCompactList}\small\item\em function that takes a json format \textquotesingle{}message\textquotesingle{} and decodes it into dictionary value/pairs. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a19cb2e739a668c1e42bde8a84589d133}{updata\+\_\+avg}} (id)
+\item 
+def \mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a974bec29f60fefe437d31b6cc52ca1e5}{client}} ()
+\begin{DoxyCompactList}\small\item\em responsible for fetch the data in json format from the TTN(\+The Things Network) User name and password already included to login on request \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a95acf7d35e469e8d8d8405e6226a5716}{client\+\_\+g3}} ()
+\item 
+def \mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a36537ea91ee95729277aa7f77601073e}{get\+\_\+values}} ()
+\begin{DoxyCompactList}\small\item\em Alternative method of calculating average values for every hour using the \textquotesingle{}.filter().annotate()\textquotesingle{} method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacewebserver_1_1mqtt__py_a974bec29f60fefe437d31b6cc52ca1e5}\label{namespacewebserver_1_1mqtt__py_a974bec29f60fefe437d31b6cc52ca1e5}} 
+\index{webserver.mqtt\_py@{webserver.mqtt\_py}!client@{client}}
+\index{client@{client}!webserver.mqtt\_py@{webserver.mqtt\_py}}
+\doxysubsubsection{\texorpdfstring{client()}{client()}}
+{\footnotesize\ttfamily def webserver.\+mqtt\+\_\+py.\+client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+responsible for fetch the data in json format from the TTN(\+The Things Network) User name and password already included to login on request 
+
+
+
+Definition at line \mbox{\hyperlink{mqtt__py_8py_source_l00152}{152}} of file \mbox{\hyperlink{mqtt__py_8py_source}{mqtt\+\_\+py.\+py}}.
+
+\mbox{\Hypertarget{namespacewebserver_1_1mqtt__py_a95acf7d35e469e8d8d8405e6226a5716}\label{namespacewebserver_1_1mqtt__py_a95acf7d35e469e8d8d8405e6226a5716}} 
+\index{webserver.mqtt\_py@{webserver.mqtt\_py}!client\_g3@{client\_g3}}
+\index{client\_g3@{client\_g3}!webserver.mqtt\_py@{webserver.mqtt\_py}}
+\doxysubsubsection{\texorpdfstring{client\_g3()}{client\_g3()}}
+{\footnotesize\ttfamily def webserver.\+mqtt\+\_\+py.\+client\+\_\+g3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mqtt__py_8py_source_l00257}{257}} of file \mbox{\hyperlink{mqtt__py_8py_source}{mqtt\+\_\+py.\+py}}.
+
+\mbox{\Hypertarget{namespacewebserver_1_1mqtt__py_a36537ea91ee95729277aa7f77601073e}\label{namespacewebserver_1_1mqtt__py_a36537ea91ee95729277aa7f77601073e}} 
+\index{webserver.mqtt\_py@{webserver.mqtt\_py}!get\_values@{get\_values}}
+\index{get\_values@{get\_values}!webserver.mqtt\_py@{webserver.mqtt\_py}}
+\doxysubsubsection{\texorpdfstring{get\_values()}{get\_values()}}
+{\footnotesize\ttfamily def webserver.\+mqtt\+\_\+py.\+get\+\_\+values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Alternative method of calculating average values for every hour using the \textquotesingle{}.filter().annotate()\textquotesingle{} method. 
+
+alse return a disctionary value with key/value pairs 
+
+Definition at line \mbox{\hyperlink{mqtt__py_8py_source_l00335}{335}} of file \mbox{\hyperlink{mqtt__py_8py_source}{mqtt\+\_\+py.\+py}}.
+
+\mbox{\Hypertarget{namespacewebserver_1_1mqtt__py_a862c6932db900b17cbe0586902c7c0bd}\label{namespacewebserver_1_1mqtt__py_a862c6932db900b17cbe0586902c7c0bd}} 
+\index{webserver.mqtt\_py@{webserver.mqtt\_py}!returnMessage@{returnMessage}}
+\index{returnMessage@{returnMessage}!webserver.mqtt\_py@{webserver.mqtt\_py}}
+\doxysubsubsection{\texorpdfstring{returnMessage()}{returnMessage()}}
+{\footnotesize\ttfamily def webserver.\+mqtt\+\_\+py.\+return\+Message (\begin{DoxyParamCaption}\item[{}]{message }\end{DoxyParamCaption})}
+
+
+
+function that takes a json format \textquotesingle{}message\textquotesingle{} and decodes it into dictionary value/pairs. 
+
+It looks for specifics key words in the json \begin{DoxyReturn}{Returns}
+the decoded dictionary of values to store in the database. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{mqtt__py_8py_source_l00018}{18}} of file \mbox{\hyperlink{mqtt__py_8py_source}{mqtt\+\_\+py.\+py}}.
+
+\mbox{\Hypertarget{namespacewebserver_1_1mqtt__py_a19cb2e739a668c1e42bde8a84589d133}\label{namespacewebserver_1_1mqtt__py_a19cb2e739a668c1e42bde8a84589d133}} 
+\index{webserver.mqtt\_py@{webserver.mqtt\_py}!updata\_avg@{updata\_avg}}
+\index{updata\_avg@{updata\_avg}!webserver.mqtt\_py@{webserver.mqtt\_py}}
+\doxysubsubsection{\texorpdfstring{updata\_avg()}{updata\_avg()}}
+{\footnotesize\ttfamily def webserver.\+mqtt\+\_\+py.\+updata\+\_\+avg (\begin{DoxyParamCaption}\item[{}]{id }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mqtt__py_8py_source_l00053}{53}} of file \mbox{\hyperlink{mqtt__py_8py_source}{mqtt\+\_\+py.\+py}}.
+

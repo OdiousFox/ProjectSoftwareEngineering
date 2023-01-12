@@ -1,0 +1,95 @@
+\hypertarget{namespacecolorful}{}\doxysection{colorful Namespace Reference}
+\label{namespacecolorful}\index{colorful@{colorful}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacecolorful_a540ee912ce299db44d37e760471436b5}{hex\+\_\+to\+\_\+\+RGB}} (hex)
+\item 
+def \mbox{\hyperlink{namespacecolorful_aff6c4d1dc3d7dd4053bf1cbcffc0b033}{RGB\+\_\+to\+\_\+hex}} (RGB)
+\item 
+def \mbox{\hyperlink{namespacecolorful_a4c1ef8dc71c7be1b84eeb52afae20008}{color\+\_\+dict}} (gradient)
+\item 
+def \mbox{\hyperlink{namespacecolorful_ae6152c835645029efde61e950880c653}{linear\+\_\+gradient}} (start\+\_\+hex, finish\+\_\+hex=\char`\"{}\#FFFFFF\char`\"{}, n=10)
+\item 
+def \mbox{\hyperlink{namespacecolorful_a375be76aa6c6ebd3402e8260c78f0d8a}{rand\+\_\+hex\+\_\+color}} (num=1)
+\item 
+def \mbox{\hyperlink{namespacecolorful_a9de30e7e092f6173faef0cd3d0674ca8}{polylinear\+\_\+gradient}} (colors, n)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacecolorful_a4c1ef8dc71c7be1b84eeb52afae20008}\label{namespacecolorful_a4c1ef8dc71c7be1b84eeb52afae20008}} 
+\index{colorful@{colorful}!color\_dict@{color\_dict}}
+\index{color\_dict@{color\_dict}!colorful@{colorful}}
+\doxysubsubsection{\texorpdfstring{color\_dict()}{color\_dict()}}
+{\footnotesize\ttfamily def colorful.\+color\+\_\+dict (\begin{DoxyParamCaption}\item[{}]{gradient }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} Takes in a list of RGB sub-lists and returns dictionary of
+  colors in RGB and hex form for use in a graphing function
+  defined later on \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{colorful_8py_source_l00014}{14}} of file \mbox{\hyperlink{colorful_8py_source}{colorful.\+py}}.
+
+\mbox{\Hypertarget{namespacecolorful_a540ee912ce299db44d37e760471436b5}\label{namespacecolorful_a540ee912ce299db44d37e760471436b5}} 
+\index{colorful@{colorful}!hex\_to\_RGB@{hex\_to\_RGB}}
+\index{hex\_to\_RGB@{hex\_to\_RGB}!colorful@{colorful}}
+\doxysubsubsection{\texorpdfstring{hex\_to\_RGB()}{hex\_to\_RGB()}}
+{\footnotesize\ttfamily def colorful.\+hex\+\_\+to\+\_\+\+RGB (\begin{DoxyParamCaption}\item[{}]{hex }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} "#FFFFFF" -> [255,255,255] \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{colorful_8py_source_l00001}{1}} of file \mbox{\hyperlink{colorful_8py_source}{colorful.\+py}}.
+
+\mbox{\Hypertarget{namespacecolorful_ae6152c835645029efde61e950880c653}\label{namespacecolorful_ae6152c835645029efde61e950880c653}} 
+\index{colorful@{colorful}!linear\_gradient@{linear\_gradient}}
+\index{linear\_gradient@{linear\_gradient}!colorful@{colorful}}
+\doxysubsubsection{\texorpdfstring{linear\_gradient()}{linear\_gradient()}}
+{\footnotesize\ttfamily def colorful.\+linear\+\_\+gradient (\begin{DoxyParamCaption}\item[{}]{start\+\_\+hex,  }\item[{}]{finish\+\_\+hex = {\ttfamily \char`\"{}\#FFFFFF\char`\"{}},  }\item[{}]{n = {\ttfamily 10} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} returns a gradient list of (n) colors between
+  two hex colors. start_hex and finish_hex
+  should be the full six-digit color string,
+  inlcuding the number sign ("#FFFFFF") \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{colorful_8py_source_l00024}{24}} of file \mbox{\hyperlink{colorful_8py_source}{colorful.\+py}}.
+
+\mbox{\Hypertarget{namespacecolorful_a9de30e7e092f6173faef0cd3d0674ca8}\label{namespacecolorful_a9de30e7e092f6173faef0cd3d0674ca8}} 
+\index{colorful@{colorful}!polylinear\_gradient@{polylinear\_gradient}}
+\index{polylinear\_gradient@{polylinear\_gradient}!colorful@{colorful}}
+\doxysubsubsection{\texorpdfstring{polylinear\_gradient()}{polylinear\_gradient()}}
+{\footnotesize\ttfamily def colorful.\+polylinear\+\_\+gradient (\begin{DoxyParamCaption}\item[{}]{colors,  }\item[{}]{n }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} returns a list of colors forming linear gradients between
+    all sequential pairs of colors. "n" specifies the total
+    number of desired output colors \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{colorful_8py_source_l00060}{60}} of file \mbox{\hyperlink{colorful_8py_source}{colorful.\+py}}.
+
+\mbox{\Hypertarget{namespacecolorful_a375be76aa6c6ebd3402e8260c78f0d8a}\label{namespacecolorful_a375be76aa6c6ebd3402e8260c78f0d8a}} 
+\index{colorful@{colorful}!rand\_hex\_color@{rand\_hex\_color}}
+\index{rand\_hex\_color@{rand\_hex\_color}!colorful@{colorful}}
+\doxysubsubsection{\texorpdfstring{rand\_hex\_color()}{rand\_hex\_color()}}
+{\footnotesize\ttfamily def colorful.\+rand\+\_\+hex\+\_\+color (\begin{DoxyParamCaption}\item[{}]{num = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} Generate random hex colors, default is one,
+    returning a string. If num is greater than
+    1, an array of strings is returned. \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{colorful_8py_source_l00046}{46}} of file \mbox{\hyperlink{colorful_8py_source}{colorful.\+py}}.
+
+\mbox{\Hypertarget{namespacecolorful_aff6c4d1dc3d7dd4053bf1cbcffc0b033}\label{namespacecolorful_aff6c4d1dc3d7dd4053bf1cbcffc0b033}} 
+\index{colorful@{colorful}!RGB\_to\_hex@{RGB\_to\_hex}}
+\index{RGB\_to\_hex@{RGB\_to\_hex}!colorful@{colorful}}
+\doxysubsubsection{\texorpdfstring{RGB\_to\_hex()}{RGB\_to\_hex()}}
+{\footnotesize\ttfamily def colorful.\+RGB\+\_\+to\+\_\+hex (\begin{DoxyParamCaption}\item[{}]{RGB }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} [255,255,255] -> "#FFFFFF" \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{colorful_8py_source_l00007}{7}} of file \mbox{\hyperlink{colorful_8py_source}{colorful.\+py}}.
+

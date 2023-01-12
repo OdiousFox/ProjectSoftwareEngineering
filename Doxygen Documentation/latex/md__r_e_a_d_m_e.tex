@@ -1,0 +1,159 @@
+\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{How to run webserver}\label{md__r_e_a_d_m_e_autotoc_md3}
+The webserver is running using Django framework. Therefore, you need to have python version 3.\+x to run. Dowload the python interpreter, then you need to create virtual environment in python. Run the following command 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \{python=\}}
+\DoxyCodeLine{python\ -\/m\ venv\ "{}your\ project\ folder"{}}
+
+\end{DoxyCode}
+ For example on Window system 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \{python=\}}
+\DoxyCodeLine{D:\(\backslash\)ACmeasure>python\ -\/m\ venv\ my\_proj}
+
+\end{DoxyCode}
+ New folder named \char`\"{}my\+\_\+proj\char`\"{} will be created in directory \char`\"{}\+D\+:\textbackslash{}\+ACmeasure\char`\"{}. Go to \char`\"{}my\+\_\+proj\char`\"{} directory then go to \char`\"{}\+Script\char`\"{} then activate \char`\"{}activate.\+bat\char`\"{} file 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \{cmd=\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{D:\(\backslash\)ACmeasure>cd\ my\_proj}
+\DoxyCodeLine{}
+\DoxyCodeLine{D:\(\backslash\)ACmeasure\(\backslash\)my\_proj>cd\ Scripts}
+\DoxyCodeLine{}
+\DoxyCodeLine{D:\(\backslash\)ACmeasure\(\backslash\)my\_proj\(\backslash\)Scripts>activate.bat}
+\DoxyCodeLine{}
+\DoxyCodeLine{(my\_proj)\ D:\(\backslash\)ACmeasure\(\backslash\)my\_proj\(\backslash\)Scripts>}
+
+\end{DoxyCode}
+ Dowload the zip file then unzip in current folder 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \{cmd=\}}
+\DoxyCodeLine{(my\_proj)\ D:\(\backslash\)ACmeasure\(\backslash\)my\_proj\(\backslash\)Scripts>dir}
+\DoxyCodeLine{\ Volume\ in\ drive\ D\ is\ New\ Volume}
+\DoxyCodeLine{\ Volume\ Serial\ Number\ is\ 707A-\/06C4}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ Directory\ of\ D:\(\backslash\)ACmeasure\(\backslash\)my\_proj\(\backslash\)Scripts}
+\DoxyCodeLine{}
+\DoxyCodeLine{19/12/2022\ \ 02:55\ \ \ \ <DIR>\ \ \ \ \ \ \ \ \ \ .}
+\DoxyCodeLine{19/12/2022\ \ 02:55\ \ \ \ <DIR>\ \ \ \ \ \ \ \ \ \ ..}
+\DoxyCodeLine{06/12/2022\ \ 12:17\ \ \ \ \ \ \ \ \ \ \ \ \ 2,066\ activate}
+\DoxyCodeLine{06/12/2022\ \ 12:17\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 995\ activate.bat}
+\DoxyCodeLine{06/12/2022\ \ 12:17\ \ \ \ \ \ \ \ \ \ \ \ 24,175\ Activate.ps1}
+\DoxyCodeLine{06/12/2022\ \ 12:17\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 393\ deactivate.bat}
+\DoxyCodeLine{06/12/2022\ \ 12:17\ \ \ \ \ \ \ \ \ \ \ 107,886\ pip.exe}
+\DoxyCodeLine{06/12/2022\ \ 12:17\ \ \ \ \ \ \ \ \ \ \ 107,886\ pip3.10.exe}
+\DoxyCodeLine{06/12/2022\ \ 12:17\ \ \ \ \ \ \ \ \ \ \ 107,886\ pip3.exe}
+\DoxyCodeLine{19/12/2022\ \ 02:55\ \ \ \ <DIR>\ \ \ \ \ \ \ \ \ \ ProjectSoftwareEngineering-\/minh}
+\DoxyCodeLine{19/12/2022\ \ 02:55\ \ \ \ \ \ \ \ \ \ \ 129,242\ ProjectSoftwareEngineering-\/minh.zip}
+\DoxyCodeLine{06/12/2022\ \ 12:17\ \ \ \ \ \ \ \ \ \ \ 266,624\ python.exe}
+\DoxyCodeLine{06/12/2022\ \ 12:17\ \ \ \ \ \ \ \ \ \ \ 254,848\ pythonw.exe}
+\DoxyCodeLine{06/12/2022\ \ 12:34\ \ \ \ \ \ \ \ \ \ \ 107,881\ sqlformat.exe}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ 11\ File(s)\ \ \ \ \ \ 1,109,882\ bytes}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 3\ Dir(s)\ \ 10,327,334,912\ bytes\ free}
+
+\end{DoxyCode}
+ Remove the zip file then install all required framework by this command 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \{cmd=\}}
+\DoxyCodeLine{(my\_proj)\ D:\(\backslash\)ACmeasure\(\backslash\)my\_proj\(\backslash\)Scripts\(\backslash\)ProjectSoftwareEngineering-\/minh>cd\ ../}
+\DoxyCodeLine{(my\_proj)\ D:\(\backslash\)ACmeasure\(\backslash\)my\_proj\(\backslash\)Scripts>python.exe\ -\/m\ pip\ install\ -\/r\ ProjectSoftwareEngineering-\/minh/requirements.txt}
+
+\end{DoxyCode}
+ The file requirements.\+txt contains all framework packages for project including Django, pyngrok, paho-\/mqtt, etc
+
+On Linux or Mac OS, the process is the same just when you activate virtual environment, you need to run \char`\"{}source bin/activate\char`\"{} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \{bash=\}}
+\DoxyCodeLine{minh@DESKTOP-\/Q7J9KK5:/mnt/d/ACmeasure\$\ python3\ -\/m\ venv\ my\_pro}
+\DoxyCodeLine{minh@DESKTOP-\/Q7J9KK5:/mnt/d/ACmeasure\$\ cd\ my\_pro}
+\DoxyCodeLine{minh@DESKTOP-\/Q7J9KK5:/mnt/d/ACmeasure/my\_pro\$}
+\DoxyCodeLine{minh@DESKTOP-\/Q7J9KK5:/mnt/d/ACmeasure/my\_pro\$\ source\ bin/activate}
+\DoxyCodeLine{(my\_pro)\ minh@DESKTOP-\/Q7J9KK5:/mnt/d/ACmeasure/my\_pro\$}
+
+\end{DoxyCode}
+ after that the process to install and run is same as in the Window.
+
+Now, if you want to run this Django server locally, go to \mbox{\hyperlink{settings_8py}{settings.\+py}} file. The location of this file is inside Project\+Sofware and \mbox{\hyperlink{namespacemy__server}{my\+\_\+server}}. Here is the location of it in my folder 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ Directory\ of\ D:\(\backslash\)ACmeasure\(\backslash\)my\_proj\(\backslash\)Scripts\(\backslash\)ProjectSoftwareEngineering-\/minh\(\backslash\)my\_server\(\backslash\)my\_server}
+\DoxyCodeLine{}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ <DIR>\ \ \ \ \ \ \ \ \ \ .}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ <DIR>\ \ \ \ \ \ \ \ \ \ ..}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 411\ asgi.py}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ \ \ \ \ \ \ \ \ \ 3,696\ settings.py}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 830\ urls.py}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 411\ wsgi.py}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \_\_init\_\_.py}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ <DIR>\ \ \ \ \ \ \ \ \ \ \_\_pycache\_\_}
+
+\end{DoxyCode}
+ Please change variable \char`\"{}\+USE\+\_\+\+NGROK\char`\"{} to value \char`\"{}\+False\char`\"{} in \mbox{\hyperlink{settings_8py}{settings.\+py}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{USE\_NGROK\ =\ \textcolor{keyword}{False}}
+
+\end{DoxyCode}
+ This will disable tunnel using ngrok service to access website from outside network The run this command to enable Django server 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \{cmd=\}}
+\DoxyCodeLine{(my\_proj)\ D:\(\backslash\)ACmeasure\(\backslash\)my\_proj\(\backslash\)Scripts>python.exe\ ProjectSoftwareEngineering-\/minh/my\_server/manage.py\ runserver}
+\DoxyCodeLine{Watching\ for\ file\ changes\ with\ StatReloader}
+\DoxyCodeLine{Performing\ system\ checks...}
+\DoxyCodeLine{}
+\DoxyCodeLine{System\ check\ identified\ no\ issues\ (0\ silenced).}
+\DoxyCodeLine{Hello}
+\DoxyCodeLine{Connected\ with\ result\ code\ 0}
+\DoxyCodeLine{December\ 19,\ 2022\ -\/\ 03:14:41}
+\DoxyCodeLine{Django\ version\ 4.1.3,\ using\ settings\ 'my\_server.settings'}
+\DoxyCodeLine{Starting\ development\ server\ at\ http://127.0.0.1:8000/}
+\DoxyCodeLine{Quit\ the\ server\ with\ CTRL-\/BREAK.}
+
+\end{DoxyCode}
+ To get the webpage, please use browser and type in \char`\"{}http\+://127.\+0.\+0.\+1\+:8000/webserver/\char`\"{} and to get API, type int \char`\"{}http\+://127.\+0.\+0.\+1\+:8000/webserver/api/\char`\"{}
+
+Now to get access this server from outside world, it is necessary to login NGROK service and get your own personal authorized token. Here is link to the website\+: \href{https://ngrok.com/}{\texttt{ https\+://ngrok.\+com/}} Here is what your personal authorized toke looked like\+:  Copy this token and go to \mbox{\hyperlink{apps_8py}{apps.\+py}}. The \mbox{\hyperlink{apps_8py}{apps.\+py}} is located in \char`\"{}\+Project\+Software\+Engineering-\/minh\textbackslash{}my\+\_\+server\textbackslash{}webserver\char`\"{} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \{cmd=\}}
+\DoxyCodeLine{\ Directory\ of\ D:\(\backslash\)ACmeasure\(\backslash\)my\_proj\(\backslash\)Scripts\(\backslash\)ProjectSoftwareEngineering-\/minh\(\backslash\)my\_server\(\backslash\)webserver}
+\DoxyCodeLine{}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ <DIR>\ \ \ \ \ \ \ \ \ \ .}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ <DIR>\ \ \ \ \ \ \ \ \ \ ..}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 66\ admin.py}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ \ \ \ \ \ \ \ \ \ 1,466\ apps.py}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ <DIR>\ \ \ \ \ \ \ \ \ \ migrations}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ \ \ \ \ \ \ \ \ \ 2,475\ models.py}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ \ \ \ \ \ \ \ \ 13,953\ mqtt\_py.py}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ <DIR>\ \ \ \ \ \ \ \ \ \ static}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ <DIR>\ \ \ \ \ \ \ \ \ \ template}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 63\ tests.py}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 152\ urls.py}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ \ \ \ \ \ \ \ \ \ 2,182\ views.py}
+\DoxyCodeLine{19/12/2022\ \ 02:44\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \_\_init\_\_.py}
+\DoxyCodeLine{19/12/2022\ \ 03:14\ \ \ \ <DIR>\ \ \ \ \ \ \ \ \ \ \_\_pycache\_\_}
+
+\end{DoxyCode}
+ In \mbox{\hyperlink{apps_8py}{apps.\+py}} file please change this 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{conf.get\_default().auth\_token\ =\ \textcolor{stringliteral}{"{}2IyDavd0n194FE5AyxZVQxTfexn\_5NLsgn9t4AFy8Z3LdwvCo"{}}}
+
+\end{DoxyCode}
+ to your personal token, then go to previous \mbox{\hyperlink{settings_8py}{settings.\+py}} and change variable \char`\"{}\+USE\+\_\+\+NGROK\char`\"{} to value \char`\"{}\+True\char`\"{} To run Django server use this command 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \{cmd=\}}
+\DoxyCodeLine{(my\_proj)\ D:\(\backslash\)ACmeasure\(\backslash\)my\_proj\(\backslash\)Scripts>python.exe\ ProjectSoftwareEngineering-\/minh/my\_server/manage.py\ runserver\ -\/-\/noreload}
+
+\end{DoxyCode}
+ The result of this command will be 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(my\_proj)\ D:\(\backslash\)ACmeasure\(\backslash\)my\_proj\(\backslash\)Scripts>python.exe\ ProjectSoftwareEngineering-\/minh/my\_server/manage.py\ runserver\ -\/-\/noreload}
+\DoxyCodeLine{ngrok\ tunnel\ "{}https://cc7f-\/2001-\/1c06-\/180b-\/b600-\/1423-\/1196-\/53cc-\/6f7f.eu.ngrok.io"{}\ -\/>\ "{}http://127.0.0.1:8000"{}}
+\DoxyCodeLine{Performing\ system\ checks...}
+\DoxyCodeLine{}
+\DoxyCodeLine{System\ check\ identified\ no\ issues\ (0\ silenced).}
+\DoxyCodeLine{December\ 19,\ 2022\ -\/\ 03:31:54}
+\DoxyCodeLine{Django\ version\ 4.1.3,\ using\ settings\ 'my\_server.settings'}
+\DoxyCodeLine{Starting\ development\ server\ at\ http://127.0.0.1:8000/}
+\DoxyCodeLine{Quit\ the\ server\ with\ CTRL-\/BREAK.}
+\DoxyCodeLine{Hello}
+\DoxyCodeLine{Connected\ with\ result\ code\ 0}
+
+\end{DoxyCode}
+ Note that ngrok tunnel will change randomly whenever you start server, so the hyper link will be different Now go to the browser and type \char`\"{}https\+://cc7f-\/2001-\/1c06-\/180b-\/b600-\/1423-\/1196-\/53cc-\/6f7f.\+eu.\+ngrok.\+io/webserver/\char`\"{} get webpage or \char`\"{}https\+://cc7f-\/2001-\/1c06-\/180b-\/b600-\/1423-\/1196-\/53cc-\/6f7f.\+eu.\+ngrok.\+io/webserver/api/\char`\"{} to get API If you want to end the server you need to exit the terminal running server. 

@@ -1,0 +1,144 @@
+\hypertarget{views_8py_source}{}\doxysection{views.\+py}
+\label{views_8py_source}\index{my\_server/webserver/views.py@{my\_server/webserver/views.py}}
+\mbox{\hyperlink{views_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00001}\mbox{\hyperlink{namespacewebserver_1_1views}{00001}}\ }
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00002}00002\ \textcolor{keyword}{from}\ django.shortcuts\ \textcolor{keyword}{import}\ render}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00003}00003\ \textcolor{keyword}{from}\ django.http\ \textcolor{keyword}{import}\ HttpResponse,JsonResponse}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00005}00005\ \textcolor{keyword}{from}\ django.template\ \textcolor{keyword}{import}\ loader}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00006}00006\ \textcolor{keyword}{from}\ .models\ \textcolor{keyword}{import}\ Py\_Averages}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00007}00007\ \textcolor{keyword}{from}\ .models\ \textcolor{keyword}{import}\ Lht\_Averages}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00008}00008\ \textcolor{keyword}{from}\ .models\ \textcolor{keyword}{import}\ Meta\_data}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00009}00009\ \textcolor{keyword}{from}\ .models\ \textcolor{keyword}{import}\ PyEntries}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00010}00010\ \textcolor{keyword}{from}\ .models\ \textcolor{keyword}{import}\ LhtEntries}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00012}00012\ \textcolor{keyword}{from}\ datetime\ \textcolor{keyword}{import}\ timedelta}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00013}00013\ \textcolor{keyword}{import}\ re}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00015}00015\ \textcolor{keyword}{from}\ threading\ \textcolor{keyword}{import}\ Thread}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00016}00016\ \textcolor{keyword}{from}\ .\ \textcolor{keyword}{import}\ mqtt\_py}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00018}00018\ \textcolor{comment}{\#\ Create\ your\ views\ here.}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00019}\mbox{\hyperlink{namespacewebserver_1_1views_a2dff222b3026dd3ce4a3a220f870c1f0}{00019}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacewebserver_1_1views_a2dff222b3026dd3ce4a3a220f870c1f0}{start\_func}}(func):}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00020}00020\ \ \ \ \ t=Thread(target=func)}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00021}00021\ \ \ \ \ t.setDaemon=\textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00022}00022\ \ \ \ \ t.start()}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00023}00023\ \mbox{\hyperlink{namespacewebserver_1_1views_a2dff222b3026dd3ce4a3a220f870c1f0}{start\_func}}(mqtt\_py.client)}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00024}00024\ \mbox{\hyperlink{namespacewebserver_1_1views_a2dff222b3026dd3ce4a3a220f870c1f0}{start\_func}}(mqtt\_py.client\_g3)}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00026}00026\ \textcolor{comment}{\#returns\ result\ in\ webformat}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00027}\mbox{\hyperlink{namespacewebserver_1_1views_a99d00a597b2029f7ff51eedcf91619cd}{00027}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacewebserver_1_1views_a99d00a597b2029f7ff51eedcf91619cd}{init}}(request):}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00028}00028\ \ \ \ \ tem=loader.get\_template(\textcolor{stringliteral}{"{}index.html"{}})}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{return}\ HttpResponse(tem.render())}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00032}\mbox{\hyperlink{namespacewebserver_1_1views_a7d15c2cbbca34f4c474d96138d5dd281}{00032}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacewebserver_1_1views_a7d15c2cbbca34f4c474d96138d5dd281}{formatMetadata}}(data):}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00033}00033\ \ \ \ \ out\ =\ \{\}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{for}\ key\ \textcolor{keywordflow}{in}\ data.keys():}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ key\ !=\ \textcolor{stringliteral}{"{}entry\_id"{}}\ \textcolor{keywordflow}{and}\ key\ !=\ \textcolor{stringliteral}{"{}dev\_uid"{}}:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ out[key]=str(data[key])}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{return}\ out}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00038}00038\ \textcolor{comment}{\#takes\ data\ from\ tables\ and\ returns\ it\ in\ json\ format\ to\ be\ used\ to\ pass\ it\ to\ the\ website.}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00039}\mbox{\hyperlink{namespacewebserver_1_1views_a7dfb6f0120d41e806d762657e0a52ee9}{00039}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacewebserver_1_1views_a7dfb6f0120d41e806d762657e0a52ee9}{formatJson}}(data):}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00040}00040\ \ \ \ \ out=\{\}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{for}\ key\ \textcolor{keywordflow}{in}\ data[0].keys():}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ key\ !=\ \textcolor{stringliteral}{"{}entry\_id"{}}\ \textcolor{keywordflow}{and}\ key!=\ \textcolor{stringliteral}{"{}dev\_uid"{}}\ \textcolor{keywordflow}{and}\ data[0][key]\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ out[key]=[]}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{for}\ cont\ \textcolor{keywordflow}{in}\ data:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ key\ \textcolor{keywordflow}{in}\ cont.keys():}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ key\ !=\ \textcolor{stringliteral}{"{}entry\_id"{}}\ \textcolor{keywordflow}{and}\ key!=\ \textcolor{stringliteral}{"{}dev\_uid"{}}\ \textcolor{keywordflow}{and}\ cont[key]\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out[key].append(cont[key])}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{return}\ out\ }
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00049}\mbox{\hyperlink{namespacewebserver_1_1views_a2f7b08a3043b086f46ad4f40b3d365ca}{00049}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacewebserver_1_1views_a2f7b08a3043b086f46ad4f40b3d365ca}{formatJsonspec}}(data):}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00050}00050\ \ \ \ \ out=dict()}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{for}\ container\ \textcolor{keywordflow}{in}\ data:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ key\ \textcolor{keywordflow}{in}\ container:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ key==\textcolor{stringliteral}{"{}dev\_uid\_id"{}}:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ key!=\textcolor{stringliteral}{"{}entry\_id"{}}:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ container[key]\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ key\ \textcolor{keywordflow}{not}\ \textcolor{keywordflow}{in}\ out:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out[key]=[]}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d=container[key]}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ key==\textcolor{stringliteral}{'entry\_date'}:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#format\ the\ date\ in\ the\ format}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d=d.strftime(\textcolor{stringliteral}{"{}\%Y/\%m/\%d\ \%H:\%M:\%S"{}})}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out[key].append(d)}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{return}\ out}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00068}\mbox{\hyperlink{namespacewebserver_1_1views_a344548403877e0854b4c21f30de7dfe6}{00068}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacewebserver_1_1views_a344548403877e0854b4c21f30de7dfe6}{default\_api}}():}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00069}00069\ \ \ \ \ out\ =\{\}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00070}00070\ \ \ \ \ res=Lht\_Averages.objects.values(\textcolor{stringliteral}{"{}dev\_uid"{}}).distinct()}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{for}\ id\ \textcolor{keywordflow}{in}\ res:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ dev\_id=id[\textcolor{stringliteral}{"{}dev\_uid"{}}]}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ ndev\_id=dev\_id.replace(\textcolor{stringliteral}{"{}-\/"{}},\textcolor{stringliteral}{"{}\_"{}})}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ a=Lht\_Averages.objects.filter(dev\_uid=dev\_id).order\_by(\textcolor{stringliteral}{"{}entry\_hour"{}}).values()}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ if(len(a)==0):}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ out[ndev\_id]=\mbox{\hyperlink{namespacewebserver_1_1views_a7dfb6f0120d41e806d762657e0a52ee9}{formatJson}}(a)}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ r=\mbox{\hyperlink{namespacewebserver_1_1views_a7d15c2cbbca34f4c474d96138d5dd281}{formatMetadata}}(Meta\_data.objects.filter(dev\_uid=dev\_id).values().last())}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00079}00079\ \ \ \ \ \ \ \ \ out[ndev\_id][\textcolor{stringliteral}{"{}meta\_data"{}}]=r}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00080}00080\ \ \ \ \ res=Py\_Averages.objects.values(\textcolor{stringliteral}{"{}dev\_uid"{}}).distinct()}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{for}\ id\ \textcolor{keywordflow}{in}\ res:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00082}00082\ \ \ \ \ \ \ \ \ dev\_id=id[\textcolor{stringliteral}{"{}dev\_uid"{}}]}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ ndev\_id=dev\_id.replace(\textcolor{stringliteral}{"{}-\/"{}},\textcolor{stringliteral}{"{}\_"{}})}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ a=Py\_Averages.objects.filter(dev\_uid=dev\_id).order\_by(\textcolor{stringliteral}{"{}entry\_hour"{}}).values()}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00085}00085\ \ \ \ \ \ \ \ \ if(len(a)==0):}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ out[ndev\_id]=\mbox{\hyperlink{namespacewebserver_1_1views_a7dfb6f0120d41e806d762657e0a52ee9}{formatJson}}(a)}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00088}00088\ \ \ \ \ \ \ \ \ r=\mbox{\hyperlink{namespacewebserver_1_1views_a7d15c2cbbca34f4c474d96138d5dd281}{formatMetadata}}(Meta\_data.objects.filter(dev\_uid=dev\_id).values().last())}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ out[ndev\_id][\textcolor{stringliteral}{"{}meta\_data"{}}]=r}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{return}\ out}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00092}\mbox{\hyperlink{namespacewebserver_1_1views_aecdcd584059b3dd7641f6dd72b0b4d94}{00092}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacewebserver_1_1views_aecdcd584059b3dd7641f6dd72b0b4d94}{spec\_api}}(time):}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00093}00093\ \ \ \ \ time=re.split(\textcolor{stringliteral}{'(\(\backslash\)d+)'},time)}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00094}00094\ \ \ \ \ time=time[1:len(time)]}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00095}00095\ \ \ \ \ out=\{\}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00096}00096\ \ \ \ \ a\ =\ PyEntries.objects.values(\textcolor{stringliteral}{"{}dev\_uid"{}}).distinct()}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{for}\ id\ \textcolor{keywordflow}{in}\ a:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00098}00098\ \ \ \ \ \ \ \ \ dev\_id=id[\textcolor{stringliteral}{"{}dev\_uid"{}}]}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00099}00099\ \ \ \ \ \ \ \ \ ndev\_id=dev\_id.replace(\textcolor{stringliteral}{"{}-\/"{}},\textcolor{stringliteral}{"{}\_"{}})}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00100}00100\ \ \ \ \ \ \ \ \ b\ =\ PyEntries.objects.filter(dev\_uid=dev\_id).values().last()}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00101}00101\ \ \ \ \ \ \ \ \ earlier\ =\ b[\textcolor{stringliteral}{"{}entry\_date"{}}]-\/timedelta(days=int(time[0]),\ hours=int(time[2]))}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00102}00102\ \ \ \ \ \ \ \ \ print(earlier)}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00103}00103\ \ \ \ \ \ \ \ \ c\ =\ PyEntries.objects.filter(dev\_uid=dev\_id,entry\_date\_\_range=(earlier,b[\textcolor{stringliteral}{"{}entry\_date"{}}]))\(\backslash\)}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ .values()}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00105}00105\ \ \ \ \ \ \ \ \ out[ndev\_id]=\mbox{\hyperlink{namespacewebserver_1_1views_a7dfb6f0120d41e806d762657e0a52ee9}{formatJson}}(c)}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00106}00106\ \ \ \ \ \ \ \ \ out[ndev\_id][\textcolor{stringliteral}{"{}meta\_data"{}}]=\mbox{\hyperlink{namespacewebserver_1_1views_a7d15c2cbbca34f4c474d96138d5dd281}{formatMetadata}}(Meta\_data.objects.filter(dev\_uid=dev\_id).values().last())}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00107}00107\ \ \ \ \ a\ =\ LhtEntries.objects.values(\textcolor{stringliteral}{"{}dev\_uid"{}}).distinct()}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{for}\ id\ \textcolor{keywordflow}{in}\ a:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ dev\_id=id[\textcolor{stringliteral}{"{}dev\_uid"{}}]}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ ndev\_id=dev\_id.replace(\textcolor{stringliteral}{"{}-\/"{}},\textcolor{stringliteral}{"{}\_"{}})}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ b\ =\ LhtEntries.objects.filter(dev\_uid=dev\_id).values().last()}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ earlier\ =\ b[\textcolor{stringliteral}{"{}entry\_date"{}}]-\/timedelta(days=int(time[0]),\ hours=int(time[2]))}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ print(earlier)}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ c\ =\ LhtEntries.objects.filter(dev\_uid=dev\_id,entry\_date\_\_range=(earlier,b[\textcolor{stringliteral}{"{}entry\_date"{}}]))\(\backslash\)}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ .values()}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00116}00116\ \ \ \ \ \ \ \ \ out[ndev\_id]=\mbox{\hyperlink{namespacewebserver_1_1views_a7dfb6f0120d41e806d762657e0a52ee9}{formatJson}}(c)}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00117}00117\ \ \ \ \ \ \ \ \ out[ndev\_id][\textcolor{stringliteral}{"{}meta\_data"{}}]=\mbox{\hyperlink{namespacewebserver_1_1views_a7d15c2cbbca34f4c474d96138d5dd281}{formatMetadata}}(Meta\_data.objects.filter(dev\_uid=dev\_id).values().last())}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00118}00118\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{return}\ out}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00121}00121\ \textcolor{comment}{\#fetches\ and\ returns\ the\ data\ on\ request\ depending\ on\ the\ request\ query.}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00122}\mbox{\hyperlink{namespacewebserver_1_1views_a2d8b91aa223e5724f2e3d7d09ddba87d}{00122}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacewebserver_1_1views_a2d8b91aa223e5724f2e3d7d09ddba87d}{fetch\_api}}(request):}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00123}00123\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00124}00124\ \ \ \ \ out\ =\ \{\}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00125}00125\ \ \ \ \ if(\textcolor{stringliteral}{"{}Time-\/period"{}}\ \textcolor{keywordflow}{not}\ \textcolor{keywordflow}{in}\ request.headers\ ):}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00126}00126\ \ \ \ \ \ \ \ \ out\ =\ \mbox{\hyperlink{namespacewebserver_1_1views_a344548403877e0854b4c21f30de7dfe6}{default\_api}}()}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00127}00127\ \ \ \ \ elif(request.headers[\textcolor{stringliteral}{"{}Time-\/period"{}}]==\textcolor{stringliteral}{'default'}):}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00128}00128\ \ \ \ \ \ \ \ \ out\ =\ \mbox{\hyperlink{namespacewebserver_1_1views_a344548403877e0854b4c21f30de7dfe6}{default\_api}}()}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00129}00129\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00130}00130\ \ \ \ \ \ \ \ \ out=\ \mbox{\hyperlink{namespacewebserver_1_1views_aecdcd584059b3dd7641f6dd72b0b4d94}{spec\_api}}(request.headers[\textcolor{stringliteral}{"{}Time-\/period"{}}])}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00131}00131\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00132}00132\ \ \ \ \ response=JsonResponse(out)}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00133}00133\ \ \ \ \ response[\textcolor{stringliteral}{"{}Access-\/Control-\/Allow-\/Origin"{}}]\ =\ \textcolor{stringliteral}{"{}*"{}}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00134}00134\ \ \ \ \ response[\textcolor{stringliteral}{"{}Access-\/Control-\/Allow-\/Methods"{}}]\ =\ \textcolor{stringliteral}{"{}GET,\ OPTIONS,\ POST"{}}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00135}00135\ \ \ \ \ response[\textcolor{stringliteral}{"{}Access-\/Control-\/Max-\/Age"{}}]\ =\ \textcolor{stringliteral}{"{}1000"{}}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00136}00136\ \ \ \ \ response[\textcolor{stringliteral}{"{}Access-\/Control-\/Allow-\/Headers"{}}]\ =\ \textcolor{stringliteral}{"{}X-\/Requested-\/With,\ Content-\/Type,\ "{}}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00137}00137\ \ \ \ \ response[\textcolor{stringliteral}{"{}Access-\/Control-\/Allow-\/Credentials"{}}]\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{views_8py_source_l00138}00138\ \ \ \ \ \textcolor{keywordflow}{return}\ response}
+
+\end{DoxyCode}

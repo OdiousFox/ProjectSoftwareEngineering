@@ -1,0 +1,46 @@
+\hypertarget{_p_s_e___lo_py_2main_8py}{}\doxysection{PSE\+\_\+\+Lo\+Py/main.py File Reference}
+\label{_p_s_e___lo_py_2main_8py}\index{PSE\_LoPy/main.py@{PSE\_LoPy/main.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacemain}{main}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespacemain_adca5af965e1221d75ffd48f18329567c}{main.\+colors}} = \mbox{[}\char`\"{}\#cc0000\char`\"{}, \char`\"{}\#cc8500\char`\"{}, \char`\"{}\#cccc00\char`\"{}, \char`\"{}\#008000\char`\"{}, \char`\"{}\#0000cc\char`\"{}, \char`\"{}\#4b0082\char`\"{}, \char`\"{}\#ee82ee\char`\"{}\mbox{]}
+\item 
+Lo\+Ra \mbox{\hyperlink{namespacemain_a0b3940d243244a216b367df34cea1858}{main.\+lora}} = Lo\+Ra(mode=Lo\+Ra.\+LORAWAN, region=Lo\+Ra.\+EU868)
+\begin{DoxyCompactList}\small\item\em Initialise Lo\+Ra in LORAWAN mode. \end{DoxyCompactList}\item 
+ubinascii \mbox{\hyperlink{namespacemain_a1f164a82f8a30ae975ddc0aead588767}{main.\+app\+\_\+eui}} = ubinascii.\+unhexlify(\textquotesingle{}0000000000000000\textquotesingle{})
+\item 
+ubinascii \mbox{\hyperlink{namespacemain_ac5db4c1721271f1b05a5a28855cedb59}{main.\+app\+\_\+key}} = ubinascii.\+unhexlify(\textquotesingle{}C7470\+B6\+CCF12\+D08\+FC698\+C822\+A4712205\textquotesingle{})
+\item 
+ubinascii \mbox{\hyperlink{namespacemain_afd190d27f496e32445b47a34de85564e}{main.\+dev\+\_\+eui}} = ubinascii.\+unhexlify(\textquotesingle{}70\+B3\+D57\+ED0058597\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacemain_afbf6e755671291ee733920f78df93ec1}{main.\+activation}}
+\item 
+\mbox{\hyperlink{namespacemain_af8dd009326d9e366697bb3c70e328abb}{main.\+OTAA}}
+\item 
+\mbox{\hyperlink{namespacemain_a2a708cceb61767d02089c5d70a777b31}{main.\+auth}}
+\item 
+\mbox{\hyperlink{namespacemain_adda0bef0c5f610ffcc8392437981f576}{main.\+timeout}}
+\item 
+socket \mbox{\hyperlink{namespacemain_a4174290764f741485a89cdd57c013a9e}{main.\+s}} = socket.\+socket(socket.\+AF\+\_\+\+LORA, socket.\+SOCK\+\_\+\+RAW)
+\item 
+Pycoproc \mbox{\hyperlink{namespacemain_a8b64aa47a015aea3cb5e2b0a8c9d0329}{main.\+py}} = Pycoproc(Pycoproc.\+PYSENSE)
+\begin{DoxyCompactList}\small\item\em Main loop which sends the data. \end{DoxyCompactList}\item 
+MPL3115\+A2 \mbox{\hyperlink{namespacemain_a3c15f0db2c79bf156f4b6405bd054b8d}{main.\+mpp}} = MPL3115\+A2(py,mode=PRESSURE)
+\item 
+SI7006\+A20 \mbox{\hyperlink{namespacemain_aa06f7de2a67135620bf97ac28f75662c}{main.\+si}} = SI7006\+A20(py)
+\item 
+int \mbox{\hyperlink{namespacemain_a61cd0d5ea99db740c95e101219fe4116}{main.\+pressure}} = int(mpp.\+pressure() $\ast$ 0.\+01 -\/ 900)
+\item 
+int \mbox{\hyperlink{namespacemain_a2257e9a239e523c8d42f39bf1d1ebcc3}{main.\+temperature}} = int(si.\+temperature())
+\item 
+int \mbox{\hyperlink{namespacemain_aafab0d5bd761f44b7dbf73f44cbd8ecb}{main.\+humidity}} = int(si.\+humid\+\_\+ambient(temperature))
+\item 
+int \mbox{\hyperlink{namespacemain_ad271abbbe81ebe3b01d0a2b7de3e8e70}{main.\+loop}} = 0
+\item 
+element \mbox{\hyperlink{namespacemain_ad0eb82f2b6b24bc1432e59605a3e08ef}{main.\+element}} = element\mbox{[}1\+:\mbox{]}
+\end{DoxyCompactItemize}

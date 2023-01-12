@@ -1,0 +1,4 @@
+var namespacewebserver_1_1migrations_1_10002__meta__data__rename__entry__date__lht__averages__entry__hour__and__more =
+[
+    [ "Migration", "classwebserver_1_1migrations_1_10002__meta__data__rename__entry__date__lht__averages__entry__hour__and__more_1_1_migration.html", null ]
+];

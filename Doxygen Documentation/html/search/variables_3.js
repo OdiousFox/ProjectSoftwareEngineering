@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['clk_5fcal_5ffactor_0',['clk_cal_factor',['../classpycoproc__1_1_1_pycoproc.html#a5ec533003db21f7b4dc8b01edf138130',1,'pycoproc_1::Pycoproc']]],
+  ['cmd_5fbaud_5fchange_1',['CMD_BAUD_CHANGE',['../classpycoproc__1_1_1_pycoproc.html#a0da37d7b1b045b3190afc24cd8899216',1,'pycoproc_1::Pycoproc']]],
+  ['cmd_5fcalibrate_2',['CMD_CALIBRATE',['../classpycoproc__1_1_1_pycoproc.html#a28aa615515a2a87615522e71639d5cf9',1,'pycoproc_1::Pycoproc']]],
+  ['cmd_5fdfu_3',['CMD_DFU',['../classpycoproc__1_1_1_pycoproc.html#a8ebd867926a8d0e005b17d901b4cbff5',1,'pycoproc_1::Pycoproc']]],
+  ['cmd_5ffw_5fver_4',['CMD_FW_VER',['../classpycoproc__1_1_1_pycoproc.html#a49f1eb85909d8998a39a8ef3179a6ebc',1,'pycoproc_1::Pycoproc']]],
+  ['cmd_5fgo_5fsleep_5',['CMD_GO_SLEEP',['../classpycoproc__1_1_1_pycoproc.html#a45f02a7e6d671436ea06631cc8fe044c',1,'pycoproc_1::Pycoproc']]],
+  ['cmd_5fhw_5fver_6',['CMD_HW_VER',['../classpycoproc__1_1_1_pycoproc.html#a181d8f348a39d1cb882acee3e2e5c6b7',1,'pycoproc_1::Pycoproc']]],
+  ['cmd_5fmagic_7',['CMD_MAGIC',['../classpycoproc__1_1_1_pycoproc.html#af76cf10ffeefdba969e8296050dce0af',1,'pycoproc_1::Pycoproc']]],
+  ['cmd_5fpeek_8',['CMD_PEEK',['../classpycoproc__1_1_1_pycoproc.html#a49960066b90a25447b7fdc21fd08a8bf',1,'pycoproc_1::Pycoproc']]],
+  ['cmd_5fpoke_9',['CMD_POKE',['../classpycoproc__1_1_1_pycoproc.html#a4d2bcef67aafab262b01acd4d37dd495',1,'pycoproc_1::Pycoproc']]],
+  ['cmd_5fprod_5fid_10',['CMD_PROD_ID',['../classpycoproc__1_1_1_pycoproc.html#a5e40814afafc36b1524f1b63f9bd322f',1,'pycoproc_1::Pycoproc']]],
+  ['cmd_5fsetup_5fsleep_11',['CMD_SETUP_SLEEP',['../classpycoproc__1_1_1_pycoproc.html#a674e474b27325c6d02123c8f21d5c3e2',1,'pycoproc_1::Pycoproc']]],
+  ['colors_12',['colors',['../namespacemain.html#adca5af965e1221d75ffd48f18329567c',1,'main']]],
+  ['cors_5fallow_5fall_5forigins_13',['CORS_ALLOW_ALL_ORIGINS',['../namespacemy__server_1_1settings.html#ae4b6215a03bfd7bad1a70f41ad7337fc',1,'my_server::settings']]],
+  ['cors_5fallow_5fcredentials_14',['CORS_ALLOW_CREDENTIALS',['../namespacemy__server_1_1settings.html#aa1e03dcfc6cfb5ee3be732ce7a364d5b',1,'my_server::settings']]],
+  ['cors_5fallow_5fheaders_15',['CORS_ALLOW_HEADERS',['../namespacemy__server_1_1settings.html#a222279774f3b61a58e9bd7cdc9c69d36',1,'my_server::settings']]],
+  ['cors_5fexpose_5fheaders_16',['CORS_EXPOSE_HEADERS',['../namespacemy__server_1_1settings.html#a5f59d1fec8e3d3201e7dd7e61403ba10',1,'my_server::settings']]],
+  ['ctrl1_5freg_17',['CTRL1_REG',['../class_l_i_s2_h_h12_1_1_l_i_s2_h_h12.html#af22477882855c74b06d879ca5b410539',1,'LIS2HH12::LIS2HH12']]],
+  ['ctrl2_5freg_18',['CTRL2_REG',['../class_l_i_s2_h_h12_1_1_l_i_s2_h_h12.html#a92e509852504d71501ee20151ce83149',1,'LIS2HH12::LIS2HH12']]],
+  ['ctrl3_5freg_19',['CTRL3_REG',['../class_l_i_s2_h_h12_1_1_l_i_s2_h_h12.html#a514d4d61214d33a484f8cadf0db8b91e',1,'LIS2HH12::LIS2HH12']]],
+  ['ctrl4_5freg_20',['CTRL4_REG',['../class_l_i_s2_h_h12_1_1_l_i_s2_h_h12.html#a9319debf138fdf54939e41bd62b8a933',1,'LIS2HH12::LIS2HH12']]],
+  ['ctrl5_5freg_21',['CTRL5_REG',['../class_l_i_s2_h_h12_1_1_l_i_s2_h_h12.html#ad5e644f6e5cbe7f2d17a88014f796bb7',1,'LIS2HH12::LIS2HH12']]]
+];

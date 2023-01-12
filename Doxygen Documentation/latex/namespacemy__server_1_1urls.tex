@@ -1,0 +1,46 @@
+\hypertarget{namespacemy__server_1_1urls}{}\doxysection{my\+\_\+server.\+urls Namespace Reference}
+\label{namespacemy__server_1_1urls}\index{my\_server.urls@{my\_server.urls}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespacemy__server_1_1urls_a0283544fb6264e91cc97ad6916c7abbc}{urlpatterns}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}my_server URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/4.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacemy__server_1_1urls_a0283544fb6264e91cc97ad6916c7abbc}\label{namespacemy__server_1_1urls_a0283544fb6264e91cc97ad6916c7abbc}} 
+\index{my\_server.urls@{my\_server.urls}!urlpatterns@{urlpatterns}}
+\index{urlpatterns@{urlpatterns}!my\_server.urls@{my\_server.urls}}
+\doxysubsubsection{\texorpdfstring{urlpatterns}{urlpatterns}}
+{\footnotesize\ttfamily list my\+\_\+server.\+urls.\+urlpatterns}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ [}
+\DoxyCodeLine{00002\ \ \ \ \ path(\textcolor{stringliteral}{'admin/'},\ admin.site.urls),}
+\DoxyCodeLine{00003\ \ \ \ \ path(\textcolor{stringliteral}{"{}webserver/"{}},include(\textcolor{stringliteral}{'webserver.urls'}))}
+\DoxyCodeLine{00004\ ]}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{my__server_2urls_8py_source_l00019}{19}} of file \mbox{\hyperlink{my__server_2urls_8py_source}{urls.\+py}}.
+

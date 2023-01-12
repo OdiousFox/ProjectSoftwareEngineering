@@ -1,0 +1,4 @@
+var 0002__meta__data__rename__entry__date__lht__averages__entry__hour__and__more_8py =
+[
+    [ "webserver.migrations.0002_meta_data_rename_entry_date_lht_averages_entry_hour_and_more.Migration", "classwebserver_1_1migrations_1_10002__meta__data__rename__entry__date__lht__averages__entry__hour__and__more_1_1_migration.html", null ]
+];

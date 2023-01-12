@@ -1,0 +1,70 @@
+\hypertarget{0001__initial_8py_source}{}\doxysection{0001\+\_\+initial.\+py}
+\label{0001__initial_8py_source}\index{my\_server/webserver/migrations/0001\_initial.py@{my\_server/webserver/migrations/0001\_initial.py}}
+\mbox{\hyperlink{0001__initial_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00001}\mbox{\hyperlink{namespacewebserver_1_1migrations}{00001}}\ \textcolor{comment}{\#\ Generated\ by\ Django\ 4.1.3\ on\ 2022-\/12-\/16\ 18:18}}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00003}00003\ \textcolor{keyword}{from}\ django.db\ \textcolor{keyword}{import}\ migrations,\ models}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00006}\mbox{\hyperlink{classwebserver_1_1migrations_1_10001__initial_1_1_migration}{00006}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classwebserver_1_1migrations_1_10001__initial_1_1_migration}{Migration}}(migrations.Migration):}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00008}\mbox{\hyperlink{classwebserver_1_1migrations_1_10001__initial_1_1_migration_a49193ed5abef601b32a7764706d04beb}{00008}}\ \ \ \ \ initial\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00010}\mbox{\hyperlink{classwebserver_1_1migrations_1_10001__initial_1_1_migration_a2d9a9a9e9b5824d0f6e9dd06adf4b8f9}{00010}}\ \ \ \ \ dependencies\ =\ [}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00011}00011\ \ \ \ \ ]}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00013}\mbox{\hyperlink{classwebserver_1_1migrations_1_10001__initial_1_1_migration_a0bc74f2046744e54af4a71e4cfc20ab6}{00013}}\ \ \ \ \ operations\ =\ [}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00014}00014\ \ \ \ \ \ \ \ \ migrations.CreateModel(}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{'Lht\_Averages'},}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ fields=[}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'entry\_id'},\ models.AutoField(primary\_key=\textcolor{keyword}{True},\ serialize=\textcolor{keyword}{False})),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'dev\_uid'},\ models.CharField(max\_length=25)),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'entry\_date'},\ models.IntegerField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'BatV'},\ models.FloatField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'Bat\_status'},\ models.IntegerField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'Hum\_SHT'},\ models.FloatField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'ILL\_lx'},\ models.FloatField(blank=\textcolor{keyword}{True},\ default=\textcolor{keywordtype}{None},\ null=\textcolor{keyword}{True})),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'TempC\_DS'},\ models.FloatField(blank=\textcolor{keyword}{True},\ default=\textcolor{keywordtype}{None},\ null=\textcolor{keyword}{True})),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'TempC\_SHT'},\ models.FloatField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ ),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00028}00028\ \ \ \ \ \ \ \ \ migrations.CreateModel(}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{'LhtEntries'},}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ fields=[}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'entry\_id'},\ models.AutoField(primary\_key=\textcolor{keyword}{True},\ serialize=\textcolor{keyword}{False})),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'dev\_uid'},\ models.CharField(max\_length=25)),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'entry\_date'},\ models.DateTimeField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'BatV'},\ models.FloatField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'Bat\_status'},\ models.IntegerField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'Hum\_SHT'},\ models.FloatField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'ILL\_lx'},\ models.FloatField(blank=\textcolor{keyword}{True},\ default=\textcolor{keywordtype}{None},\ null=\textcolor{keyword}{True})),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'TempC\_DS'},\ models.FloatField(blank=\textcolor{keyword}{True},\ default=\textcolor{keywordtype}{None},\ null=\textcolor{keyword}{True})),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'TempC\_SHT'},\ models.FloatField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ ),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ migrations.CreateModel(}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{'Py\_Averages'},}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ fields=[}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'entry\_id'},\ models.AutoField(primary\_key=\textcolor{keyword}{True},\ serialize=\textcolor{keyword}{False})),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'dev\_uid'},\ models.CharField(max\_length=25)),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'entry\_date'},\ models.IntegerField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'light'},\ models.FloatField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'temperature'},\ models.FloatField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'pressure'},\ models.FloatField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ ),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ migrations.CreateModel(}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ name=\textcolor{stringliteral}{'PyEntries'},}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ fields=[}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'entry\_id'},\ models.AutoField(primary\_key=\textcolor{keyword}{True},\ serialize=\textcolor{keyword}{False})),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'dev\_uid'},\ models.CharField(max\_length=25)),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'entry\_date'},\ models.DateTimeField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'light'},\ models.FloatField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'temperature'},\ models.FloatField()),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{stringliteral}{'pressure'},\ models.FloatField(default=0)),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ ),}
+\DoxyCodeLine{\Hypertarget{0001__initial_8py_source_l00064}00064\ \ \ \ \ ]}
+
+\end{DoxyCode}

@@ -1,0 +1,979 @@
+\hypertarget{classpycoproc__1_1_1_pycoproc}{}\doxysection{pycoproc\+\_\+1.\+Pycoproc Class Reference}
+\label{classpycoproc__1_1_1_pycoproc}\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a8e319c6f2f81f3fc65758788e53097e4}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a8a7ce65e63d48079ec0937dc43706c3c}{board\+\_\+type}}, \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_af041332bc327553ccfc27efafe230162}{i2c}}=None, \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a39e55a948911d72014daff6c67108fef}{sda}}=\textquotesingle{}P22\textquotesingle{}, \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a591992ceaf24fcfd36d8b6c7bc38d66b}{scl}}=\textquotesingle{}P21\textquotesingle{})
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_ade91853ca640c303330bea745de2025a}{read\+\_\+hw\+\_\+version}} (self)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a1f71228d5d8d10118631032c5f689620}{read\+\_\+fw\+\_\+version}} (self)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a6ae1618581b6fd03a9f6c2751b83ec3d}{read\+\_\+product\+\_\+id}} (self)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a245241d4de355de836179b9b7fbf05c7}{peek\+\_\+memory}} (self, addr)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a493013b4a0ba7fc54fc5d0cd675c4a43}{poke\+\_\+memory}} (self, addr, value)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_abf99f4f8f4d57301beb5fb58cab55933}{magic\+\_\+write\+\_\+read}} (self, addr, \+\_\+and=0x\+FF, \+\_\+or=0, \+\_\+xor=0)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_ada3449203455254963f6613ebb211490}{toggle\+\_\+bits\+\_\+in\+\_\+memory}} (self, addr, bits)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_af76070dcfeed427c508b0fa06e81f19e}{mask\+\_\+bits\+\_\+in\+\_\+memory}} (self, addr, mask)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a6534588d46a2c941df6d96e3ae93bd1f}{set\+\_\+bits\+\_\+in\+\_\+memory}} (self, addr, bits)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_aec933644db3296f9cd6d09c236ba0a51}{get\+\_\+wake\+\_\+reason}} (self)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_aa4147a5c3346b1d17f89bd615441b7ef}{get\+\_\+sleep\+\_\+remaining}} (self)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a1d2b3574d64532223fb0d23813bd8f9d}{setup\+\_\+sleep}} (self, time\+\_\+s)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a2e3b012a7606a315f113817c9d2f600a}{go\+\_\+to\+\_\+sleep}} (self, gps=True)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a70adce6566f497828a560533f3f830be}{calibrate\+\_\+rtc}} (self)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_abde75a0b29ccc14e217a07ac22869d16}{button\+\_\+pressed}} (self)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a21c6f8fcbd8d116867c1b3a0688a1cfe}{read\+\_\+battery\+\_\+voltage}} (self)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a31810c6a8d6bd37d38f3d21baeb814dd}{setup\+\_\+int\+\_\+wake\+\_\+up}} (self, rising, falling)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a0bc9b301fb9b0a4be0ee5135cae7caa5}{setup\+\_\+int\+\_\+pin\+\_\+wake\+\_\+up}} (self, rising\+\_\+edge=True)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_af041332bc327553ccfc27efafe230162}{i2c}}
+\item 
+\mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a39e55a948911d72014daff6c67108fef}{sda}}
+\item 
+\mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a591992ceaf24fcfd36d8b6c7bc38d66b}{scl}}
+\item 
+\mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a8a7ce65e63d48079ec0937dc43706c3c}{board\+\_\+type}}
+\item 
+\mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a5ec533003db21f7b4dc8b01edf138130}{clk\+\_\+cal\+\_\+factor}}
+\item 
+\mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a1b7d6759ab009053cc90513b28c877c9}{reg}}
+\item 
+\mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a3f066b01cb85a6df11d5e88d2f9c727c}{wake\+\_\+int}}
+\item 
+\mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_ade08971ec45eb2e8448233195a567df4}{wake\+\_\+int\+\_\+pin}}
+\item 
+\mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a2569fcf3a8fe9b0520cc55f7372e71a5}{wake\+\_\+int\+\_\+pin\+\_\+rising\+\_\+edge}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a82e0e7b2ae9e9c793dac8d9ab9e2d85c}{I2\+C\+\_\+\+SLAVE\+\_\+\+ADDR}} = const(8)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a086e909f13ffba329def6d2d4763662b}{PYSENSE}} = const(1)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a72aa151fda24bcf843503f8817942c75}{PYTRACK}} = const(2)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_ae6926c56d8afda91f45dceb5667818e2}{PYSCAN}} = const(3)
+\item 
+tuple \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_ac5e490105d153bc6714dcea7ef48bedf}{BOARD\+\_\+\+TYPE\+\_\+\+SET}} = (\mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a086e909f13ffba329def6d2d4763662b}{PYSENSE}}, \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a72aa151fda24bcf843503f8817942c75}{PYTRACK}}, \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_ae6926c56d8afda91f45dceb5667818e2}{PYSCAN}})
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a49960066b90a25447b7fdc21fd08a8bf}{CMD\+\_\+\+PEEK}} = const(0x0)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a4d2bcef67aafab262b01acd4d37dd495}{CMD\+\_\+\+POKE}} = const(0x01)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_af76cf10ffeefdba969e8296050dce0af}{CMD\+\_\+\+MAGIC}} = const(0x02)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a181d8f348a39d1cb882acee3e2e5c6b7}{CMD\+\_\+\+HW\+\_\+\+VER}} = const(0x10)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a49f1eb85909d8998a39a8ef3179a6ebc}{CMD\+\_\+\+FW\+\_\+\+VER}} = const(0x11)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a5e40814afafc36b1524f1b63f9bd322f}{CMD\+\_\+\+PROD\+\_\+\+ID}} = const(0x12)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a674e474b27325c6d02123c8f21d5c3e2}{CMD\+\_\+\+SETUP\+\_\+\+SLEEP}} = const(0x20)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a45f02a7e6d671436ea06631cc8fe044c}{CMD\+\_\+\+GO\+\_\+\+SLEEP}} = const(0x21)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a28aa615515a2a87615522e71639d5cf9}{CMD\+\_\+\+CALIBRATE}} = const(0x22)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a0da37d7b1b045b3190afc24cd8899216}{CMD\+\_\+\+BAUD\+\_\+\+CHANGE}} = const(0x30)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a8ebd867926a8d0e005b17d901b4cbff5}{CMD\+\_\+\+DFU}} = const(0x31)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_afdd4a38c3a92cbb2ec3d78cdcc635231}{REG\+\_\+\+CMD}} = const(0)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a6903816dc7a91a96f6fcf97a9094c7ef}{REG\+\_\+\+ADDRL}} = const(1)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a90bec03e6fec8568e6ecc5ead5a5097f}{REG\+\_\+\+ADDRH}} = const(2)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a29d1d9700af74b6991ea8cedc886298c}{REG\+\_\+\+AND}} = const(3)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a00503bd01981ccdbbc3b2c116bba0741}{REG\+\_\+\+OR}} = const(4)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_ad7828e1cc65a0355ffb1d93701c2bfd7}{REG\+\_\+\+XOR}} = const(5)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a31f8727c19997e6200d59ff8ad7ef2a2}{ANSELA\+\_\+\+ADDR}} = const(0x18C)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_af9d08c2188eaea2d561545556d8bbe5d}{ANSELB\+\_\+\+ADDR}} = const(0x18D)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a54ba4f398c3da220870981515c76bf61}{ANSELC\+\_\+\+ADDR}} = const(0x18E)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a86b75c5fd5c82991257e5aaef7d5d4aa}{ADCON0\+\_\+\+ADDR}} = const(0x9D)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_afaeca1e3371d6827cde8449a9ee89a63}{ADCON1\+\_\+\+ADDR}} = const(0x9E)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a8f661f2ee59cbc8976c85f7ae2d45bda}{IOCAP\+\_\+\+ADDR}} = const(0x391)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_ab0069bcfee5196f16946dd96e7afd983}{IOCAN\+\_\+\+ADDR}} = const(0x392)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a78d47f38036859fc19096cb9e9efd628}{INTCON\+\_\+\+ADDR}} = const(0x0B)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a429a4c369f844757d489ed3705e1f0a6}{OPTION\+\_\+\+REG\+\_\+\+ADDR}} = const(0x95)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_adf40398b2304396c558ab4630ac9109d}{ADRESL\+\_\+\+ADDR}} = const(0x09B)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a32d9920908809f8030b5d82a5da59cff}{ADRESH\+\_\+\+ADDR}} = const(0x09C)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a964c15ff5e23cac1ed1f9d38df1d17ee}{TRISC\+\_\+\+ADDR}} = const(0x08E)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a0be86a646ef9aa9731300aa1e4681275}{PORTA\+\_\+\+ADDR}} = const(0x00C)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_ab75a57efbc542c80fb5d533efd7ebda9}{PORTC\+\_\+\+ADDR}} = const(0x00E)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a07565d461c95d9f01b2ec1d6b4daba79}{WPUA\+\_\+\+ADDR}} = const(0x20C)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_ae9f2927ab0ad9f645a69e2127622a131}{WAKE\+\_\+\+REASON\+\_\+\+ADDR}} = const(0x064C)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a6fc898e958fa5e3dc23c767797852869}{MEMORY\+\_\+\+BANK\+\_\+\+ADDR}} = const(0x0620)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_af2ecbf6bc3de079884023bcc15601632}{PCON\+\_\+\+ADDR}} = const(0x096)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a882bfa79ae77cfaf2b960cf69db37aab}{STATUS\+\_\+\+ADDR}} = const(0x083)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a893db3065847ffdddc86ec8581c90928}{EXP\+\_\+\+RTC\+\_\+\+PERIOD}} = const(7000)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a3edf054a866a99570d344381d61af937}{\+\_\+write}} (self, data, wait=True)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_aa720b8876cd3107956f4acf211732fb1}{\+\_\+read}} (self, size)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_adea02c2c0182960d3095eb18dd311f32}{\+\_\+wait}} (self)
+\item 
+def \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_aab37c6f421fbc5c73310124f93ac801a}{\+\_\+send\+\_\+cmd}} (self, cmd)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_af28e27862ef4cc6a106d836e7058ba42}{\+\_\+\+ADCON0\+\_\+\+CHS\+\_\+\+POSN}} = const(0x02)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a01017f3a65303421f4e977c19d94097a}{\+\_\+\+ADCON0\+\_\+\+ADON\+\_\+\+MASK}} = const(0x01)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_ac40b71966bd91acdc1efc443c283935d}{\+\_\+\+ADCON1\+\_\+\+ADCS\+\_\+\+POSN}} = const(0x04)
+\item 
+const \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a631a5b221fe7007b128849587d3e605d}{\+\_\+\+ADCON0\+\_\+\+GO\+\_\+n\+DONE\+\_\+\+MASK}} = const(0x02)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb} class for handling the interaction with PIC MCU \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00026}{26}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a8e319c6f2f81f3fc65758788e53097e4}\label{classpycoproc__1_1_1_pycoproc_a8e319c6f2f81f3fc65758788e53097e4}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{board\+\_\+type,  }\item[{}]{i2c = {\ttfamily None},  }\item[{}]{sda = {\ttfamily \textquotesingle{}P22\textquotesingle{}},  }\item[{}]{scl = {\ttfamily \textquotesingle{}P21\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00092}{92}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_aa720b8876cd3107956f4acf211732fb1}\label{classpycoproc__1_1_1_pycoproc_aa720b8876cd3107956f4acf211732fb1}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!\_read@{\_read}}
+\index{\_read@{\_read}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{\_read()}{\_read()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+\_\+read (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00138}{138}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_aab37c6f421fbc5c73310124f93ac801a}\label{classpycoproc__1_1_1_pycoproc_aab37c6f421fbc5c73310124f93ac801a}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!\_send\_cmd@{\_send\_cmd}}
+\index{\_send\_cmd@{\_send\_cmd}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{\_send\_cmd()}{\_send\_cmd()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+\_\+send\+\_\+cmd (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cmd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00150}{150}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_adea02c2c0182960d3095eb18dd311f32}\label{classpycoproc__1_1_1_pycoproc_adea02c2c0182960d3095eb18dd311f32}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!\_wait@{\_wait}}
+\index{\_wait@{\_wait}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{\_wait()}{\_wait()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+\_\+wait (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00141}{141}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a3edf054a866a99570d344381d61af937}\label{classpycoproc__1_1_1_pycoproc_a3edf054a866a99570d344381d61af937}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!\_write@{\_write}}
+\index{\_write@{\_write}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{\_write()}{\_write()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+\_\+write (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{data,  }\item[{}]{wait = {\ttfamily True} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00133}{133}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_abde75a0b29ccc14e217a07ac22869d16}\label{classpycoproc__1_1_1_pycoproc_abde75a0b29ccc14e217a07ac22869d16}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!button\_pressed@{button\_pressed}}
+\index{button\_pressed@{button\_pressed}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{button\_pressed()}{button\_pressed()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+button\+\_\+pressed (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00278}{278}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a70adce6566f497828a560533f3f830be}\label{classpycoproc__1_1_1_pycoproc_a70adce6566f497828a560533f3f830be}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!calibrate\_rtc@{calibrate\_rtc}}
+\index{calibrate\_rtc@{calibrate\_rtc}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{calibrate\_rtc()}{calibrate\_rtc()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+calibrate\+\_\+rtc (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00254}{254}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_aa4147a5c3346b1d17f89bd615441b7ef}\label{classpycoproc__1_1_1_pycoproc_aa4147a5c3346b1d17f89bd615441b7ef}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!get\_sleep\_remaining@{get\_sleep\_remaining}}
+\index{get\_sleep\_remaining@{get\_sleep\_remaining}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{get\_sleep\_remaining()}{get\_sleep\_remaining()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+get\+\_\+sleep\+\_\+remaining (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} returns the remaining time from sleep, as an interrupt (wakeup source) might have triggered \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00192}{192}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_aec933644db3296f9cd6d09c236ba0a51}\label{classpycoproc__1_1_1_pycoproc_aec933644db3296f9cd6d09c236ba0a51}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!get\_wake\_reason@{get\_wake\_reason}}
+\index{get\_wake\_reason@{get\_wake\_reason}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{get\_wake\_reason()}{get\_wake\_reason()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+get\+\_\+wake\+\_\+reason (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} returns the wakeup reason, a value out of constants WAKE_REASON_* \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00188}{188}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a2e3b012a7606a315f113817c9d2f600a}\label{classpycoproc__1_1_1_pycoproc_a2e3b012a7606a315f113817c9d2f600a}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!go\_to\_sleep@{go\_to\_sleep}}
+\index{go\_to\_sleep@{go\_to\_sleep}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{go\_to\_sleep()}{go\_to\_sleep()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+go\+\_\+to\+\_\+sleep (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{gps = {\ttfamily True} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00216}{216}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_abf99f4f8f4d57301beb5fb58cab55933}\label{classpycoproc__1_1_1_pycoproc_abf99f4f8f4d57301beb5fb58cab55933}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!magic\_write\_read@{magic\_write\_read}}
+\index{magic\_write\_read@{magic\_write\_read}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{magic\_write\_read()}{magic\_write\_read()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+magic\+\_\+write\+\_\+read (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{addr,  }\item[{}]{\+\_\+and = {\ttfamily 0xFF},  }\item[{}]{\+\_\+or = {\ttfamily 0},  }\item[{}]{\+\_\+xor = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00175}{175}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_af76070dcfeed427c508b0fa06e81f19e}\label{classpycoproc__1_1_1_pycoproc_af76070dcfeed427c508b0fa06e81f19e}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!mask\_bits\_in\_memory@{mask\_bits\_in\_memory}}
+\index{mask\_bits\_in\_memory@{mask\_bits\_in\_memory}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{mask\_bits\_in\_memory()}{mask\_bits\_in\_memory()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+mask\+\_\+bits\+\_\+in\+\_\+memory (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{addr,  }\item[{}]{mask }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00182}{182}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a245241d4de355de836179b9b7fbf05c7}\label{classpycoproc__1_1_1_pycoproc_a245241d4de355de836179b9b7fbf05c7}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!peek\_memory@{peek\_memory}}
+\index{peek\_memory@{peek\_memory}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{peek\_memory()}{peek\_memory()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+peek\+\_\+memory (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{addr }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00168}{168}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a493013b4a0ba7fc54fc5d0cd675c4a43}\label{classpycoproc__1_1_1_pycoproc_a493013b4a0ba7fc54fc5d0cd675c4a43}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!poke\_memory@{poke\_memory}}
+\index{poke\_memory@{poke\_memory}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{poke\_memory()}{poke\_memory()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+poke\+\_\+memory (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{addr,  }\item[{}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00172}{172}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a21c6f8fcbd8d116867c1b3a0688a1cfe}\label{classpycoproc__1_1_1_pycoproc_a21c6f8fcbd8d116867c1b3a0688a1cfe}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!read\_battery\_voltage@{read\_battery\_voltage}}
+\index{read\_battery\_voltage@{read\_battery\_voltage}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{read\_battery\_voltage()}{read\_battery\_voltage()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+read\+\_\+battery\+\_\+voltage (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00282}{282}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a1f71228d5d8d10118631032c5f689620}\label{classpycoproc__1_1_1_pycoproc_a1f71228d5d8d10118631032c5f689620}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!read\_fw\_version@{read\_fw\_version}}
+\index{read\_fw\_version@{read\_fw\_version}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{read\_fw\_version()}{read\_fw\_version()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+read\+\_\+fw\+\_\+version (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00158}{158}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_ade91853ca640c303330bea745de2025a}\label{classpycoproc__1_1_1_pycoproc_ade91853ca640c303330bea745de2025a}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!read\_hw\_version@{read\_hw\_version}}
+\index{read\_hw\_version@{read\_hw\_version}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{read\_hw\_version()}{read\_hw\_version()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+read\+\_\+hw\+\_\+version (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00153}{153}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a6ae1618581b6fd03a9f6c2751b83ec3d}\label{classpycoproc__1_1_1_pycoproc_a6ae1618581b6fd03a9f6c2751b83ec3d}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!read\_product\_id@{read\_product\_id}}
+\index{read\_product\_id@{read\_product\_id}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{read\_product\_id()}{read\_product\_id()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+read\+\_\+product\+\_\+id (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00163}{163}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a6534588d46a2c941df6d96e3ae93bd1f}\label{classpycoproc__1_1_1_pycoproc_a6534588d46a2c941df6d96e3ae93bd1f}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!set\_bits\_in\_memory@{set\_bits\_in\_memory}}
+\index{set\_bits\_in\_memory@{set\_bits\_in\_memory}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{set\_bits\_in\_memory()}{set\_bits\_in\_memory()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+set\+\_\+bits\+\_\+in\+\_\+memory (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{addr,  }\item[{}]{bits }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00185}{185}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a0bc9b301fb9b0a4be0ee5135cae7caa5}\label{classpycoproc__1_1_1_pycoproc_a0bc9b301fb9b0a4be0ee5135cae7caa5}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!setup\_int\_pin\_wake\_up@{setup\_int\_pin\_wake\_up}}
+\index{setup\_int\_pin\_wake\_up@{setup\_int\_pin\_wake\_up}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{setup\_int\_pin\_wake\_up()}{setup\_int\_pin\_wake\_up()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+setup\+\_\+int\+\_\+pin\+\_\+wake\+\_\+up (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{rising\+\_\+edge = {\ttfamily True} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} allows wakeup to be made by the INT pin (PIC -RC1) \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00306}{306}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a31810c6a8d6bd37d38f3d21baeb814dd}\label{classpycoproc__1_1_1_pycoproc_a31810c6a8d6bd37d38f3d21baeb814dd}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!setup\_int\_wake\_up@{setup\_int\_wake\_up}}
+\index{setup\_int\_wake\_up@{setup\_int\_wake\_up}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{setup\_int\_wake\_up()}{setup\_int\_wake\_up()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+setup\+\_\+int\+\_\+wake\+\_\+up (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{rising,  }\item[{}]{falling }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} rising is for activity detection, falling for inactivity \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00290}{290}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a1d2b3574d64532223fb0d23813bd8f9d}\label{classpycoproc__1_1_1_pycoproc_a1d2b3574d64532223fb0d23813bd8f9d}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!setup\_sleep@{setup\_sleep}}
+\index{setup\_sleep@{setup\_sleep}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{setup\_sleep()}{setup\_sleep()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+setup\+\_\+sleep (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{time\+\_\+s }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00206}{206}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_ada3449203455254963f6613ebb211490}\label{classpycoproc__1_1_1_pycoproc_ada3449203455254963f6613ebb211490}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!toggle\_bits\_in\_memory@{toggle\_bits\_in\_memory}}
+\index{toggle\_bits\_in\_memory@{toggle\_bits\_in\_memory}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{toggle\_bits\_in\_memory()}{toggle\_bits\_in\_memory()}}
+{\footnotesize\ttfamily def pycoproc\+\_\+1.\+Pycoproc.\+toggle\+\_\+bits\+\_\+in\+\_\+memory (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{addr,  }\item[{}]{bits }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00179}{179}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a01017f3a65303421f4e977c19d94097a}\label{classpycoproc__1_1_1_pycoproc_a01017f3a65303421f4e977c19d94097a}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!\_ADCON0\_ADON\_MASK@{\_ADCON0\_ADON\_MASK}}
+\index{\_ADCON0\_ADON\_MASK@{\_ADCON0\_ADON\_MASK}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{\_ADCON0\_ADON\_MASK}{\_ADCON0\_ADON\_MASK}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+\_\+\+ADCON0\+\_\+\+ADON\+\_\+\+MASK = const(0x01)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00070}{70}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_af28e27862ef4cc6a106d836e7058ba42}\label{classpycoproc__1_1_1_pycoproc_af28e27862ef4cc6a106d836e7058ba42}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!\_ADCON0\_CHS\_POSN@{\_ADCON0\_CHS\_POSN}}
+\index{\_ADCON0\_CHS\_POSN@{\_ADCON0\_CHS\_POSN}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{\_ADCON0\_CHS\_POSN}{\_ADCON0\_CHS\_POSN}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+\_\+\+ADCON0\+\_\+\+CHS\+\_\+\+POSN = const(0x02)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00069}{69}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a631a5b221fe7007b128849587d3e605d}\label{classpycoproc__1_1_1_pycoproc_a631a5b221fe7007b128849587d3e605d}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!\_ADCON0\_GO\_nDONE\_MASK@{\_ADCON0\_GO\_nDONE\_MASK}}
+\index{\_ADCON0\_GO\_nDONE\_MASK@{\_ADCON0\_GO\_nDONE\_MASK}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{\_ADCON0\_GO\_nDONE\_MASK}{\_ADCON0\_GO\_nDONE\_MASK}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+\_\+\+ADCON0\+\_\+\+GO\+\_\+n\+DONE\+\_\+\+MASK = const(0x02)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00072}{72}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_ac40b71966bd91acdc1efc443c283935d}\label{classpycoproc__1_1_1_pycoproc_ac40b71966bd91acdc1efc443c283935d}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!\_ADCON1\_ADCS\_POSN@{\_ADCON1\_ADCS\_POSN}}
+\index{\_ADCON1\_ADCS\_POSN@{\_ADCON1\_ADCS\_POSN}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{\_ADCON1\_ADCS\_POSN}{\_ADCON1\_ADCS\_POSN}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+\_\+\+ADCON1\+\_\+\+ADCS\+\_\+\+POSN = const(0x04)\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00071}{71}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a86b75c5fd5c82991257e5aaef7d5d4aa}\label{classpycoproc__1_1_1_pycoproc_a86b75c5fd5c82991257e5aaef7d5d4aa}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!ADCON0\_ADDR@{ADCON0\_ADDR}}
+\index{ADCON0\_ADDR@{ADCON0\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{ADCON0\_ADDR}{ADCON0\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+ADCON0\+\_\+\+ADDR = const(0x9D)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00060}{60}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_afaeca1e3371d6827cde8449a9ee89a63}\label{classpycoproc__1_1_1_pycoproc_afaeca1e3371d6827cde8449a9ee89a63}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!ADCON1\_ADDR@{ADCON1\_ADDR}}
+\index{ADCON1\_ADDR@{ADCON1\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{ADCON1\_ADDR}{ADCON1\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+ADCON1\+\_\+\+ADDR = const(0x9E)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00061}{61}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a32d9920908809f8030b5d82a5da59cff}\label{classpycoproc__1_1_1_pycoproc_a32d9920908809f8030b5d82a5da59cff}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!ADRESH\_ADDR@{ADRESH\_ADDR}}
+\index{ADRESH\_ADDR@{ADRESH\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{ADRESH\_ADDR}{ADRESH\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+ADRESH\+\_\+\+ADDR = const(0x09C)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00075}{75}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_adf40398b2304396c558ab4630ac9109d}\label{classpycoproc__1_1_1_pycoproc_adf40398b2304396c558ab4630ac9109d}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!ADRESL\_ADDR@{ADRESL\_ADDR}}
+\index{ADRESL\_ADDR@{ADRESL\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{ADRESL\_ADDR}{ADRESL\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+ADRESL\+\_\+\+ADDR = const(0x09B)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00074}{74}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a31f8727c19997e6200d59ff8ad7ef2a2}\label{classpycoproc__1_1_1_pycoproc_a31f8727c19997e6200d59ff8ad7ef2a2}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!ANSELA\_ADDR@{ANSELA\_ADDR}}
+\index{ANSELA\_ADDR@{ANSELA\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{ANSELA\_ADDR}{ANSELA\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+ANSELA\+\_\+\+ADDR = const(0x18C)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00056}{56}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_af9d08c2188eaea2d561545556d8bbe5d}\label{classpycoproc__1_1_1_pycoproc_af9d08c2188eaea2d561545556d8bbe5d}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!ANSELB\_ADDR@{ANSELB\_ADDR}}
+\index{ANSELB\_ADDR@{ANSELB\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{ANSELB\_ADDR}{ANSELB\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+ANSELB\+\_\+\+ADDR = const(0x18D)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00057}{57}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a54ba4f398c3da220870981515c76bf61}\label{classpycoproc__1_1_1_pycoproc_a54ba4f398c3da220870981515c76bf61}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!ANSELC\_ADDR@{ANSELC\_ADDR}}
+\index{ANSELC\_ADDR@{ANSELC\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{ANSELC\_ADDR}{ANSELC\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+ANSELC\+\_\+\+ADDR = const(0x18E)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00058}{58}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a8a7ce65e63d48079ec0937dc43706c3c}\label{classpycoproc__1_1_1_pycoproc_a8a7ce65e63d48079ec0937dc43706c3c}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!board\_type@{board\_type}}
+\index{board\_type@{board\_type}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{board\_type}{board\_type}}
+{\footnotesize\ttfamily pycoproc\+\_\+1.\+Pycoproc.\+board\+\_\+type}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00103}{103}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_ac5e490105d153bc6714dcea7ef48bedf}\label{classpycoproc__1_1_1_pycoproc_ac5e490105d153bc6714dcea7ef48bedf}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!BOARD\_TYPE\_SET@{BOARD\_TYPE\_SET}}
+\index{BOARD\_TYPE\_SET@{BOARD\_TYPE\_SET}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{BOARD\_TYPE\_SET}{BOARD\_TYPE\_SET}}
+{\footnotesize\ttfamily tuple pycoproc\+\_\+1.\+Pycoproc.\+BOARD\+\_\+\+TYPE\+\_\+\+SET = (\mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a086e909f13ffba329def6d2d4763662b}{PYSENSE}}, \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a72aa151fda24bcf843503f8817942c75}{PYTRACK}}, \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_ae6926c56d8afda91f45dceb5667818e2}{PYSCAN}})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00035}{35}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a5ec533003db21f7b4dc8b01edf138130}\label{classpycoproc__1_1_1_pycoproc_a5ec533003db21f7b4dc8b01edf138130}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!clk\_cal\_factor@{clk\_cal\_factor}}
+\index{clk\_cal\_factor@{clk\_cal\_factor}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{clk\_cal\_factor}{clk\_cal\_factor}}
+{\footnotesize\ttfamily pycoproc\+\_\+1.\+Pycoproc.\+clk\+\_\+cal\+\_\+factor}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00104}{104}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a0da37d7b1b045b3190afc24cd8899216}\label{classpycoproc__1_1_1_pycoproc_a0da37d7b1b045b3190afc24cd8899216}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!CMD\_BAUD\_CHANGE@{CMD\_BAUD\_CHANGE}}
+\index{CMD\_BAUD\_CHANGE@{CMD\_BAUD\_CHANGE}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{CMD\_BAUD\_CHANGE}{CMD\_BAUD\_CHANGE}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+CMD\+\_\+\+BAUD\+\_\+\+CHANGE = const(0x30)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00046}{46}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a28aa615515a2a87615522e71639d5cf9}\label{classpycoproc__1_1_1_pycoproc_a28aa615515a2a87615522e71639d5cf9}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!CMD\_CALIBRATE@{CMD\_CALIBRATE}}
+\index{CMD\_CALIBRATE@{CMD\_CALIBRATE}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{CMD\_CALIBRATE}{CMD\_CALIBRATE}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+CMD\+\_\+\+CALIBRATE = const(0x22)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00045}{45}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a8ebd867926a8d0e005b17d901b4cbff5}\label{classpycoproc__1_1_1_pycoproc_a8ebd867926a8d0e005b17d901b4cbff5}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!CMD\_DFU@{CMD\_DFU}}
+\index{CMD\_DFU@{CMD\_DFU}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{CMD\_DFU}{CMD\_DFU}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+CMD\+\_\+\+DFU = const(0x31)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00047}{47}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a49f1eb85909d8998a39a8ef3179a6ebc}\label{classpycoproc__1_1_1_pycoproc_a49f1eb85909d8998a39a8ef3179a6ebc}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!CMD\_FW\_VER@{CMD\_FW\_VER}}
+\index{CMD\_FW\_VER@{CMD\_FW\_VER}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{CMD\_FW\_VER}{CMD\_FW\_VER}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+CMD\+\_\+\+FW\+\_\+\+VER = const(0x11)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00041}{41}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a45f02a7e6d671436ea06631cc8fe044c}\label{classpycoproc__1_1_1_pycoproc_a45f02a7e6d671436ea06631cc8fe044c}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!CMD\_GO\_SLEEP@{CMD\_GO\_SLEEP}}
+\index{CMD\_GO\_SLEEP@{CMD\_GO\_SLEEP}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{CMD\_GO\_SLEEP}{CMD\_GO\_SLEEP}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+CMD\+\_\+\+GO\+\_\+\+SLEEP = const(0x21)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00044}{44}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a181d8f348a39d1cb882acee3e2e5c6b7}\label{classpycoproc__1_1_1_pycoproc_a181d8f348a39d1cb882acee3e2e5c6b7}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!CMD\_HW\_VER@{CMD\_HW\_VER}}
+\index{CMD\_HW\_VER@{CMD\_HW\_VER}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{CMD\_HW\_VER}{CMD\_HW\_VER}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+CMD\+\_\+\+HW\+\_\+\+VER = const(0x10)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00040}{40}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_af76cf10ffeefdba969e8296050dce0af}\label{classpycoproc__1_1_1_pycoproc_af76cf10ffeefdba969e8296050dce0af}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!CMD\_MAGIC@{CMD\_MAGIC}}
+\index{CMD\_MAGIC@{CMD\_MAGIC}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{CMD\_MAGIC}{CMD\_MAGIC}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+CMD\+\_\+\+MAGIC = const(0x02)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00039}{39}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a49960066b90a25447b7fdc21fd08a8bf}\label{classpycoproc__1_1_1_pycoproc_a49960066b90a25447b7fdc21fd08a8bf}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!CMD\_PEEK@{CMD\_PEEK}}
+\index{CMD\_PEEK@{CMD\_PEEK}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{CMD\_PEEK}{CMD\_PEEK}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+CMD\+\_\+\+PEEK = const(0x0)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00037}{37}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a4d2bcef67aafab262b01acd4d37dd495}\label{classpycoproc__1_1_1_pycoproc_a4d2bcef67aafab262b01acd4d37dd495}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!CMD\_POKE@{CMD\_POKE}}
+\index{CMD\_POKE@{CMD\_POKE}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{CMD\_POKE}{CMD\_POKE}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+CMD\+\_\+\+POKE = const(0x01)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00038}{38}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a5e40814afafc36b1524f1b63f9bd322f}\label{classpycoproc__1_1_1_pycoproc_a5e40814afafc36b1524f1b63f9bd322f}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!CMD\_PROD\_ID@{CMD\_PROD\_ID}}
+\index{CMD\_PROD\_ID@{CMD\_PROD\_ID}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{CMD\_PROD\_ID}{CMD\_PROD\_ID}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+CMD\+\_\+\+PROD\+\_\+\+ID = const(0x12)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00042}{42}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a674e474b27325c6d02123c8f21d5c3e2}\label{classpycoproc__1_1_1_pycoproc_a674e474b27325c6d02123c8f21d5c3e2}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!CMD\_SETUP\_SLEEP@{CMD\_SETUP\_SLEEP}}
+\index{CMD\_SETUP\_SLEEP@{CMD\_SETUP\_SLEEP}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{CMD\_SETUP\_SLEEP}{CMD\_SETUP\_SLEEP}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+CMD\+\_\+\+SETUP\+\_\+\+SLEEP = const(0x20)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00043}{43}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a893db3065847ffdddc86ec8581c90928}\label{classpycoproc__1_1_1_pycoproc_a893db3065847ffdddc86ec8581c90928}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!EXP\_RTC\_PERIOD@{EXP\_RTC\_PERIOD}}
+\index{EXP\_RTC\_PERIOD@{EXP\_RTC\_PERIOD}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{EXP\_RTC\_PERIOD}{EXP\_RTC\_PERIOD}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+EXP\+\_\+\+RTC\+\_\+\+PERIOD = const(7000)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00090}{90}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_af041332bc327553ccfc27efafe230162}\label{classpycoproc__1_1_1_pycoproc_af041332bc327553ccfc27efafe230162}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!i2c@{i2c}}
+\index{i2c@{i2c}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{i2c}{i2c}}
+{\footnotesize\ttfamily pycoproc\+\_\+1.\+Pycoproc.\+i2c}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00094}{94}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a82e0e7b2ae9e9c793dac8d9ab9e2d85c}\label{classpycoproc__1_1_1_pycoproc_a82e0e7b2ae9e9c793dac8d9ab9e2d85c}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!I2C\_SLAVE\_ADDR@{I2C\_SLAVE\_ADDR}}
+\index{I2C\_SLAVE\_ADDR@{I2C\_SLAVE\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{I2C\_SLAVE\_ADDR}{I2C\_SLAVE\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+I2\+C\+\_\+\+SLAVE\+\_\+\+ADDR = const(8)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00029}{29}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a78d47f38036859fc19096cb9e9efd628}\label{classpycoproc__1_1_1_pycoproc_a78d47f38036859fc19096cb9e9efd628}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!INTCON\_ADDR@{INTCON\_ADDR}}
+\index{INTCON\_ADDR@{INTCON\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{INTCON\_ADDR}{INTCON\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+INTCON\+\_\+\+ADDR = const(0x0B)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00066}{66}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_ab0069bcfee5196f16946dd96e7afd983}\label{classpycoproc__1_1_1_pycoproc_ab0069bcfee5196f16946dd96e7afd983}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!IOCAN\_ADDR@{IOCAN\_ADDR}}
+\index{IOCAN\_ADDR@{IOCAN\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{IOCAN\_ADDR}{IOCAN\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+IOCAN\+\_\+\+ADDR = const(0x392)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00064}{64}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a8f661f2ee59cbc8976c85f7ae2d45bda}\label{classpycoproc__1_1_1_pycoproc_a8f661f2ee59cbc8976c85f7ae2d45bda}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!IOCAP\_ADDR@{IOCAP\_ADDR}}
+\index{IOCAP\_ADDR@{IOCAP\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{IOCAP\_ADDR}{IOCAP\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+IOCAP\+\_\+\+ADDR = const(0x391)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00063}{63}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a6fc898e958fa5e3dc23c767797852869}\label{classpycoproc__1_1_1_pycoproc_a6fc898e958fa5e3dc23c767797852869}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!MEMORY\_BANK\_ADDR@{MEMORY\_BANK\_ADDR}}
+\index{MEMORY\_BANK\_ADDR@{MEMORY\_BANK\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_BANK\_ADDR}{MEMORY\_BANK\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+MEMORY\+\_\+\+BANK\+\_\+\+ADDR = const(0x0620)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00085}{85}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a429a4c369f844757d489ed3705e1f0a6}\label{classpycoproc__1_1_1_pycoproc_a429a4c369f844757d489ed3705e1f0a6}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!OPTION\_REG\_ADDR@{OPTION\_REG\_ADDR}}
+\index{OPTION\_REG\_ADDR@{OPTION\_REG\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{OPTION\_REG\_ADDR}{OPTION\_REG\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+OPTION\+\_\+\+REG\+\_\+\+ADDR = const(0x95)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00067}{67}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_af2ecbf6bc3de079884023bcc15601632}\label{classpycoproc__1_1_1_pycoproc_af2ecbf6bc3de079884023bcc15601632}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!PCON\_ADDR@{PCON\_ADDR}}
+\index{PCON\_ADDR@{PCON\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{PCON\_ADDR}{PCON\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+PCON\+\_\+\+ADDR = const(0x096)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00087}{87}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a0be86a646ef9aa9731300aa1e4681275}\label{classpycoproc__1_1_1_pycoproc_a0be86a646ef9aa9731300aa1e4681275}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!PORTA\_ADDR@{PORTA\_ADDR}}
+\index{PORTA\_ADDR@{PORTA\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{PORTA\_ADDR}{PORTA\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+PORTA\+\_\+\+ADDR = const(0x00C)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00079}{79}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_ab75a57efbc542c80fb5d533efd7ebda9}\label{classpycoproc__1_1_1_pycoproc_ab75a57efbc542c80fb5d533efd7ebda9}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!PORTC\_ADDR@{PORTC\_ADDR}}
+\index{PORTC\_ADDR@{PORTC\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{PORTC\_ADDR}{PORTC\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+PORTC\+\_\+\+ADDR = const(0x00E)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00080}{80}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_ae6926c56d8afda91f45dceb5667818e2}\label{classpycoproc__1_1_1_pycoproc_ae6926c56d8afda91f45dceb5667818e2}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!PYSCAN@{PYSCAN}}
+\index{PYSCAN@{PYSCAN}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{PYSCAN}{PYSCAN}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+PYSCAN = const(3)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00033}{33}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a086e909f13ffba329def6d2d4763662b}\label{classpycoproc__1_1_1_pycoproc_a086e909f13ffba329def6d2d4763662b}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!PYSENSE@{PYSENSE}}
+\index{PYSENSE@{PYSENSE}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{PYSENSE}{PYSENSE}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+PYSENSE = const(1)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00031}{31}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a72aa151fda24bcf843503f8817942c75}\label{classpycoproc__1_1_1_pycoproc_a72aa151fda24bcf843503f8817942c75}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!PYTRACK@{PYTRACK}}
+\index{PYTRACK@{PYTRACK}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{PYTRACK}{PYTRACK}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+PYTRACK = const(2)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00032}{32}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a1b7d6759ab009053cc90513b28c877c9}\label{classpycoproc__1_1_1_pycoproc_a1b7d6759ab009053cc90513b28c877c9}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!reg@{reg}}
+\index{reg@{reg}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{reg}{reg}}
+{\footnotesize\ttfamily pycoproc\+\_\+1.\+Pycoproc.\+reg}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00105}{105}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a90bec03e6fec8568e6ecc5ead5a5097f}\label{classpycoproc__1_1_1_pycoproc_a90bec03e6fec8568e6ecc5ead5a5097f}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!REG\_ADDRH@{REG\_ADDRH}}
+\index{REG\_ADDRH@{REG\_ADDRH}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{REG\_ADDRH}{REG\_ADDRH}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+REG\+\_\+\+ADDRH = const(2)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00051}{51}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a6903816dc7a91a96f6fcf97a9094c7ef}\label{classpycoproc__1_1_1_pycoproc_a6903816dc7a91a96f6fcf97a9094c7ef}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!REG\_ADDRL@{REG\_ADDRL}}
+\index{REG\_ADDRL@{REG\_ADDRL}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{REG\_ADDRL}{REG\_ADDRL}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+REG\+\_\+\+ADDRL = const(1)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00050}{50}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a29d1d9700af74b6991ea8cedc886298c}\label{classpycoproc__1_1_1_pycoproc_a29d1d9700af74b6991ea8cedc886298c}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!REG\_AND@{REG\_AND}}
+\index{REG\_AND@{REG\_AND}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{REG\_AND}{REG\_AND}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+REG\+\_\+\+AND = const(3)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00052}{52}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_afdd4a38c3a92cbb2ec3d78cdcc635231}\label{classpycoproc__1_1_1_pycoproc_afdd4a38c3a92cbb2ec3d78cdcc635231}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!REG\_CMD@{REG\_CMD}}
+\index{REG\_CMD@{REG\_CMD}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{REG\_CMD}{REG\_CMD}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+REG\+\_\+\+CMD = const(0)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00049}{49}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a00503bd01981ccdbbc3b2c116bba0741}\label{classpycoproc__1_1_1_pycoproc_a00503bd01981ccdbbc3b2c116bba0741}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!REG\_OR@{REG\_OR}}
+\index{REG\_OR@{REG\_OR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{REG\_OR}{REG\_OR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+REG\+\_\+\+OR = const(4)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00053}{53}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_ad7828e1cc65a0355ffb1d93701c2bfd7}\label{classpycoproc__1_1_1_pycoproc_ad7828e1cc65a0355ffb1d93701c2bfd7}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!REG\_XOR@{REG\_XOR}}
+\index{REG\_XOR@{REG\_XOR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{REG\_XOR}{REG\_XOR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+REG\+\_\+\+XOR = const(5)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00054}{54}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a591992ceaf24fcfd36d8b6c7bc38d66b}\label{classpycoproc__1_1_1_pycoproc_a591992ceaf24fcfd36d8b6c7bc38d66b}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!scl@{scl}}
+\index{scl@{scl}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{scl}{scl}}
+{\footnotesize\ttfamily pycoproc\+\_\+1.\+Pycoproc.\+scl}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00102}{102}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a39e55a948911d72014daff6c67108fef}\label{classpycoproc__1_1_1_pycoproc_a39e55a948911d72014daff6c67108fef}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!sda@{sda}}
+\index{sda@{sda}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{sda}{sda}}
+{\footnotesize\ttfamily pycoproc\+\_\+1.\+Pycoproc.\+sda}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00101}{101}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a882bfa79ae77cfaf2b960cf69db37aab}\label{classpycoproc__1_1_1_pycoproc_a882bfa79ae77cfaf2b960cf69db37aab}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!STATUS\_ADDR@{STATUS\_ADDR}}
+\index{STATUS\_ADDR@{STATUS\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{STATUS\_ADDR}{STATUS\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+STATUS\+\_\+\+ADDR = const(0x083)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00088}{88}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a964c15ff5e23cac1ed1f9d38df1d17ee}\label{classpycoproc__1_1_1_pycoproc_a964c15ff5e23cac1ed1f9d38df1d17ee}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!TRISC\_ADDR@{TRISC\_ADDR}}
+\index{TRISC\_ADDR@{TRISC\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{TRISC\_ADDR}{TRISC\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+TRISC\+\_\+\+ADDR = const(0x08E)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00077}{77}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a3f066b01cb85a6df11d5e88d2f9c727c}\label{classpycoproc__1_1_1_pycoproc_a3f066b01cb85a6df11d5e88d2f9c727c}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!wake\_int@{wake\_int}}
+\index{wake\_int@{wake\_int}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{wake\_int}{wake\_int}}
+{\footnotesize\ttfamily pycoproc\+\_\+1.\+Pycoproc.\+wake\+\_\+int}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00106}{106}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_ade08971ec45eb2e8448233195a567df4}\label{classpycoproc__1_1_1_pycoproc_ade08971ec45eb2e8448233195a567df4}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!wake\_int\_pin@{wake\_int\_pin}}
+\index{wake\_int\_pin@{wake\_int\_pin}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{wake\_int\_pin}{wake\_int\_pin}}
+{\footnotesize\ttfamily pycoproc\+\_\+1.\+Pycoproc.\+wake\+\_\+int\+\_\+pin}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00107}{107}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a2569fcf3a8fe9b0520cc55f7372e71a5}\label{classpycoproc__1_1_1_pycoproc_a2569fcf3a8fe9b0520cc55f7372e71a5}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!wake\_int\_pin\_rising\_edge@{wake\_int\_pin\_rising\_edge}}
+\index{wake\_int\_pin\_rising\_edge@{wake\_int\_pin\_rising\_edge}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{wake\_int\_pin\_rising\_edge}{wake\_int\_pin\_rising\_edge}}
+{\footnotesize\ttfamily pycoproc\+\_\+1.\+Pycoproc.\+wake\+\_\+int\+\_\+pin\+\_\+rising\+\_\+edge}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00108}{108}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_ae9f2927ab0ad9f645a69e2127622a131}\label{classpycoproc__1_1_1_pycoproc_ae9f2927ab0ad9f645a69e2127622a131}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!WAKE\_REASON\_ADDR@{WAKE\_REASON\_ADDR}}
+\index{WAKE\_REASON\_ADDR@{WAKE\_REASON\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{WAKE\_REASON\_ADDR}{WAKE\_REASON\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+WAKE\+\_\+\+REASON\+\_\+\+ADDR = const(0x064C)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00084}{84}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+\mbox{\Hypertarget{classpycoproc__1_1_1_pycoproc_a07565d461c95d9f01b2ec1d6b4daba79}\label{classpycoproc__1_1_1_pycoproc_a07565d461c95d9f01b2ec1d6b4daba79}} 
+\index{pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}!WPUA\_ADDR@{WPUA\_ADDR}}
+\index{WPUA\_ADDR@{WPUA\_ADDR}!pycoproc\_1.Pycoproc@{pycoproc\_1.Pycoproc}}
+\doxysubsubsection{\texorpdfstring{WPUA\_ADDR}{WPUA\_ADDR}}
+{\footnotesize\ttfamily const pycoproc\+\_\+1.\+Pycoproc.\+WPUA\+\_\+\+ADDR = const(0x20C)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{pycoproc__1_8py_source_l00082}{82}} of file \mbox{\hyperlink{pycoproc__1_8py_source}{pycoproc\+\_\+1.\+py}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+PSE\+\_\+\+Lo\+Py/lib/\mbox{\hyperlink{pycoproc__1_8py}{pycoproc\+\_\+1.\+py}}\end{DoxyCompactItemize}

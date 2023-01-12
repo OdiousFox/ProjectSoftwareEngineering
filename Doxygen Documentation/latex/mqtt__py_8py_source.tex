@@ -1,0 +1,333 @@
+\hypertarget{mqtt__py_8py_source}{}\doxysection{mqtt\+\_\+py.\+py}
+\label{mqtt__py_8py_source}\index{my\_server/webserver/mqtt\_py.py@{my\_server/webserver/mqtt\_py.py}}
+\mbox{\hyperlink{mqtt__py_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00001}\mbox{\hyperlink{namespacewebserver_1_1mqtt__py}{00001}}\ \textcolor{keyword}{from}\ .models\ \textcolor{keyword}{import}\ Meta\_data}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00002}00002\ \textcolor{keyword}{from}\ .models\ \textcolor{keyword}{import}\ PyEntries}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00003}00003\ \textcolor{keyword}{from}\ .models\ \textcolor{keyword}{import}\ LhtEntries}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00004}00004\ \textcolor{keyword}{from}\ .models\ \textcolor{keyword}{import}\ Py\_Averages}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00005}00005\ \textcolor{keyword}{from}\ .models\ \textcolor{keyword}{import}\ Lht\_Averages}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00006}00006\ \textcolor{keyword}{from}\ datetime\ \textcolor{keyword}{import}\ timedelta}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00007}00007\ \textcolor{keyword}{from}\ django.db.models.functions\ \textcolor{keyword}{import}\ ExtractHour,\ ExtractMinute}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00008}00008\ \textcolor{keyword}{from}\ django.db.models\ \textcolor{keyword}{import}\ Avg,\ Value,\ Case,\ When}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00009}00009\ \textcolor{keyword}{import}\ paho.mqtt.client\ \textcolor{keyword}{as}\ mqtt}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00010}00010\ \textcolor{keyword}{import}\ re}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00011}00011\ \textcolor{keyword}{import}\ json}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00018}\mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a862c6932db900b17cbe0586902c7c0bd}{00018}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a862c6932db900b17cbe0586902c7c0bd}{returnMessage}}(message):}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00019}00019\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00020}00020\ \ \ \ \ message=message.decode()}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00021}00021\ \ \ \ \ message=\textcolor{stringliteral}{"{}"{}"{}\{\}"{}"{}"{}}.format(message)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00022}00022\ \ \ \ \ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00023}00023\ \textcolor{stringliteral}{\ \ \ \ json.load()\ takes\ a\ file\ object\ }\textcolor{keywordflow}{and}\ returns\ the\ json\ object.\ It\ \textcolor{keywordflow}{is}\ contained\ \textcolor{keywordflow}{in}\ the\ json\ header.}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00024}00024\ \ \ \ \ A\ JSON\ object\ contains\ data\ \textcolor{keywordflow}{in}\ the\ form\ of\ key/value\ pair.\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00025}00025\ \ \ \ \ The\ keys\ are\ strings\ \textcolor{keywordflow}{and}\ the\ values\ are\ the\ JSON\ types.\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00026}00026\ \ \ \ \ Keys\ \textcolor{keywordflow}{and}\ values\ are\ separated\ by\ a\ colon.}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00027}00027\ \ \ \ \ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00028}00028\ \textcolor{stringliteral}{\ \ \ \ mes=json.loads(message)}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00029}00029\ \textcolor{stringliteral}{\ \ \ \ print(mes["{}end\_device\_ids"{}}][\textcolor{stringliteral}{"{}device\_id"{}}])}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00030}00030\ \ \ \ \ print(mes[\textcolor{stringliteral}{"{}uplink\_message"{}}][\textcolor{stringliteral}{"{}decoded\_payload"{}}])}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00031}00031\ \ \ \ \ \textcolor{comment}{\#type\ conversion\ of\ the\ result\ of\ the\ json.loads()\ 'mes'.}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00032}00032\ \ \ \ \ inp=dict(dev\_id=mes[\textcolor{stringliteral}{"{}end\_device\_ids"{}}][\textcolor{stringliteral}{"{}device\_id"{}}])}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00033}00033\ \ \ \ \ \textcolor{comment}{\#sub\ json\ headers\ between\ the\ parameters\ given.}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00034}00034\ \ \ \ \ inp[\textcolor{stringliteral}{"{}payload"{}}]=mes[\textcolor{stringliteral}{"{}uplink\_message"{}}][\textcolor{stringliteral}{"{}decoded\_payload"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00035}00035\ \ \ \ \ inp[\textcolor{stringliteral}{"{}time"{}}]=mes[\textcolor{stringliteral}{"{}uplink\_message"{}}][\textcolor{stringliteral}{"{}rx\_metadata"{}}][0][\textcolor{stringliteral}{"{}time"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00036}00036\ \ \ \ \ inp[\textcolor{stringliteral}{"{}gate\_id"{}}]=mes[\textcolor{stringliteral}{"{}uplink\_message"{}}][\textcolor{stringliteral}{"{}rx\_metadata"{}}][0][\textcolor{stringliteral}{"{}gateway\_ids"{}}][\textcolor{stringliteral}{'gateway\_id'}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00037}00037\ \ \ \ \ inp[\textcolor{stringliteral}{"{}long"{}}]=mes[\textcolor{stringliteral}{"{}uplink\_message"{}}][\textcolor{stringliteral}{"{}rx\_metadata"{}}][0][\textcolor{stringliteral}{"{}location"{}}][\textcolor{stringliteral}{"{}longitude"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00038}00038\ \ \ \ \ inp[\textcolor{stringliteral}{"{}lat"{}}]=mes[\textcolor{stringliteral}{"{}uplink\_message"{}}][\textcolor{stringliteral}{"{}rx\_metadata"{}}][0][\textcolor{stringliteral}{"{}location"{}}][\textcolor{stringliteral}{"{}latitude"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00039}00039\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00040}00040\ \ \ \ \ inp[\textcolor{stringliteral}{"{}airtime"{}}]=mes[\textcolor{stringliteral}{"{}uplink\_message"{}}][\textcolor{stringliteral}{"{}consumed\_airtime"{}}].replace(\textcolor{stringliteral}{'s'},\textcolor{stringliteral}{''})}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00041}00041\ \ \ \ \ inp[\textcolor{stringliteral}{"{}rssi"{}}]=mes[\textcolor{stringliteral}{"{}uplink\_message"{}}][\textcolor{stringliteral}{"{}rx\_metadata"{}}][0][\textcolor{stringliteral}{"{}rssi"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00042}00042\ \ \ \ \ inp[\textcolor{stringliteral}{"{}snr"{}}]=mes[\textcolor{stringliteral}{"{}uplink\_message"{}}][\textcolor{stringliteral}{"{}rx\_metadata"{}}][0][\textcolor{stringliteral}{"{}snr"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00043}00043\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00044}00044\ \ \ \ \ \textcolor{comment}{\#return\ dictionary\ type\ of\ the\ result.}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{return}\ inp}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00053}\mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a19cb2e739a668c1e42bde8a84589d133}{00053}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a19cb2e739a668c1e42bde8a84589d133}{updata\_avg}}(id):}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00054}00054\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00055}00055\ \ \ \ \ res=\textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{stringliteral}{"{}py"{}}\ \textcolor{keywordflow}{in}\ id:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ res=\ PyEntries.objects.filter(dev\_uid=id)\(\backslash\)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ .annotate(hour=ExtractHour(\textcolor{stringliteral}{"{}entry\_date"{}}))\(\backslash\)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ .values(\textcolor{stringliteral}{"{}hour"{}},\textcolor{stringliteral}{"{}temperature"{}},\textcolor{stringliteral}{"{}light"{}},\textcolor{stringliteral}{"{}pressure"{}},\textcolor{stringliteral}{"{}humidity"{}})}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ res=LhtEntries.objects.filter(dev\_uid=id)\(\backslash\)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ .annotate(hour=ExtractHour(\textcolor{stringliteral}{"{}entry\_date"{}}))\(\backslash\)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .values(\textcolor{stringliteral}{"{}hour"{}},\textcolor{stringliteral}{"{}Bat\_status"{}},\textcolor{stringliteral}{"{}BatV"{}},\textcolor{stringliteral}{"{}Hum\_SHT"{}},\textcolor{stringliteral}{"{}ILL\_lx"{}},\textcolor{stringliteral}{"{}TempC\_DS"{}},\textcolor{stringliteral}{"{}TempC\_SHT"{}})}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00064}00064\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00065}00065\ \ \ \ \ sto=\{\}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(24):}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ sto[i]=\{\textcolor{stringliteral}{"{}count"{}}:0\}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ key\ \textcolor{keywordflow}{in}\ res[0].keys():}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ key\ !=\ \textcolor{stringliteral}{"{}hour"{}}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ res[0][key]\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sto[i][key]=0}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sto[i][key]=\textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{for}\ val\ \textcolor{keywordflow}{in}\ res:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ sto[val[\textcolor{stringliteral}{"{}hour"{}}]][\textcolor{stringliteral}{"{}count"{}}]+=1}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ key\ \textcolor{keywordflow}{in}\ val.keys():}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ key\ !=\ \textcolor{stringliteral}{"{}hour"{}}\ :}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ val[key]\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sto[val[\textcolor{stringliteral}{"{}hour"{}}]][key]+=val[key]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sto[val[\textcolor{stringliteral}{"{}hour"{}}]][key]=val[key]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00082}00082\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00084}00084\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00085}00085\ \ \ \ \ avg\_sto=\{\}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00086}00086\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(24):}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ sto[i][\textcolor{stringliteral}{"{}count"{}}]>0:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ avg\_sto[i]=\{\}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ key\ \textcolor{keywordflow}{in}\ sto[i].keys():}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ key\ !=\ \textcolor{stringliteral}{"{}count"{}}\ :}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if(sto[i][key]\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_sto[i][key]=sto[i][key]/sto[i][\textcolor{stringliteral}{"{}count"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avg\_sto[i][key]=\textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00095}00095\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00096}00096\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ avg\_sto.keys():}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00097}00097\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{stringliteral}{"{}py"{}}\ \textcolor{keywordflow}{in}\ id:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ que=Py\_Averages.objects.filter(dev\_uid=id,entry\_hour=i)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ if(len(que)==0):}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Py\_Averages.objects.create(}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dev\_uid=id,\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entry\_hour=i,}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ light=avg\_sto[i][\textcolor{stringliteral}{"{}light"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temperature=avg\_sto[i][\textcolor{stringliteral}{"{}temperature"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pressure=avg\_sto[i][\textcolor{stringliteral}{"{}pressure"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ humidity=avg\_sto[i][\textcolor{stringliteral}{"{}humidity"{}}])}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Py\_Averages.objects.filter(dev\_uid=id,\ entry\_hour=i).update(}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ light=avg\_sto[i][\textcolor{stringliteral}{"{}light"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temperature=avg\_sto[i][\textcolor{stringliteral}{"{}temperature"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pressure=avg\_sto[i][\textcolor{stringliteral}{"{}pressure"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ humidity=avg\_sto[i][\textcolor{stringliteral}{"{}humidity"{}}])}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ que=Lht\_Averages.objects.filter(dev\_uid=id,entry\_hour=i)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ if(len(que)==0):}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Lht\_Averages.objects.create(}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dev\_uid=id,}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entry\_hour=i,}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BatV=avg\_sto[i][\textcolor{stringliteral}{"{}BatV"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Bat\_status=avg\_sto[i][\textcolor{stringliteral}{"{}Bat\_status"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Hum\_SHT=avg\_sto[i][\textcolor{stringliteral}{"{}Hum\_SHT"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ILL\_lx=avg\_sto[i][\textcolor{stringliteral}{"{}ILL\_lx"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TempC\_SHT=avg\_sto[i][\textcolor{stringliteral}{"{}TempC\_SHT"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TempC\_DS=avg\_sto[i][\textcolor{stringliteral}{"{}TempC\_DS"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Lht\_Averages.objects.filter(dev\_uid=id,\ entry\_hour=i).update(}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BatV=avg\_sto[i][\textcolor{stringliteral}{"{}BatV"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Bat\_status=avg\_sto[i][\textcolor{stringliteral}{"{}Bat\_status"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Hum\_SHT=avg\_sto[i][\textcolor{stringliteral}{"{}Hum\_SHT"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ILL\_lx=avg\_sto[i][\textcolor{stringliteral}{"{}ILL\_lx"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TempC\_SHT=avg\_sto[i][\textcolor{stringliteral}{"{}TempC\_SHT"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TempC\_DS=avg\_sto[i][\textcolor{stringliteral}{"{}TempC\_DS"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00145}00145\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00146}00146\ \ \ \ \ \textcolor{keywordflow}{return}\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00152}\mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a974bec29f60fefe437d31b6cc52ca1e5}{00152}}\ \textcolor{keyword}{def\ }client():}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00153}00153\ \ \ \ \ \textcolor{comment}{\#login\ required\ to\ connect\ to\ the\ server}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00154}00154\ \ \ \ \ username\ =\ \textcolor{stringliteral}{"{}project-\/software-\/engineering@ttn"{}}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00155}00155\ \ \ \ \ password\ =\ \textcolor{stringliteral}{"{}NNSXS.DTT4HTNBXEQDZ4QYU6SG73Q2OXCERCZ6574RVXI.CQE6IG6FYNJOO2MOFMXZVWZE4GXTCC2YXNQNFDLQL4APZMWU6ZGA"{}}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00156}00156\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00157}00157\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00162}00162\ \ \ \ \ \textcolor{keyword}{def\ }on\_connect(client,\ userdata,\ flags,\ rc):}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00163}00163\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Connected\ with\ result\ code\ "{}}\ +\ str(rc))}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00164}00164\ \ \ \ \ \ \ \ \ client.subscribe(\textcolor{stringliteral}{"{}extapi/data/esm"{}})}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00166}00166\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00169}00169\ \ \ \ \ \textcolor{keyword}{def\ }on\_message(client,\ userdata,\ msg):}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00170}00170\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00172}00172\ \ \ \ \ \ \ \ \ values\ =\ \mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a862c6932db900b17cbe0586902c7c0bd}{returnMessage}}(msg.payload)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00173}00173\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{stringliteral}{"{}py"{}}\ \textcolor{keywordflow}{in}\ values[\textcolor{stringliteral}{"{}dev\_id"{}}]:\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PyEntries.objects.create(}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#primary\ field\ has\ to\ directly\ reference\ that\ value}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ dev\_uid=values[\textcolor{stringliteral}{"{}dev\_id"{}}],\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ entry\_date=values[\textcolor{stringliteral}{"{}time"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ light=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}light"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ temperature=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}temperature"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ pressure=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}pressure"{}}])}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Cannot\ insert\ data\ from\ \{\}"{}}.format(values[\textcolor{stringliteral}{"{}dev\_id"{}}]))}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00188}00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#try\ catch\ statement\ to\ deal\ with\ the\ difference\ of\ ILL\_lx\ and\ TempC\_DS\ values}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LhtEntries.objects.create(}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dev\_uid=values[\textcolor{stringliteral}{"{}dev\_id"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entry\_date=values[\textcolor{stringliteral}{"{}time"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BatV=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}BatV"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Bat\_status=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}Bat\_status"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Hum\_SHT=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}Hum\_SHT"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ILL\_lx=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}ILL\_lx"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TempC\_SHT=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}TempC\_SHT"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LhtEntries.objects.create(}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dev\_uid=values[\textcolor{stringliteral}{"{}dev\_id"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ entry\_date=values[\textcolor{stringliteral}{"{}time"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BatV=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}BatV"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Bat\_status=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}Bat\_status"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Hum\_SHT=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}Hum\_SHT"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TempC\_DS=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}TempC\_DS"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TempC\_SHT=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}TempC\_SHT"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00211}00211\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ Meta\_data.objects.create(}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ dev\_uid\ =\ values[\textcolor{stringliteral}{"{}dev\_id"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ gateway\_id\ =\ values[\textcolor{stringliteral}{"{}gate\_id"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ longitude\ =\ values[\textcolor{stringliteral}{"{}long"{}}],\ \ \ \ \textcolor{comment}{\#\ Location\ longitude}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ latitude\ =\ values[\textcolor{stringliteral}{"{}lat"{}}],\ \ \textcolor{comment}{\#\ Location\ }}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ rssi\ =\ values[\textcolor{stringliteral}{"{}rssi"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ snr\ =\ values[\textcolor{stringliteral}{"{}snr"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ airtime\ =\ values[\textcolor{stringliteral}{"{}airtime"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a19cb2e739a668c1e42bde8a84589d133}{updata\_avg}}(values[\textcolor{stringliteral}{"{}dev\_id"{}}])}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00224}00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Cannot\ update\ metadat\ for"{}}+values[\textcolor{stringliteral}{"{}dev\_id"{}}])}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00226}00226\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#get\_values()}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00227}00227\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00228}00228\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00229}00229\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00232}00232\ \ \ \ \ \textcolor{keyword}{def\ }on\_log(client,\ userdata,\ level,\ buf):}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00233}00233\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}log:\ "{}},\ buf)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00235}00235\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00240}00240\ \ \ \ \ client\ =\ mqtt.Client()}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00241}00241\ \ \ \ \ client.on\_connect\ =\ on\_connect}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00242}00242\ \ \ \ \ client.on\_message\ =\ on\_message}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00243}00243\ \ \ \ \ client.username\_pw\_set(username,\ password)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00244}00244\ \ \ \ \ client.connect(\textcolor{stringliteral}{"{}eu1.cloud.thethings.network"{}},\ 1883,\ 60)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00245}00245\ \ \ \ \ print(\textcolor{stringliteral}{"{}Hello"{}})}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00246}00246\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00247}00247\ \ \ \ \ \textcolor{comment}{\#start\ looping\ and\ fetching\ data\ until\ a\ keyboard\ interrupt\ is\ made.}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00248}00248\ \ \ \ \ client.loop\_start()}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00249}00249\ \ \ \ \ client.subscribe(\textcolor{stringliteral}{"{}\#"{}})\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00250}00250\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00257}\mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a95acf7d35e469e8d8d8405e6226a5716}{00257}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a95acf7d35e469e8d8d8405e6226a5716}{client\_g3}}():}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00258}00258\ \ \ \ \ \textcolor{comment}{\#login\ required\ to\ connect\ to\ the\ server}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00259}00259\ \ \ \ \ username\ =\ \textcolor{stringliteral}{"{}saxion-\/weather-\/station-\/2@ttn"{}}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00260}00260\ \ \ \ \ password\ =\ \textcolor{stringliteral}{"{}NNSXS.G4XMJDI6W4BXH3Q6MXTBUOWDJ5GIUNKZJWGRMYQ.CBK6VE72OZR7UEAOPPU6HBW3E2742TZCHLSB5WCO7Z56D2FLPKWA"{}}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00262}00262\ \ \ \ \ \textcolor{comment}{\#\ The\ callback\ for\ when\ the\ client\ receives\ a\ CONNACK\ response\ from\ the\ server.}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00263}00263\ \ \ \ \ \textcolor{keyword}{def\ }on\_connect(client,\ userdata,\ flags,\ rc):}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00264}00264\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Connected\ with\ result\ code\ "{}}\ +\ str(rc))}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00266}00266\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Subscribing\ in\ on\_connect()\ means\ that\ if\ we\ lose\ the\ connection\ and}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00267}00267\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ reconnect\ then\ subscriptions\ will\ be\ renewed.}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00268}00268\ \ \ \ \ \ \ \ \ client.subscribe(\textcolor{stringliteral}{"{}extapi/data/esm"{}})}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00270}00270\ \ \ \ \ \textcolor{comment}{\#\ The\ callback\ for\ when\ a\ PUBLISH\ message\ is\ received\ from\ the\ server.}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00271}00271\ \ \ \ \ \textcolor{keyword}{def\ }on\_message(client,\ userdata,\ msg):}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00272}00272\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#retrieved\ msg\ json\ is\ decoded\ with\ the\ returnMessage()\ method\ defined\ above.}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00273}00273\ \ \ \ \ \ \ \ \ values\ =\ \mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a862c6932db900b17cbe0586902c7c0bd}{returnMessage}}(msg.payload)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00274}00274\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#since\ the\ values\ is\ a\ dictionary\ type\ you\ can\ directly\ check\ values\ in\ keys}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ if\ dev\_id\ contains\ 'py'\ then\ store\ data\ in\ the\ PyEntries\ table\ }}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00276}00276\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00277}00277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ PyEntries.objects.create(}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#primary\ field\ has\ to\ directly\ reference\ that\ value}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ dev\_uid=values[\textcolor{stringliteral}{"{}dev\_id"{}}],\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ entry\_date=values[\textcolor{stringliteral}{"{}time"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ humidity=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}humidity"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ temperature=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}temperature"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ pressure=values[\textcolor{stringliteral}{"{}payload"{}}][\textcolor{stringliteral}{"{}pressure"{}}])}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00285}00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Cannot\ insert\ data\ from\ py-\/group3"{}})}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00287}00287\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00288}00288\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a19cb2e739a668c1e42bde8a84589d133}{updata\_avg}}(values[\textcolor{stringliteral}{"{}dev\_id"{}}])}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00289}00289\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ Meta\_data.objects.create(}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ dev\_uid\ =\ values[\textcolor{stringliteral}{"{}dev\_id"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ gateway\_id\ =\ values[\textcolor{stringliteral}{"{}gate\_id"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ longitude\ =\ values[\textcolor{stringliteral}{"{}long"{}}],\ \ \ \ \textcolor{comment}{\#\ Location\ longitude}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ latitude\ =\ values[\textcolor{stringliteral}{"{}lat"{}}],\ \ \textcolor{comment}{\#\ Location\ }}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ rssi\ =\ values[\textcolor{stringliteral}{"{}rssi"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ snr\ =\ values[\textcolor{stringliteral}{"{}snr"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ airtime\ =\ values[\textcolor{stringliteral}{"{}airtime"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a19cb2e739a668c1e42bde8a84589d133}{updata\_avg}}(values[\textcolor{stringliteral}{"{}dev\_id"{}}])}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00300}00300\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Cannot\ update\ metadat\ for"{}}+values[\textcolor{stringliteral}{"{}dev\_id"{}}])}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00302}00302\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00303}00303\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00305}00305\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00307}00307\ \ \ \ \ \textcolor{comment}{\#debugging\ method\ to\ check\ if\ everything\ connected\ successfully}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00308}00308\ \ \ \ \ \textcolor{keyword}{def\ }on\_log(client,\ userdata,\ level,\ buf):}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00309}00309\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}log:\ "{}},\ buf)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00311}00311\ \ \ \ \ \textcolor{keyword}{def\ }calculate\_Avgs():}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00312}00312\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00313}00313\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00314}00314\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00316}00316\ \ \ \ \ \textcolor{comment}{\#connect\ to\ the\ client\ to\ start\ collecting\ data}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00317}00317\ \ \ \ \ client\ =\ mqtt.Client()}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00318}00318\ \ \ \ \ \textcolor{comment}{\#calls\ the\ on\_connect\ and\ on\_message\ defined\ above}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00319}00319\ \ \ \ \ client.on\_connect\ =\ on\_connect}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00320}00320\ \ \ \ \ client.on\_message\ =\ on\_message}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00321}00321\ \ \ \ \ \textcolor{comment}{\#\ client.on\_log\ =\ on\_log}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00322}00322\ \ \ \ \ client.username\_pw\_set(username,\ password)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00323}00323\ \ \ \ \ \textcolor{comment}{\#specify\ what\ MQTT\ is\ being\ used\ and\ the\ port\ number.}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00324}00324\ \ \ \ \ client.connect(\textcolor{stringliteral}{"{}eu1.cloud.thethings.network"{}},\ 1883,\ 60)}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00325}00325\ \ \ \ \ print(\textcolor{stringliteral}{"{}Hello1"{}})}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00326}00326\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00327}00327\ \ \ \ \ client.loop\_start()}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00328}00328\ \ \ \ \ client.subscribe(\textcolor{stringliteral}{"{}\#"{}})\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00329}00329\ \ \ \ \ \textcolor{keywordflow}{return}\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00330}00330\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00335}\mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a36537ea91ee95729277aa7f77601073e}{00335}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacewebserver_1_1mqtt__py_a36537ea91ee95729277aa7f77601073e}{get\_values}}():}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00336}00336\ \ \ \ \ \textcolor{keyword}{global}\ py\_last\_hour}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00337}00337\ \ \ \ \ \textcolor{keyword}{global}\ lht\_last\_hour}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00338}00338\ \ \ \ \ \textcolor{keywordflow}{for}\ x\ \textcolor{keywordflow}{in}\ range(23):}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00339}00339\ \ \ \ \ \ \ \ \ py\_last\_day\ =\ PyEntries.objects.filter(entry\_date\_hour(x)).annotate(entry\_date\ =\ x\ ,\ avg\_temp\ =\ Avg(\textcolor{stringliteral}{'temperature'}),\ avg\_pressure\ =\ Avg(\textcolor{stringliteral}{'pressure'}),\ avg\_light\ =\ Avg(\textcolor{stringliteral}{'light'}),\ avg\_batteryV\ =\ Avg(\textcolor{stringliteral}{'BatV'}),\ avg\_bat\_status\ =\ Avg(\textcolor{stringliteral}{'Bat\_status'})).values()}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00340}00340\ \ \ \ \ \ \ \ \ lht\_last\_day\ =\ LhtEntries.objects.filter(entry\_date\_\_hour(x)).annotate(entry\_date\ =\ x\ ,avg\_humidity\ =\ Avg(\textcolor{stringliteral}{'Hum\_SHT'}),\ avg\_light\ =\ Avg(\textcolor{stringliteral}{'ILL\_lx'}),\ avg\_OutTemp\ =\ Avg(\textcolor{stringliteral}{'TempC\_SHT'}),\ avg\_InTemp\ =\ Avg(\textcolor{stringliteral}{'TempC\_DS'}),\ avg\_batteryV\ =\ Avg(\textcolor{stringliteral}{'BatV'}),\ avg\_bat\_status\ =\ Avg(\textcolor{stringliteral}{'Bat\_status'})).filter(entry\_date\_\_hour(x)).values()}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00341}00341\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00342}00342\ \ \ \ \ Py\_Averages.objects.create(}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00343}00343\ \ \ \ \ \textcolor{comment}{\#primary\ field\ has\ to\ directly\ reference\ that\ value}}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00344}00344\ \ \ \ \ dev\_uid=py\_last\_day[\textcolor{stringliteral}{"{}dev\_id"{}}],\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00345}00345\ \ \ \ \ entry\_date=py\_last\_day[\textcolor{stringliteral}{"{}entry\_date"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00346}00346\ \ \ \ \ light=py\_last\_day[\textcolor{stringliteral}{"{}avg\_light"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00347}00347\ \ \ \ \ temperature=py\_last\_day[\textcolor{stringliteral}{"{}avd\_temperature"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00348}00348\ \ \ \ \ pressure=py\_last\_day[\textcolor{stringliteral}{"{}avg\_pressure"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00349}00349\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00351}00351\ \ \ \ \ \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00352}00352\ \ \ \ \ \ \ \ \ Lht\_Averages.objects.create(}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00353}00353\ \ \ \ \ \ \ \ \ dev\_uid=lht\_last\_day[\textcolor{stringliteral}{"{}dev\_id"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00354}00354\ \ \ \ \ \ \ \ \ entry\_date=lht\_last\_day[\textcolor{stringliteral}{"{}entry\_date"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00355}00355\ \ \ \ \ \ \ \ \ BatV=lht\_last\_day[\textcolor{stringliteral}{"{}avg\_batteryV"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00356}00356\ \ \ \ \ \ \ \ \ Bat\_status=lht\_last\_day[\textcolor{stringliteral}{"{}avg\_bat\_status"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00357}00357\ \ \ \ \ \ \ \ \ Hum\_SHT=lht\_last\_day[\textcolor{stringliteral}{"{}avg\_humidity"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00358}00358\ \ \ \ \ \ \ \ \ ILL\_lx=lht\_last\_day[\textcolor{stringliteral}{"{}avg\_light"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00359}00359\ \ \ \ \ \ \ \ \ TempC\_SHT=lht\_last\_day[\textcolor{stringliteral}{"{}avg\_OutTemp"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00360}00360\ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00361}00361\ \ \ \ \ \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00362}00362\ \ \ \ \ \ \ \ \ Lht\_Averages.objects.create(}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00363}00363\ \ \ \ \ \ \ \ \ dev\_uid=lht\_last\_day[\textcolor{stringliteral}{"{}dev\_id"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00364}00364\ \ \ \ \ \ \ \ \ entry\_date=lht\_last\_day[\textcolor{stringliteral}{"{}entry\_date"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00365}00365\ \ \ \ \ \ \ \ \ BatV=lht\_last\_day[\textcolor{stringliteral}{"{}avg\_batteryV"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00366}00366\ \ \ \ \ \ \ \ \ Bat\_status=lht\_last\_day[\textcolor{stringliteral}{"{}avg\_bat\_status"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00367}00367\ \ \ \ \ \ \ \ \ Hum\_SHT=lht\_last\_day[\textcolor{stringliteral}{"{}avg\_humidity"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00368}00368\ \ \ \ \ \ \ \ \ TempC\_DS=lht\_last\_day[\textcolor{stringliteral}{"{}avg\_InTemp"{}}],}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00369}00369\ \ \ \ \ \ \ \ \ TempC\_SHT=lht\_last\_day[\textcolor{stringliteral}{"{}avg\_OutTemp"{}}]}
+\DoxyCodeLine{\Hypertarget{mqtt__py_8py_source_l00370}00370\ \ \ \ \ \ \ \ \ )}
+
+\end{DoxyCode}

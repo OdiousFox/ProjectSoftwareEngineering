@@ -1,0 +1,494 @@
+\hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12}{}\doxysection{LIS2\+HH12.\+LIS2\+HH12 Class Reference}
+\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12}\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a69b17276b6aaf2cee17b17cb58975689}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, pysense=None, sda=\textquotesingle{}P22\textquotesingle{}, scl=\textquotesingle{}P21\textquotesingle{})
+\item 
+def \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a51cf8029c5779f459610c164030fd013}{acceleration}} (self)
+\item 
+def \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a7a19a68b0646940eedc4958445fd5221}{roll}} (self)
+\item 
+def \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_aace6ea66074115ce5b3c61d0a019218b}{pitch}} (self)
+\item 
+def \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a2dec08b0387f30d5082a735a7e5ea430}{set\+\_\+register}} (self, register, value, offset, mask)
+\item 
+def \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a7ee8732d30e3713369d7aa3c2cdbdf9a}{set\+\_\+full\+\_\+scale}} (self, scale)
+\item 
+def \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a238eeee9d5fa1c6ae9522a7ed1b868b9}{set\+\_\+odr}} (self, \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ac2dc954ec08d0b2aa1f2dea9ed1ce316}{odr}})
+\item 
+def \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a21dbcc74e256a4ec321287c79ab1be81}{set\+\_\+high\+\_\+pass}} (self, hp)
+\item 
+def \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a41a269c66aaf211203c11dcfbe402702}{enable\+\_\+activity\+\_\+interrupt}} (self, threshold, duration, handler=None)
+\item 
+def \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_acee06a1bd010df37edf30f98d6872d02}{activity}} (self)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a45f4ecb9fe6b7117c55132324e35e6f1}{i2c}}
+\item 
+\mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ac2dc954ec08d0b2aa1f2dea9ed1ce316}{odr}}
+\item 
+\mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a2b8318dc8812d4fcf97f2e5f5ca70f65}{full\+\_\+scale}}
+\item 
+\mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_aed8d062972b13b53afcdd6ef4230f7ef}{x}}
+\item 
+\mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a3c6fe125bedb04ae45c3e49eae31e2e1}{y}}
+\item 
+\mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a8ef7c802fb47c65de9cae95dd9dd1ec1}{z}}
+\item 
+\mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ac33f5ff2334c37074475c9909aab6a78}{int\+\_\+pin}}
+\item 
+\mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a4b1a4c6df5130c59a16f677cd61e769f}{act\+\_\+dur}}
+\item 
+\mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a81af501e506f2a213ac938cf8d37ac8b}{debounced}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a604835ae11aac9855e4554328ea6156f}{ACC\+\_\+\+I2\+CADDR}} = const(30)
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ac15751b6e65df0e3f8eda0e5c3e3679b}{PRODUCTID\+\_\+\+REG}} = const(0x0F)
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_af22477882855c74b06d879ca5b410539}{CTRL1\+\_\+\+REG}} = const(0x20)
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a92e509852504d71501ee20151ce83149}{CTRL2\+\_\+\+REG}} = const(0x21)
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a514d4d61214d33a484f8cadf0db8b91e}{CTRL3\+\_\+\+REG}} = const(0x22)
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a9319debf138fdf54939e41bd62b8a933}{CTRL4\+\_\+\+REG}} = const(0x23)
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ad5e644f6e5cbe7f2d17a88014f796bb7}{CTRL5\+\_\+\+REG}} = const(0x24)
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a6855154fbffd0393c1395bcf027a1ce8}{ACC\+\_\+\+X\+\_\+\+L\+\_\+\+REG}} = const(0x28)
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a104b8917f995ba12514dc741db0eea10}{ACC\+\_\+\+X\+\_\+\+H\+\_\+\+REG}} = const(0x29)
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a1cb715571463592c49277aef9b1a5f97}{ACC\+\_\+\+Y\+\_\+\+L\+\_\+\+REG}} = const(0x2A)
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ac11efae7b8214632907c927a4b5dc578}{ACC\+\_\+\+Y\+\_\+\+H\+\_\+\+REG}} = const(0x2B)
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a18d502f6445edfe8fb66f3fb1802368e}{ACC\+\_\+\+Z\+\_\+\+L\+\_\+\+REG}} = const(0x2C)
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_aa362adc248c221c267d409c0b3ff7813}{ACC\+\_\+\+Z\+\_\+\+H\+\_\+\+REG}} = const(0x2D)
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a33adbf1372252518f4eac080524fd2fd}{ACT\+\_\+\+THS}} = const(0x1E)
+\item 
+const \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a01a14c1eb7fe551b99ace2f90363bfd0}{ACT\+\_\+\+DUR}} = const(0x1F)
+\item 
+dict \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ab9a72bcb51365bcb1012654071d32ca6}{SCALES}} = \{FULL\+\_\+\+SCALE\+\_\+2\+G\+: 4000, FULL\+\_\+\+SCALE\+\_\+4\+G\+: 8000, FULL\+\_\+\+SCALE\+\_\+8\+G\+: 16000\}
+\item 
+list \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a326eb11a8f676b302f00dd2567c55372}{ODRS}} = \mbox{[}0, 10, 50, 100, 200, 400, 800\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a83b926c3af7367b329d66a553bd246d0}{\+\_\+int\+\_\+handler}} (self, pin\+\_\+o)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ae8026fb02a6ddc93b370676f37ef581b}{\+\_\+user\+\_\+handler}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00032}{32}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a69b17276b6aaf2cee17b17cb58975689}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a69b17276b6aaf2cee17b17cb58975689}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def LIS2\+HH12.\+LIS2\+HH12.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pysense = {\ttfamily None},  }\item[{}]{sda = {\ttfamily \textquotesingle{}P22\textquotesingle{}},  }\item[{}]{scl = {\ttfamily \textquotesingle{}P21\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00054}{54}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a83b926c3af7367b329d66a553bd246d0}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a83b926c3af7367b329d66a553bd246d0}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!\_int\_handler@{\_int\_handler}}
+\index{\_int\_handler@{\_int\_handler}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{\_int\_handler()}{\_int\_handler()}}
+{\footnotesize\ttfamily def LIS2\+HH12.\+LIS2\+HH12.\+\_\+int\+\_\+handler (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pin\+\_\+o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00171}{171}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a51cf8029c5779f459610c164030fd013}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a51cf8029c5779f459610c164030fd013}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!acceleration@{acceleration}}
+\index{acceleration@{acceleration}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{acceleration()}{acceleration()}}
+{\footnotesize\ttfamily def LIS2\+HH12.\+LIS2\+HH12.\+acceleration (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00086}{86}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_acee06a1bd010df37edf30f98d6872d02}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_acee06a1bd010df37edf30f98d6872d02}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!activity@{activity}}
+\index{activity@{activity}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{activity()}{activity()}}
+{\footnotesize\ttfamily def LIS2\+HH12.\+LIS2\+HH12.\+activity (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00163}{163}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a41a269c66aaf211203c11dcfbe402702}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a41a269c66aaf211203c11dcfbe402702}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!enable\_activity\_interrupt@{enable\_activity\_interrupt}}
+\index{enable\_activity\_interrupt@{enable\_activity\_interrupt}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{enable\_activity\_interrupt()}{enable\_activity\_interrupt()}}
+{\footnotesize\ttfamily def LIS2\+HH12.\+LIS2\+HH12.\+enable\+\_\+activity\+\_\+interrupt (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{threshold,  }\item[{}]{duration,  }\item[{}]{handler = {\ttfamily None} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00123}{123}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_aace6ea66074115ce5b3c61d0a019218b}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_aace6ea66074115ce5b3c61d0a019218b}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!pitch@{pitch}}
+\index{pitch@{pitch}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{pitch()}{pitch()}}
+{\footnotesize\ttfamily def LIS2\+HH12.\+LIS2\+HH12.\+pitch (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00101}{101}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a7a19a68b0646940eedc4958445fd5221}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a7a19a68b0646940eedc4958445fd5221}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!roll@{roll}}
+\index{roll@{roll}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{roll()}{roll()}}
+{\footnotesize\ttfamily def LIS2\+HH12.\+LIS2\+HH12.\+roll (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00096}{96}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a7ee8732d30e3713369d7aa3c2cdbdf9a}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a7ee8732d30e3713369d7aa3c2cdbdf9a}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!set\_full\_scale@{set\_full\_scale}}
+\index{set\_full\_scale@{set\_full\_scale}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{set\_full\_scale()}{set\_full\_scale()}}
+{\footnotesize\ttfamily def LIS2\+HH12.\+LIS2\+HH12.\+set\+\_\+full\+\_\+scale (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{scale }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00112}{112}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a21dbcc74e256a4ec321287c79ab1be81}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a21dbcc74e256a4ec321287c79ab1be81}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!set\_high\_pass@{set\_high\_pass}}
+\index{set\_high\_pass@{set\_high\_pass}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{set\_high\_pass()}{set\_high\_pass()}}
+{\footnotesize\ttfamily def LIS2\+HH12.\+LIS2\+HH12.\+set\+\_\+high\+\_\+pass (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{hp }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00120}{120}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a238eeee9d5fa1c6ae9522a7ed1b868b9}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a238eeee9d5fa1c6ae9522a7ed1b868b9}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!set\_odr@{set\_odr}}
+\index{set\_odr@{set\_odr}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{set\_odr()}{set\_odr()}}
+{\footnotesize\ttfamily def LIS2\+HH12.\+LIS2\+HH12.\+set\+\_\+odr (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{odr }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00116}{116}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a2dec08b0387f30d5082a735a7e5ea430}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a2dec08b0387f30d5082a735a7e5ea430}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!set\_register@{set\_register}}
+\index{set\_register@{set\_register}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{set\_register()}{set\_register()}}
+{\footnotesize\ttfamily def LIS2\+HH12.\+LIS2\+HH12.\+set\+\_\+register (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{register,  }\item[{}]{value,  }\item[{}]{offset,  }\item[{}]{mask }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00106}{106}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ae8026fb02a6ddc93b370676f37ef581b}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ae8026fb02a6ddc93b370676f37ef581b}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!\_user\_handler@{\_user\_handler}}
+\index{\_user\_handler@{\_user\_handler}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{\_user\_handler}{\_user\_handler}}
+{\footnotesize\ttfamily LIS2\+HH12.\+LIS2\+HH12.\+\_\+user\+\_\+handler\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00156}{156}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a604835ae11aac9855e4554328ea6156f}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a604835ae11aac9855e4554328ea6156f}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!ACC\_I2CADDR@{ACC\_I2CADDR}}
+\index{ACC\_I2CADDR@{ACC\_I2CADDR}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{ACC\_I2CADDR}{ACC\_I2CADDR}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+ACC\+\_\+\+I2\+CADDR = const(30)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00034}{34}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a104b8917f995ba12514dc741db0eea10}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a104b8917f995ba12514dc741db0eea10}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!ACC\_X\_H\_REG@{ACC\_X\_H\_REG}}
+\index{ACC\_X\_H\_REG@{ACC\_X\_H\_REG}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{ACC\_X\_H\_REG}{ACC\_X\_H\_REG}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+ACC\+\_\+\+X\+\_\+\+H\+\_\+\+REG = const(0x29)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00043}{43}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a6855154fbffd0393c1395bcf027a1ce8}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a6855154fbffd0393c1395bcf027a1ce8}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!ACC\_X\_L\_REG@{ACC\_X\_L\_REG}}
+\index{ACC\_X\_L\_REG@{ACC\_X\_L\_REG}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{ACC\_X\_L\_REG}{ACC\_X\_L\_REG}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+ACC\+\_\+\+X\+\_\+\+L\+\_\+\+REG = const(0x28)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00042}{42}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ac11efae7b8214632907c927a4b5dc578}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ac11efae7b8214632907c927a4b5dc578}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!ACC\_Y\_H\_REG@{ACC\_Y\_H\_REG}}
+\index{ACC\_Y\_H\_REG@{ACC\_Y\_H\_REG}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{ACC\_Y\_H\_REG}{ACC\_Y\_H\_REG}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+ACC\+\_\+\+Y\+\_\+\+H\+\_\+\+REG = const(0x2B)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00045}{45}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a1cb715571463592c49277aef9b1a5f97}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a1cb715571463592c49277aef9b1a5f97}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!ACC\_Y\_L\_REG@{ACC\_Y\_L\_REG}}
+\index{ACC\_Y\_L\_REG@{ACC\_Y\_L\_REG}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{ACC\_Y\_L\_REG}{ACC\_Y\_L\_REG}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+ACC\+\_\+\+Y\+\_\+\+L\+\_\+\+REG = const(0x2A)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00044}{44}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_aa362adc248c221c267d409c0b3ff7813}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_aa362adc248c221c267d409c0b3ff7813}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!ACC\_Z\_H\_REG@{ACC\_Z\_H\_REG}}
+\index{ACC\_Z\_H\_REG@{ACC\_Z\_H\_REG}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{ACC\_Z\_H\_REG}{ACC\_Z\_H\_REG}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+ACC\+\_\+\+Z\+\_\+\+H\+\_\+\+REG = const(0x2D)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00047}{47}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a18d502f6445edfe8fb66f3fb1802368e}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a18d502f6445edfe8fb66f3fb1802368e}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!ACC\_Z\_L\_REG@{ACC\_Z\_L\_REG}}
+\index{ACC\_Z\_L\_REG@{ACC\_Z\_L\_REG}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{ACC\_Z\_L\_REG}{ACC\_Z\_L\_REG}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+ACC\+\_\+\+Z\+\_\+\+L\+\_\+\+REG = const(0x2C)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00046}{46}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a01a14c1eb7fe551b99ace2f90363bfd0}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a01a14c1eb7fe551b99ace2f90363bfd0}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!ACT\_DUR@{ACT\_DUR}}
+\index{ACT\_DUR@{ACT\_DUR}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{ACT\_DUR}{ACT\_DUR}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+ACT\+\_\+\+DUR = const(0x1F)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00049}{49}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a4b1a4c6df5130c59a16f677cd61e769f}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a4b1a4c6df5130c59a16f677cd61e769f}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!act\_dur@{act\_dur}}
+\index{act\_dur@{act\_dur}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{act\_dur}{act\_dur}}
+{\footnotesize\ttfamily LIS2\+HH12.\+LIS2\+HH12.\+act\+\_\+dur}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00067}{67}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a33adbf1372252518f4eac080524fd2fd}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a33adbf1372252518f4eac080524fd2fd}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!ACT\_THS@{ACT\_THS}}
+\index{ACT\_THS@{ACT\_THS}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{ACT\_THS}{ACT\_THS}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+ACT\+\_\+\+THS = const(0x1E)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00048}{48}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_af22477882855c74b06d879ca5b410539}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_af22477882855c74b06d879ca5b410539}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!CTRL1\_REG@{CTRL1\_REG}}
+\index{CTRL1\_REG@{CTRL1\_REG}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{CTRL1\_REG}{CTRL1\_REG}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+CTRL1\+\_\+\+REG = const(0x20)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00037}{37}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a92e509852504d71501ee20151ce83149}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a92e509852504d71501ee20151ce83149}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!CTRL2\_REG@{CTRL2\_REG}}
+\index{CTRL2\_REG@{CTRL2\_REG}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{CTRL2\_REG}{CTRL2\_REG}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+CTRL2\+\_\+\+REG = const(0x21)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00038}{38}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a514d4d61214d33a484f8cadf0db8b91e}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a514d4d61214d33a484f8cadf0db8b91e}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!CTRL3\_REG@{CTRL3\_REG}}
+\index{CTRL3\_REG@{CTRL3\_REG}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{CTRL3\_REG}{CTRL3\_REG}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+CTRL3\+\_\+\+REG = const(0x22)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00039}{39}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a9319debf138fdf54939e41bd62b8a933}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a9319debf138fdf54939e41bd62b8a933}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!CTRL4\_REG@{CTRL4\_REG}}
+\index{CTRL4\_REG@{CTRL4\_REG}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{CTRL4\_REG}{CTRL4\_REG}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+CTRL4\+\_\+\+REG = const(0x23)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00040}{40}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ad5e644f6e5cbe7f2d17a88014f796bb7}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ad5e644f6e5cbe7f2d17a88014f796bb7}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!CTRL5\_REG@{CTRL5\_REG}}
+\index{CTRL5\_REG@{CTRL5\_REG}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{CTRL5\_REG}{CTRL5\_REG}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+CTRL5\+\_\+\+REG = const(0x24)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00041}{41}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a81af501e506f2a213ac938cf8d37ac8b}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a81af501e506f2a213ac938cf8d37ac8b}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!debounced@{debounced}}
+\index{debounced@{debounced}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{debounced}{debounced}}
+{\footnotesize\ttfamily LIS2\+HH12.\+LIS2\+HH12.\+debounced}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00068}{68}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a2b8318dc8812d4fcf97f2e5f5ca70f65}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a2b8318dc8812d4fcf97f2e5f5ca70f65}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!full\_scale@{full\_scale}}
+\index{full\_scale@{full\_scale}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{full\_scale}{full\_scale}}
+{\footnotesize\ttfamily LIS2\+HH12.\+LIS2\+HH12.\+full\+\_\+scale}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00062}{62}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a45f4ecb9fe6b7117c55132324e35e6f1}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a45f4ecb9fe6b7117c55132324e35e6f1}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!i2c@{i2c}}
+\index{i2c@{i2c}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{i2c}{i2c}}
+{\footnotesize\ttfamily LIS2\+HH12.\+LIS2\+HH12.\+i2c}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00056}{56}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ac33f5ff2334c37074475c9909aab6a78}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ac33f5ff2334c37074475c9909aab6a78}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!int\_pin@{int\_pin}}
+\index{int\_pin@{int\_pin}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{int\_pin}{int\_pin}}
+{\footnotesize\ttfamily LIS2\+HH12.\+LIS2\+HH12.\+int\+\_\+pin}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00066}{66}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ac2dc954ec08d0b2aa1f2dea9ed1ce316}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ac2dc954ec08d0b2aa1f2dea9ed1ce316}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!odr@{odr}}
+\index{odr@{odr}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{odr}{odr}}
+{\footnotesize\ttfamily LIS2\+HH12.\+LIS2\+HH12.\+odr}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00061}{61}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a326eb11a8f676b302f00dd2567c55372}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a326eb11a8f676b302f00dd2567c55372}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!ODRS@{ODRS}}
+\index{ODRS@{ODRS}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{ODRS}{ODRS}}
+{\footnotesize\ttfamily list LIS2\+HH12.\+LIS2\+HH12.\+ODRS = \mbox{[}0, 10, 50, 100, 200, 400, 800\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00052}{52}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ac15751b6e65df0e3f8eda0e5c3e3679b}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ac15751b6e65df0e3f8eda0e5c3e3679b}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!PRODUCTID\_REG@{PRODUCTID\_REG}}
+\index{PRODUCTID\_REG@{PRODUCTID\_REG}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{PRODUCTID\_REG}{PRODUCTID\_REG}}
+{\footnotesize\ttfamily const LIS2\+HH12.\+LIS2\+HH12.\+PRODUCTID\+\_\+\+REG = const(0x0F)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00036}{36}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ab9a72bcb51365bcb1012654071d32ca6}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_ab9a72bcb51365bcb1012654071d32ca6}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!SCALES@{SCALES}}
+\index{SCALES@{SCALES}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{SCALES}{SCALES}}
+{\footnotesize\ttfamily dict LIS2\+HH12.\+LIS2\+HH12.\+SCALES = \{FULL\+\_\+\+SCALE\+\_\+2\+G\+: 4000, FULL\+\_\+\+SCALE\+\_\+4\+G\+: 8000, FULL\+\_\+\+SCALE\+\_\+8\+G\+: 16000\}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00051}{51}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_aed8d062972b13b53afcdd6ef4230f7ef}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_aed8d062972b13b53afcdd6ef4230f7ef}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!x@{x}}
+\index{x@{x}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily LIS2\+HH12.\+LIS2\+HH12.\+x}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00063}{63}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a3c6fe125bedb04ae45c3e49eae31e2e1}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a3c6fe125bedb04ae45c3e49eae31e2e1}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!y@{y}}
+\index{y@{y}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily LIS2\+HH12.\+LIS2\+HH12.\+y}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00064}{64}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+\mbox{\Hypertarget{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a8ef7c802fb47c65de9cae95dd9dd1ec1}\label{class_l_i_s2_h_h12_1_1_l_i_s2_h_h12_a8ef7c802fb47c65de9cae95dd9dd1ec1}} 
+\index{LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}!z@{z}}
+\index{z@{z}!LIS2HH12.LIS2HH12@{LIS2HH12.LIS2HH12}}
+\doxysubsubsection{\texorpdfstring{z}{z}}
+{\footnotesize\ttfamily LIS2\+HH12.\+LIS2\+HH12.\+z}
+
+
+
+Definition at line \mbox{\hyperlink{_l_i_s2_h_h12_8py_source_l00065}{65}} of file \mbox{\hyperlink{_l_i_s2_h_h12_8py_source}{LIS2\+HH12.\+py}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+PSE\+\_\+\+Lo\+Py/lib/\mbox{\hyperlink{_l_i_s2_h_h12_8py}{LIS2\+HH12.\+py}}\end{DoxyCompactItemize}

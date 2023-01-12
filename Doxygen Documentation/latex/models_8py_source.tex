@@ -1,0 +1,78 @@
+\hypertarget{models_8py_source}{}\doxysection{models.\+py}
+\label{models_8py_source}\index{my\_server/webserver/models.py@{my\_server/webserver/models.py}}
+\mbox{\hyperlink{models_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00001}\mbox{\hyperlink{namespacewebserver_1_1models}{00001}}\ \textcolor{keyword}{from}\ django.db\ \textcolor{keyword}{import}\ models}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00002}00002\ \textcolor{comment}{\#\ import\ the\ models\ to\ make\ tables\ for\ the\ data}}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00003}00003\ \textcolor{comment}{\#\ Create\ your\ models\ here.}}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00005}00005\ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00006}00006\ \textcolor{stringliteral}{-\/\ Table\ to\ store\ the\ different\ types\ of\ devices.\ }}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00007}00007\ \textcolor{stringliteral}{-\/\ Ensures\ that\ there\ is\ no\ redundancy\ by\ not\ repeating\ the\ info\ in\ other\ tables.}}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00008}00008\ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00014}\mbox{\hyperlink{classwebserver_1_1models_1_1_py_entries}{00014}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classwebserver_1_1models_1_1_py_entries}{PyEntries}}(models.Model):}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00015}00015\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00017}\mbox{\hyperlink{classwebserver_1_1models_1_1_py_entries_a0ba20e4d59d17454267398da97586a04}{00017}}\ \ \ \ \ entry\_id=models.AutoField(primary\_key=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00018}\mbox{\hyperlink{classwebserver_1_1models_1_1_py_entries_a358e910c2d563254d5febeb5fc93270d}{00018}}\ \ \ \ \ dev\_uid=models.CharField(max\_length=25)}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00019}\mbox{\hyperlink{classwebserver_1_1models_1_1_py_entries_aef34566c4bef95aeadb561a713678102}{00019}}\ \ \ \ \ entry\_date=models.DateTimeField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00020}\mbox{\hyperlink{classwebserver_1_1models_1_1_py_entries_a84831d9686441306990d5693fe20fa9c}{00020}}\ \ \ \ \ light=models.FloatField(default=\textcolor{keywordtype}{None},null=\textcolor{keyword}{True},blank=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00021}\mbox{\hyperlink{classwebserver_1_1models_1_1_py_entries_a05f2c761e3151c73969782f31c86afe8}{00021}}\ \ \ \ \ temperature=models.FloatField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00022}\mbox{\hyperlink{classwebserver_1_1models_1_1_py_entries_a6819e969706d23aaa89781eff754ef6d}{00022}}\ \ \ \ \ pressure=models.FloatField(default=0)}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00023}\mbox{\hyperlink{classwebserver_1_1models_1_1_py_entries_aa8babbc8a113478695222c27554e804e}{00023}}\ \ \ \ \ humidity=models.FloatField(default=\textcolor{keywordtype}{None},null=\textcolor{keyword}{True},blank=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00024}00024\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00026}\mbox{\hyperlink{class_py__averages}{00026}}\ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00030}\mbox{\hyperlink{classwebserver_1_1models_1_1_py___averages}{00030}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classwebserver_1_1models_1_1_py___averages}{Py\_Averages}}(models.Model):}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00031}00031\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00032}\mbox{\hyperlink{classwebserver_1_1models_1_1_py___averages_a3578eda16d9957bb25efdbbf359fb721}{00032}}\ \ \ \ \ entry\_id=models.AutoField(primary\_key=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00033}\mbox{\hyperlink{classwebserver_1_1models_1_1_py___averages_a6f4ca6393e99f8e935223ed8174bd92b}{00033}}\ \ \ \ \ dev\_uid=models.CharField(max\_length=25)}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00034}\mbox{\hyperlink{classwebserver_1_1models_1_1_py___averages_a6df1b7322b9a9a8b25784eb5c79627ce}{00034}}\ \ \ \ \ entry\_hour=models.IntegerField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00035}\mbox{\hyperlink{classwebserver_1_1models_1_1_py___averages_a57f54e3be836c4b9ec27b37dc51e191e}{00035}}\ \ \ \ \ light=models.FloatField(default=\textcolor{keywordtype}{None},null=\textcolor{keyword}{True},blank=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00036}\mbox{\hyperlink{classwebserver_1_1models_1_1_py___averages_ab953d5ece5992746dfd9d91379a38771}{00036}}\ \ \ \ \ temperature=models.FloatField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00037}\mbox{\hyperlink{classwebserver_1_1models_1_1_py___averages_ad40517f73212899fd542e112976fb7bc}{00037}}\ \ \ \ \ pressure=models.FloatField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00038}\mbox{\hyperlink{classwebserver_1_1models_1_1_py___averages_a92b00c7791695869c251382b6ebe868f}{00038}}\ \ \ \ \ humidity=models.FloatField(default=\textcolor{keywordtype}{None},null=\textcolor{keyword}{True},blank=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00044}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht_entries}{00044}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classwebserver_1_1models_1_1_lht_entries}{LhtEntries}}(models.Model):}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00045}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht_entries_a6330c346b084a4c323e2a34627e8132c}{00045}}\ \ \ \ \ entry\_id=models.AutoField(primary\_key=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00046}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht_entries_ae022a8fecf742f37b8a12d608a61de07}{00046}}\ \ \ \ \ dev\_uid=models.CharField(max\_length=25)}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00047}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht_entries_a560707ed83c608ca14eccb3b09152345}{00047}}\ \ \ \ \ entry\_date=models.DateTimeField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00048}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht_entries_a1d87ad2d0cbd6d686780afec4e15be10}{00048}}\ \ \ \ \ BatV=models.FloatField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00049}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht_entries_a006c431d89621e42f664bd862ff548a9}{00049}}\ \ \ \ \ Bat\_status=models.IntegerField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00050}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht_entries_aa576538b254558f0047a13e10a00186a}{00050}}\ \ \ \ \ Hum\_SHT=models.FloatField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00051}00051\ \ \ \ \ \textcolor{comment}{\#since\ the\ Lht\ devices\ can\ either\ return\ a\ ILL\_lx\ or\ TempC\_DS\ reading\ the\ one\ without\ a\ value\ will\ be\ set\ to\ null.}}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00052}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht_entries_af4d4d7d01f84c5a7a9ba9a16174159e2}{00052}}\ \ \ \ \ ILL\_lx=models.FloatField(default=\textcolor{keywordtype}{None})}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00053}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht_entries_ac741c395d3441f6c9b2e536f9bc907a6}{00053}}\ \ \ \ \ TempC\_DS=models.FloatField(default=\textcolor{keywordtype}{None})}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00054}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht_entries_a484606e30db5f2491b7e70a87a969e56}{00054}}\ \ \ \ \ TempC\_SHT=models.FloatField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00055}00055\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00060}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht___averages}{00060}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classwebserver_1_1models_1_1_lht___averages}{Lht\_Averages}}(models.Model):}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00062}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht___averages_ad917e85b6ca9cf06c0830e21737aacbb}{00062}}\ \ \ \ \ entry\_id=models.AutoField(primary\_key=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00063}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht___averages_a82bc33d2789ed5fed28c3f6ead2b95d9}{00063}}\ \ \ \ \ dev\_uid=models.CharField(max\_length=25)}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00064}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht___averages_aee595a819254fbab800c5d1341adf78c}{00064}}\ \ \ \ \ entry\_hour=models.IntegerField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00065}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht___averages_a9b1db7196d93e799fac765005edd351a}{00065}}\ \ \ \ \ BatV=models.FloatField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00066}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht___averages_aae5fd81cd1932f1e4a643edb4a741f85}{00066}}\ \ \ \ \ Bat\_status=models.IntegerField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00067}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht___averages_a474def9239a864399b8e3bc73d8458a1}{00067}}\ \ \ \ \ Hum\_SHT=models.FloatField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00068}00068\ \ \ \ \ \textcolor{comment}{\#since\ the\ Lht\ devices\ can\ either\ return\ a\ ILL\_lx\ or\ TempC\_DS\ reading\ the\ one\ without\ a\ value\ will\ be\ set\ to\ null.}}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00069}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht___averages_a47c281d968aeb65312ef7798499761e6}{00069}}\ \ \ \ \ ILL\_lx=models.FloatField(default=\textcolor{keywordtype}{None},null=\textcolor{keyword}{True},blank=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00070}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht___averages_a61de7077d555a958ceb09011dea2e88e}{00070}}\ \ \ \ \ TempC\_DS=models.FloatField(default=\textcolor{keywordtype}{None},null=\textcolor{keyword}{True},blank=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00071}\mbox{\hyperlink{classwebserver_1_1models_1_1_lht___averages_aa3548fde9f262d1a80d1e5de94ff03ad}{00071}}\ \ \ \ \ TempC\_SHT=models.FloatField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00077}\mbox{\hyperlink{classwebserver_1_1models_1_1_meta__data}{00077}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classwebserver_1_1models_1_1_meta__data}{Meta\_data}}(models.Model):}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00078}\mbox{\hyperlink{classwebserver_1_1models_1_1_meta__data_a51fe02ad339c7cb51ab247fd0a9b0f86}{00078}}\ \ \ \ \ entry\_id=models.AutoField(primary\_key=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00079}\mbox{\hyperlink{classwebserver_1_1models_1_1_meta__data_aaa94e6e048c6a3fe6d5c2dae0489a630}{00079}}\ \ \ \ \ dev\_uid=models.CharField(max\_length=25)}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00080}\mbox{\hyperlink{classwebserver_1_1models_1_1_meta__data_a209b69448b61e086bbf8df841aac5d35}{00080}}\ \ \ \ \ gateway\_id=models.CharField(max\_length=100)}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00081}\mbox{\hyperlink{classwebserver_1_1models_1_1_meta__data_afe32cb69fbc2f6452c625908b748ee8c}{00081}}\ \ \ \ \ longitude=models.DecimalField(max\_digits=22,\ decimal\_places=16)\ \ \ \ \textcolor{comment}{\#\ Location\ longitude}}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00082}\mbox{\hyperlink{classwebserver_1_1models_1_1_meta__data_a81c433cce18e6ed446291a530ab1b395}{00082}}\ \ \ \ \ latitude=models.DecimalField(max\_digits=22,\ decimal\_places=16)\ \ \ \ \textcolor{comment}{\#\ Location\ latitude}}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00083}\mbox{\hyperlink{classwebserver_1_1models_1_1_meta__data_a652b8028e66735b383c885be243ecaa1}{00083}}\ \ \ \ \ rssi=models.IntegerField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00084}\mbox{\hyperlink{classwebserver_1_1models_1_1_meta__data_a3e12cf0b23fdb0c96b252eaed794aa1f}{00084}}\ \ \ \ \ snr=models.FloatField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00085}\mbox{\hyperlink{classwebserver_1_1models_1_1_meta__data_a9d863136176ca1a2e2e36c1640b69e66}{00085}}\ \ \ \ \ airtime=models.FloatField()}
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{models_8py_source_l00087}00087\ }
+
+\end{DoxyCode}

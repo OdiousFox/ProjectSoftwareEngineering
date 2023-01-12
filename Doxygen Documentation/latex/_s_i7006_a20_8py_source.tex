@@ -1,0 +1,124 @@
+\hypertarget{_s_i7006_a20_8py_source}{}\doxysection{SI7006\+A20.\+py}
+\label{_s_i7006_a20_8py_source}\index{PSE\_LoPy/lib/SI7006A20.py@{PSE\_LoPy/lib/SI7006A20.py}}
+\mbox{\hyperlink{_s_i7006_a20_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00001}\mbox{\hyperlink{namespace_s_i7006_a20}{00001}}\ \textcolor{comment}{\#!/usr/bin/env\ python}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00002}00002\ \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00003}00003\ \textcolor{comment}{\#\ Copyright\ (c)\ 2019,\ Pycom\ Limited.}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00004}00004\ \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00005}00005\ \textcolor{comment}{\#\ This\ software\ is\ licensed\ under\ the\ GNU\ GPL\ version\ 3\ or\ any}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00006}00006\ \textcolor{comment}{\#\ later\ version,\ with\ permitted\ additional\ terms.\ For\ more\ information}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00007}00007\ \textcolor{comment}{\#\ see\ the\ Pycom\ Licence\ v1.0\ document\ supplied\ with\ this\ file,\ or}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00008}00008\ \textcolor{comment}{\#\ available\ at\ https://www.pycom.io/opensource/licensing}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00009}00009\ \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00011}00011\ \textcolor{keyword}{import}\ time}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00012}00012\ \textcolor{keyword}{from}\ machine\ \textcolor{keyword}{import}\ I2C}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00013}00013\ \textcolor{keyword}{import}\ math}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00015}00015\ \_\_version\_\_\ =\ \textcolor{stringliteral}{'0.0.2'}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00017}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20}{00017}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20}{SI7006A20}}:}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00018}00018\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}\ class\ for\ handling\ the\ temperature\ sensor\ SI7006-\/A20}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00019}00019\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ +/-\/\ 1\ deg\ C\ error\ }\textcolor{keywordflow}{for}\ temperature}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00020}00020\ \ \ \ \ \ \ \ \ +/-\/\ 5\%\ error\ \textcolor{keywordflow}{for}\ relative\ humidity}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00021}00021\ \ \ \ \ \ \ \ \ datasheet\ available\ at\ https://www.silabs.com/documents/public/data-\/sheets/Si7006-\/A20.pdf\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00022}00022\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00023}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a03fdf30346b212116df4493fdcd64484}{00023}}\ \textcolor{stringliteral}{\ \ \ \ SI7006A20\_I2C\_ADDR\ =\ const(0x40)}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00024}00024\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00025}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a5773b14cbe90b11eadfe02a2e7da2a26}{00025}}\ \textcolor{stringliteral}{\ \ \ \ TEMP\_NOHOLDMASTER\ =\ const(0xF3)}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00026}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a250c8c54049a43d09415e9af6e374023}{00026}}\ \textcolor{stringliteral}{\ \ \ \ HUMD\_NOHOLDMASTER\ =\ const(0xF5)}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00027}00027\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00028}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a1dd543935c33b573b0d2c1df0f54350b}{00028}}\ \textcolor{stringliteral}{\ \ \ \ }\textcolor{keyword}{def\ }\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a1dd543935c33b573b0d2c1df0f54350b}{\_\_init\_\_}}(self,\ pysense\ =\ None,\ sda\ =\ 'P22',\ scl\ =\ 'P21'):}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ pysense\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00030}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{00030}}\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}\ =\ pysense.i2c}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}\ =\ I2C(0,\ mode=I2C.MASTER,\ pins=(sda,\ scl))}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00034}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a17335bb2273c7a3e1973a6d5777f825b}{00034}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a17335bb2273c7a3e1973a6d5777f825b}{\_getWord}}(self,\ high,\ low):}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((high\ \&\ 0xFF)\ <<\ 8)\ +\ (low\ \&\ 0xFF)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00037}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a7b14b9fe6fbf18ef244035a1aa6b5211}{00037}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a7b14b9fe6fbf18ef244035a1aa6b5211}{temperature}}(self):}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}\ obtaining\ the\ temperature(degrees\ Celsius)\ measured\ by\ sensor\ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.writeto(SI7006A20\_I2C\_ADDR,\ bytearray([0xF3]))}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ time.sleep(0.5)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ data\ =\ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.readfrom(SI7006A20\_I2C\_ADDR,\ 3)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#print("{}CRC\ Raw\ temp\ data:\ "{}\ +\ hex(data[0]*65536\ +\ data[1]*256\ +\ data[2]))}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ data\ =\ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a17335bb2273c7a3e1973a6d5777f825b}{\_getWord}}(data[0],\ data[1])}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00044}00044\ \ \ \ \ \ \ \ \ temp\ =\ ((175.72\ *\ data)\ /\ 65536.0)\ -\/\ 46.85}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ temp}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00047}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a5dce987e2c15447136f5c31a8ae34e2d}{00047}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a5dce987e2c15447136f5c31a8ae34e2d}{humidity}}(self):}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}\ obtaining\ the\ relative\ humidity(\%)\ measured\ by\ sensor\ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.writeto(SI7006A20\_I2C\_ADDR,\ bytearray([0xF5]))}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ time.sleep(0.5)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ data\ =\ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.readfrom(SI7006A20\_I2C\_ADDR,\ 2)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ data\ =\ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a17335bb2273c7a3e1973a6d5777f825b}{\_getWord}}(data[0],\ data[1])}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ humidity\ =\ ((125.0\ *\ data)\ /\ 65536.0)\ -\/\ 6.0}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ humidity}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00056}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_aa98e009fed2913d2ed97d726662b92f6}{00056}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_aa98e009fed2913d2ed97d726662b92f6}{read\_user\_reg}}(self):}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}\ reading\ the\ user\ configuration\ register\ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.writeto(SI7006A20\_I2C\_ADDR,\ bytearray([0xE7]))}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ time.sleep(0.5)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ data\ =\ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.readfrom(SI7006A20\_I2C\_ADDR,\ 1)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data[0]}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00063}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a698e2ae34f6f44fbf1efedf6219c3a64}{00063}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a698e2ae34f6f44fbf1efedf6219c3a64}{read\_heater\_reg}}(self):}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}\ reading\ the\ heater\ configuration\ register\ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.writeto(SI7006A20\_I2C\_ADDR,\ bytearray([0x11]))}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ time.sleep(0.5)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ data\ =\ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.readfrom(SI7006A20\_I2C\_ADDR,\ 1)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data[0]}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00070}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ac66b86ed5eec2095f0107b5917781266}{00070}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ac66b86ed5eec2095f0107b5917781266}{read\_electronic\_id}}(self):}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}\ reading\ electronic\ identifier\ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.writeto(SI7006A20\_I2C\_ADDR,\ bytearray([0xFA])\ +\ bytearray([0x0F]))}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ time.sleep(0.5)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ sna\ =\ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.readfrom(SI7006A20\_I2C\_ADDR,\ 4)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ time.sleep(0.1)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.writeto(SI7006A20\_I2C\_ADDR,\ bytearray([0xFC])\ +\ bytearray([0xC9]))}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ time.sleep(0.5)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ snb\ =\ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.readfrom(SI7006A20\_I2C\_ADDR,\ 4)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ [sna[0],\ sna[1],\ sna[2],\ sna[3],\ snb[0],\ snb[1],\ snb[2],\ snb[3]]}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00081}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a2a45867957d5267b9d0871ad343bda84}{00081}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a2a45867957d5267b9d0871ad343bda84}{read\_firmware}}(self):}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}\ reading\ firmware\ version\ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.writeto(SI7006A20\_I2C\_ADDR,\ bytearray([0x84])+\ bytearray([0xB8]))}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ time.sleep(0.5)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00085}00085\ \ \ \ \ \ \ \ \ fw\ =\ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.readfrom(SI7006A20\_I2C\_ADDR,\ 1)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fw[0]}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00088}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ac00ae65107abe3d991af33c744f4071d}{00088}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ac00ae65107abe3d991af33c744f4071d}{read\_reg}}(self,\ reg\_addr):}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}\ reading\ a\ register\ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.writeto(SI7006A20\_I2C\_ADDR,\ bytearray([reg\_addr]))}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ time.sleep(0.5)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00092}00092\ \ \ \ \ \ \ \ \ data\ =\ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.readfrom(SI7006A20\_I2C\_ADDR,\ 1)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data[0]}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00095}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a05ade8a9b80ab4fd1ea4793aa06a6227}{00095}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a05ade8a9b80ab4fd1ea4793aa06a6227}{write\_reg}}(self,\ reg\_addr,\ value):}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}\ writing\ a\ register\ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00097}00097\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}.writeto(SI7006A20\_I2C\_ADDR,\ bytearray([reg\_addr])+bytearray([value]))}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00098}00098\ \ \ \ \ \ \ \ \ time.sleep(0.1)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00100}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a15b3a93200a830057db9888e1bbab54f}{00100}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a15b3a93200a830057db9888e1bbab54f}{dew\_point}}(self):}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}\ computing\ the\ dew\ pointe\ temperature\ (deg\ C)\ for\ the\ current\ Temperature\ and\ Humidity\ measured\ pair}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00102}00102\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ at\ dew-\/point\ temperature\ the\ relative\ humidity\ }\textcolor{keywordflow}{is}\ 100\%\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00103}00103\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ temp\ =\ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a7b14b9fe6fbf18ef244035a1aa6b5211}{temperature}}()}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00104}00104\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ humid\ =\ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a5dce987e2c15447136f5c31a8ae34e2d}{humidity}}()}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00105}00105\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ h\ =\ (math.log(humid,\ 10)\ -\/\ 2)\ /\ 0.4343\ +\ (17.62\ *\ temp)\ /\ (243.12\ +\ temp)}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00106}00106\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ dew\_p\ =\ 243.12\ *\ h\ /\ (17.62\ -\/\ h)}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00107}00107\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }\textcolor{keywordflow}{return}\ dew\_p}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00109}\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab4293e8a1b6e7039e0bd262d734bfdac}{00109}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab4293e8a1b6e7039e0bd262d734bfdac}{humid\_ambient}}(self,\ t\_ambient,\ dew\_p\ =\ None):}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}\ returns\ the\ relative\ humidity\ compensated\ for\ the\ current\ Ambient\ temperature}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00111}00111\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{keywordflow}{for}\ ex:\ T-\/Ambient\ \textcolor{keywordflow}{is}\ 24.4\ degC,\ but\ sensor\ indicates\ Temperature\ =\ 31.65\ degC\ \textcolor{keywordflow}{and}\ Humidity\ =\ 47.3\%}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/>\ then\ the\ actual\ Relative\ Humidity\ \textcolor{keywordflow}{is}\ 72.2\%}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ this\ \textcolor{keywordflow}{is}\ computed\ because\ the\ dew-\/point\ should\ be\ the\ same\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00114}00114\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }\textcolor{keywordflow}{if}\ dew\_p\ \textcolor{keywordflow}{is}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ dew\_p\ =\ self.\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a15b3a93200a830057db9888e1bbab54f}{dew\_point}}()}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00116}00116\ \ \ \ \ \ \ \ \ h\ =\ 17.62\ *\ dew\_p\ /\ (243.12\ +\ dew\_p)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00117}00117\ \ \ \ \ \ \ \ \ h\_ambient\ =\ math.pow(10,\ (h\ -\/\ (17.62\ *\ t\_ambient)\ /\ (243.12\ +\ t\_ambient))\ *\ 0.4343\ +\ 2)}
+\DoxyCodeLine{\Hypertarget{_s_i7006_a20_8py_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ h\_ambient}
+
+\end{DoxyCode}
