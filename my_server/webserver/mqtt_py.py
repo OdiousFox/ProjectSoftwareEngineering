@@ -10,13 +10,13 @@ import paho.mqtt.client as mqtt
 import re
 import json
 
-
+## @fn returnMessage(message)
+# function that takes a json format 'message' and decodes it into dictionary value/pairs.
+# It looks for specifics key words in the json 
+# @returns the decoded dictionary of values to store in the database.
+#
 def returnMessage(message):
-    ## @fn returnMessage(message)
-    # function that takes a json format 'message' and decodes it into dictionary value/pairs.
-    # It looks for specifics key words in the json 
-    # @returns the decoded dictionary of values to store in the database.
-    #
+    
     message=message.decode()
     message="""{}""".format(message)
     '''
@@ -44,14 +44,14 @@ def returnMessage(message):
     #return dictionary type of the result.
     return inp
 
-## Calulate average value of payload
+## @fn update_avg(id)
+# Calculate average value of payload
+# It groups and aggrigates the values for each hour
+# Therefor only 24 hours a day to avoid having too many points on the graph. 
+# The values are returned in a dictionary format as well and immediately store in the various tables.
+#
 def updata_avg(id):
-    ## @fn update_avg(id)
-    # Calculate average value of payload
-    # It groups and aggrigates the values for each hour
-    # Therefor only 24 hours a day to avoid having too many points on the graph. 
-    # The values are returned in a dictionary format as well and immediately store in the various tables.
-    #
+    
     res=None
     if "py" in id:
         res= PyEntries.objects.filter(dev_uid=id)\
@@ -94,11 +94,12 @@ def updata_avg(id):
                         avg_sto[i][key]=None
    
     for i in avg_sto.keys():
+        ## Here the values that contain 'py' are store in the Py_Averages database
+        # To store a new value you create a new instance of that class with '.objects.create()'
+        # if an entry for that hour already exists it will update it to include the latest reading 
+        #
         if "py" in id:
-            ## Here the values that contain 'py' are store in the Py_Averages database
-            # To store a new value you create a new instance of that class with '.objects.create()'
-            # if an entry for that hour already exists it will update it to include the latest reading 
-            #
+            
             que=Py_Averages.objects.filter(dev_uid=id,entry_hour=i)
             if(len(que)==0):
                 Py_Averages.objects.create(
