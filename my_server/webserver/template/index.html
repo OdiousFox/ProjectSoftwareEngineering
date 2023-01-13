@@ -1,28 +1,57 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{% static 'weatherAtLocation.js' %}"></script>
-    <title>Weather App</title>
-    <link rel="stylesheet" href="{% static 'main.css' %}">
-  </head>
-  <body>
-    <div class="grid">
-      <h1>Weather Chart</h1>
-      <aside><p>Menu options: </p></aside>
-      <figure class="chart-wrap">
-        <canvas id="line-chart"></canvas>
-        <canvas id="pressure_py_wierden"></canvas>
-      </figure>
-      <footer>
-        <!-- <p>Here is some stuff at the bottom of the page.</p> -->
-      </footer>
-    </div> 
-    <script src="{% static 'multiple_lines.js' %}"></script>
-    <script src="{% static 'pressure_py_wierden.js' %}"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{% static 'dropDown.js' %}"></script>
+  <script src="{% static 'addRemoveElements.js' %}"></script>
+  <script src="{% static 'addWeatherChart.js' %}"></script>
+  <script src="{% static 'generateTable.js' %}"></script>
+
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <title>Weather App</title>
+</head>
+
+<body>
+  <div class="grid">
+    <h1>Weather Chart</h1>
+    <aside>
+      <p>Menu options: </p>
+      <form>
+      Select an output type:
+      <select id="output_type">
+        <option>temperature</option>
+        <option>light</option>
+        <option>pressure</option>
+        <option>Hum_SHT</option>
+        <option>ILL_lx</option>
+        <option>TempC_SHT</option>
+        <option>TempC_DS</option>
+      </select>
+
+      Select one or more devices
+      <select id="devices" multiple>
+        <option>py_devices</option>
+        <option>lht_devices</option>
+      </select>
+    </form>
+
+    <button onclick="addWeatherChart(getDropDownOption('output_type'), getDropDownOption('devices'), document.getElementById('div1'))">Add Element</button>
+
+    <input type="button" value="Generate a table" onclick="generateTable()" />
+    <script src="{% static 'generateTable.js' %}"></script>
+    </aside>
+    <figure class="chart-wrap">
+      <div id = "div1">
+        
+      </div>
+    </figure>
+    <footer></footer>
+
+  </div>
+</body>
 </html>
