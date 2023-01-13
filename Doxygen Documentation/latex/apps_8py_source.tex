@@ -1,0 +1,38 @@
+\hypertarget{apps_8py_source}{}\doxysection{apps.\+py}
+\label{apps_8py_source}\index{my\_server/webserver/apps.py@{my\_server/webserver/apps.py}}
+\mbox{\hyperlink{apps_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00001}\mbox{\hyperlink{namespacewebserver_1_1apps}{00001}}\ \textcolor{keyword}{from}\ django.apps\ \textcolor{keyword}{import}\ AppConfig}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00002}00002\ \textcolor{keyword}{from}\ urllib.parse\ \textcolor{keyword}{import}\ urlparse}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00003}00003\ \textcolor{keyword}{import}\ sys}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00005}00005\ \textcolor{keyword}{from}\ django.conf\ \textcolor{keyword}{import}\ settings}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00007}\mbox{\hyperlink{classwebserver_1_1apps_1_1_webserver_config}{00007}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classwebserver_1_1apps_1_1_webserver_config}{WebserverConfig}}(AppConfig):}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00008}\mbox{\hyperlink{classwebserver_1_1apps_1_1_webserver_config_a7f271a2a941f1b2282a39cc6e1488d1b}{00008}}\ \ \ \ \ default\_auto\_field\ =\ \textcolor{stringliteral}{'django.db.models.BigAutoField'}}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00009}\mbox{\hyperlink{classwebserver_1_1apps_1_1_webserver_config_a2bff904e76a4bc335dea6ac941c851c5}{00009}}\ \ \ \ \ name\ =\ \textcolor{stringliteral}{'webserver'}}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00010}\mbox{\hyperlink{classwebserver_1_1apps_1_1_webserver_config_aa8ecab2a6f4b578861c6f977d51cdeeb}{00010}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classwebserver_1_1apps_1_1_webserver_config_aa8ecab2a6f4b578861c6f977d51cdeeb}{ready}}(self):}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00011}00011\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ settings.DEV\_SERVER\ \textcolor{keywordflow}{and}\ settings.USE\_NGROK:}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ pyngrok\ will\ only\ be\ installed,\ and\ should\ only\ ever\ be\ initialized,\ in\ a\ dev\ environment}}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{from}\ pyngrok\ \textcolor{keyword}{import}\ ngrok,\ conf}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ conf.get\_default().auth\_token\ =\ \textcolor{stringliteral}{"{}2J6nufQ6WydYr3RaavyPVzWJ80s\_3iJ9HbB6uAffAEuUkx5Vd"{}}}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Get\ the\ dev\ server\ port\ (defaults\ to\ 8000\ for\ Django,\ can\ be\ overridden\ with\ the}}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ last\ arg\ when\ calling\ `runserver`)}}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ conf.get\_default().region\ =\ \textcolor{stringliteral}{"{}eu"{}}}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ addrport\ =\ urlparse(\textcolor{stringliteral}{"{}http://\{\}"{}}.format(sys.argv[-\/1]))}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ port\ =\ addrport.port\ \textcolor{keywordflow}{if}\ addrport.netloc\ \textcolor{keywordflow}{and}\ addrport.port\ \textcolor{keywordflow}{else}\ 8000}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Open\ a\ ngrok\ tunnel\ to\ the\ dev\ server}}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ public\_url\ =\ ngrok.connect(port,protocol=\textcolor{stringliteral}{"{}https"{}},bind\_tls=\textcolor{keyword}{True}).public\_url}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}ngrok\ tunnel\ \(\backslash\)"{}\{\}\(\backslash\)"{}\ -\/>\ \(\backslash\)"{}http://127.0.0.1:\{\}\(\backslash\)"{}"{}}.format(public\_url,\ port))}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Update\ any\ base\ URLs\ or\ webhooks\ to\ use\ the\ public\ ngrok\ URL}}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ settings.BASE\_URL\ =\ public\_url}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classwebserver_1_1apps_1_1_webserver_config_a5597596705c78488e8b445d5aa6c9173}{init\_webhooks}}(public\_url)}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00029}00029\ \ \ \ \ \textcolor{preprocessor}{@staticmethod}}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00030}\mbox{\hyperlink{classwebserver_1_1apps_1_1_webserver_config_a5597596705c78488e8b445d5aa6c9173}{00030}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classwebserver_1_1apps_1_1_webserver_config_a5597596705c78488e8b445d5aa6c9173}{init\_webhooks}}(base\_url):}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Update\ inbound\ traffic\ via\ APIs\ to\ use\ the\ public-\/facing\ ngrok\ URL}}
+\DoxyCodeLine{\Hypertarget{apps_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{pass}}
+
+\end{DoxyCode}

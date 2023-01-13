@@ -1,0 +1,10 @@
+var namespacewebserver_1_1migrations =
+[
+    [ "0001_initial", "namespacewebserver_1_1migrations_1_10001__initial.html", "namespacewebserver_1_1migrations_1_10001__initial" ],
+    [ "0002_meta_data_rename_entry_date_lht_averages_entry_hour_and_more", "namespacewebserver_1_1migrations_1_10002__meta__data__rename__entry__date__lht__averages__entry__hour__and__more.html", "namespacewebserver_1_1migrations_1_10002__meta__data__rename__entry__date__lht__averages__entry__hour__and__more" ],
+    [ "0003_alter_lht_averages_ill_lx_and_more", "namespacewebserver_1_1migrations_1_10003__alter__lht__averages__ill__lx__and__more.html", "namespacewebserver_1_1migrations_1_10003__alter__lht__averages__ill__lx__and__more" ],
+    [ "0004_remove_meta_data_loc_alt", "namespacewebserver_1_1migrations_1_10004__remove__meta__data__loc__alt.html", "namespacewebserver_1_1migrations_1_10004__remove__meta__data__loc__alt" ],
+    [ "0005_rename_loc_lat_meta_data_latitude_and_more", "namespacewebserver_1_1migrations_1_10005__rename__loc__lat__meta__data__latitude__and__more.html", "namespacewebserver_1_1migrations_1_10005__rename__loc__lat__meta__data__latitude__and__more" ],
+    [ "0006_py_averages_humidity_pyentries_humidity", "namespacewebserver_1_1migrations_1_10006__py__averages__humidity__pyentries__humidity.html", "namespacewebserver_1_1migrations_1_10006__py__averages__humidity__pyentries__humidity" ],
+    [ "0007_alter_py_averages_light_alter_pyentries_light", "namespacewebserver_1_1migrations_1_10007__alter__py__averages__light__alter__pyentries__light.html", "namespacewebserver_1_1migrations_1_10007__alter__py__averages__light__alter__pyentries__light" ]
+];

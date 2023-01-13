@@ -1,0 +1,135 @@
+\hypertarget{_m_p_l3115_a2_8py_source}{}\doxysection{MPL3115\+A2.\+py}
+\label{_m_p_l3115_a2_8py_source}\index{PSE\_LoPy/lib/MPL3115A2.py@{PSE\_LoPy/lib/MPL3115A2.py}}
+\mbox{\hyperlink{_m_p_l3115_a2_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00001}\mbox{\hyperlink{namespace_m_p_l3115_a2}{00001}}\ \textcolor{comment}{\#!/usr/bin/env\ python}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00002}00002\ \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00003}00003\ \textcolor{comment}{\#\ Copyright\ (c)\ 2020,\ Pycom\ Limited.}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00004}00004\ \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00005}00005\ \textcolor{comment}{\#\ This\ software\ is\ licensed\ under\ the\ GNU\ GPL\ version\ 3\ or\ any}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00006}00006\ \textcolor{comment}{\#\ later\ version,\ with\ permitted\ additional\ terms.\ For\ more\ information}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00007}00007\ \textcolor{comment}{\#\ see\ the\ Pycom\ Licence\ v1.0\ document\ supplied\ with\ this\ file,\ or}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00008}00008\ \textcolor{comment}{\#\ available\ at\ https://www.pycom.io/opensource/licensing}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00009}00009\ \textcolor{comment}{\#}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00011}00011\ \textcolor{keyword}{import}\ time}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00012}00012\ \textcolor{keyword}{from}\ machine\ \textcolor{keyword}{import}\ I2C}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00014}\mbox{\hyperlink{namespace_m_p_l3115_a2_ae310a8cffacd880bb13e692224f388a4}{00014}}\ ALTITUDE\ =\ const(0)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00015}\mbox{\hyperlink{namespace_m_p_l3115_a2_abcc2e12f67dc860ef6d923f572d29ce9}{00015}}\ PRESSURE\ =\ const(1)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00017}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2exception}{00017}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2exception}{MPL3115A2exception}}(Exception):}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00020}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2}{00020}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2}{MPL3115A2}}:}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00021}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_ad68c6c4d50d4246be7577e3fe3a34bed}{00021}}\ \ \ \ \ MPL3115\_I2CADDR\ =\ const(0x60)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00022}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a23d10b7eb5ddc640127acaf87c963476}{00022}}\ \ \ \ \ MPL3115\_STATUS\ =\ const(0x00)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00023}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a3304f37f1dfeb78c6226ead8b491b261}{00023}}\ \ \ \ \ MPL3115\_PRESSURE\_DATA\_MSB\ =\ const(0x01)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00024}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_abad129b24ffcc7d9a10f03deb69d88f2}{00024}}\ \ \ \ \ MPL3115\_PRESSURE\_DATA\_CSB\ =\ const(0x02)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00025}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a75f6f69261f1c23e79801c22d40d8e78}{00025}}\ \ \ \ \ MPL3115\_PRESSURE\_DATA\_LSB\ =\ const(0x03)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00026}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6fbbb1ace24f299ef2e05bbd046dc528}{00026}}\ \ \ \ \ MPL3115\_TEMP\_DATA\_MSB\ =\ const(0x04)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00027}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_ab22dbefecf1f9349419d2e60f6996acb}{00027}}\ \ \ \ \ MPL3115\_TEMP\_DATA\_LSB\ =\ const(0x05)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00028}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a1477f2193043c6b9bbc5cc8cb262294c}{00028}}\ \ \ \ \ MPL3115\_DR\_STATUS\ =\ const(0x06)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00029}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a4019a6dcc223be86b66f284ff731ca00}{00029}}\ \ \ \ \ MPL3115\_DELTA\_DATA\ =\ const(0x07)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00030}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_ae987138afaf5f6510261c166cc8bec88}{00030}}\ \ \ \ \ MPL3115\_WHO\_AM\_I\ =\ const(0x0c)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00031}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_ad7b10dcc751a8149dc38475af87f1b2c}{00031}}\ \ \ \ \ MPL3115\_FIFO\_STATUS\ =\ const(0x0d)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00032}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a180cc9848147ef594861b156ee4bbf2b}{00032}}\ \ \ \ \ MPL3115\_FIFO\_DATA\ =\ const(0x0e)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00033}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_ae5873f8999eff085cf8fded51068ee81}{00033}}\ \ \ \ \ MPL3115\_FIFO\_SETUP\ =\ const(0x0e)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00034}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_af79d150588f788bdd685811e72f736a5}{00034}}\ \ \ \ \ MPL3115\_TIME\_DELAY\ =\ const(0x10)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00035}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a3bf5e56893720a3d4c6467b74a05478e}{00035}}\ \ \ \ \ MPL3115\_SYS\_MODE\ =\ const(0x11)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00036}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_aa50c2d2a890d7fdda0e9341b82a7da80}{00036}}\ \ \ \ \ MPL3115\_INT\_SORCE\ =\ const(0x12)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00037}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a0b6d71c06aaf6879f24f6842e70a49ba}{00037}}\ \ \ \ \ MPL3115\_PT\_DATA\_CFG\ =\ const(0x13)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00038}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a7625c05f6d5d48e8adef35b86b48b21c}{00038}}\ \ \ \ \ MPL3115\_BAR\_IN\_MSB\ =\ const(0x14)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00039}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a4476c677c731ab1167e05efec37f9b76}{00039}}\ \ \ \ \ MPL3115\_P\_ARLARM\_MSB\ =\ const(0x16)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00040}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a1488da52f22d37bc979fdf464d49f476}{00040}}\ \ \ \ \ MPL3115\_T\_ARLARM\ =\ const(0x18)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00041}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a0d2341491ab8cb5ab844bd0f6fdff725}{00041}}\ \ \ \ \ MPL3115\_P\_ARLARM\_WND\_MSB\ =\ const(0x19)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00042}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a94a3015fc06f80883ba13dbc5d69bcd8}{00042}}\ \ \ \ \ MPL3115\_T\_ARLARM\_WND\ =\ const(0x1b)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00043}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a507db16f07cdbc783774b4daa5306ec7}{00043}}\ \ \ \ \ MPL3115\_P\_MIN\_DATA\ =\ const(0x1c)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00044}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a789b77269d741f883e77a7d7a3b111c9}{00044}}\ \ \ \ \ MPL3115\_T\_MIN\_DATA\ =\ const(0x1f)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00045}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a83f1108a3fb165e3397e9619f5bba7fe}{00045}}\ \ \ \ \ MPL3115\_P\_MAX\_DATA\ =\ const(0x21)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00046}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_af2a4eabda5c5a0fec7e5ab7e4119f735}{00046}}\ \ \ \ \ MPL3115\_T\_MAX\_DATA\ =\ const(0x24)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00047}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_aa8777342bb234de0e937866c66afb84b}{00047}}\ \ \ \ \ MPL3115\_CTRL\_REG1\ =\ const(0x26)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00048}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a0ff096c38b78338c4e46f3d78340dfda}{00048}}\ \ \ \ \ MPL3115\_CTRL\_REG2\ =\ const(0x27)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00049}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_ac8db54d78e61b34f23311904e6debbac}{00049}}\ \ \ \ \ MPL3115\_CTRL\_REG3\ =\ const(0x28)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00050}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a16e3a4e95e9067d3b91837d7dc951cfd}{00050}}\ \ \ \ \ MPL3115\_CTRL\_REG4\ =\ const(0x29)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00051}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a4190f49fd4de72a411e4e131013b5923}{00051}}\ \ \ \ \ MPL3115\_CTRL\_REG5\ =\ const(0x2a)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00052}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a101d22365ad2097f503e195aa8d2f48e}{00052}}\ \ \ \ \ MPL3115\_OFFSET\_P\ =\ const(0x2b)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00053}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a17bd2280364f3bdb328b4d8b1f7aaacf}{00053}}\ \ \ \ \ MPL3115\_OFFSET\_T\ =\ const(0x2c)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00054}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a65e1553cc84177c089a071b41b90956a}{00054}}\ \ \ \ \ MPL3115\_OFFSET\_H\ =\ const(0x2d)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00056}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_ada192928bc583830ccfdc45ebbdd48da}{00056}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_ada192928bc583830ccfdc45ebbdd48da}{\_\_init\_\_}}(self,\ pysense\ =\ None,\ sda\ =\ 'P22',\ scl\ =\ 'P21',\ mode\ =\ PRESSURE):}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ pysense\ \textcolor{keywordflow}{is}\ \textcolor{keywordflow}{not}\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00058}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{00058}}\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}\ =\ pysense.i2c}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}\ =\ I2C(0,\ mode=I2C.MASTER,\ pins=(sda,\ scl))}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00062}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_acdc880577ab7fc740564df9859ffa67f}{00062}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_acdc880577ab7fc740564df9859ffa67f}{STA\_reg}}\ =\ bytearray(1)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00063}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a046a7c2f71233d9de79b811bd09028a0}{00063}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a046a7c2f71233d9de79b811bd09028a0}{mode}}\ =\ mode}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a046a7c2f71233d9de79b811bd09028a0}{mode}}\ \textcolor{keywordflow}{is}\ PRESSURE:}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.writeto\_mem(MPL3115\_I2CADDR,\ MPL3115\_CTRL\_REG1,\ bytes([0x38]))\ \textcolor{comment}{\#\ barometer\ mode,\ not\ raw,\ oversampling\ 128,\ minimum\ time\ 512\ ms}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.writeto\_mem(MPL3115\_I2CADDR,\ MPL3115\_PT\_DATA\_CFG,\ bytes([0x07]))\ \textcolor{comment}{\#\ no\ events\ detected}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.writeto\_mem(MPL3115\_I2CADDR,\ MPL3115\_CTRL\_REG1,\ bytes([0x39]))\ \textcolor{comment}{\#\ active}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a046a7c2f71233d9de79b811bd09028a0}{mode}}\ \textcolor{keywordflow}{is}\ ALTITUDE:}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.writeto\_mem(MPL3115\_I2CADDR,\ MPL3115\_CTRL\_REG1,\ bytes([0xB8]))\ \textcolor{comment}{\#\ altitude\ mode,\ not\ raw,\ oversampling\ 128,\ minimum\ time\ 512\ ms}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.writeto\_mem(MPL3115\_I2CADDR,\ MPL3115\_PT\_DATA\_CFG,\ bytes([0x07]))\ \textcolor{comment}{\#\ no\ events\ detected}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.writeto\_mem(MPL3115\_I2CADDR,\ MPL3115\_CTRL\_REG1,\ bytes([0xB9]))\ \textcolor{comment}{\#\ active}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ \mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2exception}{MPL3115A2exception}}(\textcolor{stringliteral}{"{}Invalid\ Mode\ MPL3115A2"{}})}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a550f5f30f33ff82467c76dac6552fbd8}{\_read\_status}}():}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ \mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2exception}{MPL3115A2exception}}(\textcolor{stringliteral}{"{}Error\ with\ MPL3115A2"{}})}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00081}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a550f5f30f33ff82467c76dac6552fbd8}{00081}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a550f5f30f33ff82467c76dac6552fbd8}{\_read\_status}}(self):}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.readfrom\_mem\_into(MPL3115\_I2CADDR,\ MPL3115\_STATUS,\ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_acdc880577ab7fc740564df9859ffa67f}{STA\_reg}})}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ if(self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_acdc880577ab7fc740564df9859ffa67f}{STA\_reg}}[0]\ ==\ 0):}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ time.sleep(0.01)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ elif(self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_acdc880577ab7fc740564df9859ffa67f}{STA\_reg}}[0]\ \&\ 0x04)\ ==\ 4:}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00093}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a7f5a2a6254644c0ad89cb424eb42f1b0}{00093}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a7f5a2a6254644c0ad89cb424eb42f1b0}{pressure}}(self):}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a046a7c2f71233d9de79b811bd09028a0}{mode}}\ ==\ ALTITUDE:}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ \mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2exception}{MPL3115A2exception}}(\textcolor{stringliteral}{"{}Incorrect\ Measurement\ Mode\ MPL3115A2"{}})}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00097}00097\ \ \ \ \ \ \ \ \ OUT\_P\_MSB\ =\ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.readfrom\_mem(MPL3115\_I2CADDR,\ MPL3115\_PRESSURE\_DATA\_MSB,1)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00098}00098\ \ \ \ \ \ \ \ \ OUT\_P\_CSB\ =\ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.readfrom\_mem(MPL3115\_I2CADDR,\ MPL3115\_PRESSURE\_DATA\_CSB,1)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00099}00099\ \ \ \ \ \ \ \ \ OUT\_P\_LSB\ =\ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.readfrom\_mem(MPL3115\_I2CADDR,\ MPL3115\_PRESSURE\_DATA\_LSB,1)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ float((OUT\_P\_MSB[0]\ <<\ 10)\ +\ (OUT\_P\_CSB[0]\ <<\ 2)\ +\ ((OUT\_P\_LSB[0]\ >>\ 6)\ \&\ 0x03)\ +\ ((OUT\_P\_LSB[0]\ >>\ 4)\ \&\ 0x03)\ /\ 4.0)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00103}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a785f3816cf526f8e59205acbc45b2f12}{00103}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a785f3816cf526f8e59205acbc45b2f12}{altitude}}(self):}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a046a7c2f71233d9de79b811bd09028a0}{mode}}\ ==\ PRESSURE:}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{raise}\ \mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2exception}{MPL3115A2exception}}(\textcolor{stringliteral}{"{}Incorrect\ Measurement\ Mode\ MPL3115A2"{}})}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00107}00107\ \ \ \ \ \ \ \ \ OUT\_P\_MSB\ =\ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.readfrom\_mem(MPL3115\_I2CADDR,\ MPL3115\_PRESSURE\_DATA\_MSB,1)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00108}00108\ \ \ \ \ \ \ \ \ OUT\_P\_CSB\ =\ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.readfrom\_mem(MPL3115\_I2CADDR,\ MPL3115\_PRESSURE\_DATA\_CSB,1)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ OUT\_P\_LSB\ =\ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.readfrom\_mem(MPL3115\_I2CADDR,\ MPL3115\_PRESSURE\_DATA\_LSB,1)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ alt\_int\ =\ (OUT\_P\_MSB[0]\ <<\ 8)\ +\ (OUT\_P\_CSB[0])}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ alt\_frac\ =\ ((OUT\_P\_LSB[0]\ >>\ 4)\ \&\ 0x0F)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ alt\_int\ >\ 32767:}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ alt\_int\ -\/=\ 65536}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ float(alt\_int\ +\ alt\_frac\ /\ 16.0)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00119}\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a5e8afef6ab3e4dbe827ff9f3895d5ead}{00119}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a5e8afef6ab3e4dbe827ff9f3895d5ead}{temperature}}(self):}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00120}00120\ \ \ \ \ \ \ \ \ OUT\_T\_MSB\ =\ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.readfrom\_mem(MPL3115\_I2CADDR,\ MPL3115\_TEMP\_DATA\_MSB,1)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00121}00121\ \ \ \ \ \ \ \ \ OUT\_T\_LSB\ =\ self.\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2_a6d154965c8fb5a828d5fde6bac90e031}{i2c}}.readfrom\_mem(MPL3115\_I2CADDR,\ MPL3115\_TEMP\_DATA\_LSB,1)}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00123}00123\ \ \ \ \ \ \ \ \ temp\_int\ =\ OUT\_T\_MSB[0]}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00124}00124\ \ \ \ \ \ \ \ \ temp\_frac\ =\ OUT\_T\_LSB[0]}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ temp\_int\ >\ 127:}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ temp\_int\ -\/=\ 256}
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_m_p_l3115_a2_8py_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ float(temp\_int\ +\ temp\_frac\ /\ 256.0)}
+
+\end{DoxyCode}

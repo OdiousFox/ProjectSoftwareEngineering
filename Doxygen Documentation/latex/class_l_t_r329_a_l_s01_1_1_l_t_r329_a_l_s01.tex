@@ -1,0 +1,431 @@
+\hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01}{}\doxysection{LTR329\+ALS01.\+LTR329\+ALS01 Class Reference}
+\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01}\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a548c3a78f33027548d0f45a6f499e8d9}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, pysense=None, sda=\textquotesingle{}P22\textquotesingle{}, scl=\textquotesingle{}P21\textquotesingle{}, gain=\mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aa2541f77d0d2a3b3a770ad14f4557e0a}{ALS\+\_\+\+GAIN\+\_\+1X}}, integration=\mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_ad75a7b41d8bf07a640e6c4f2f5445581}{ALS\+\_\+\+INT\+\_\+100}}, rate=\mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a4bd37304101c6084e88952dfc5cf6d98}{ALS\+\_\+\+RATE\+\_\+500}})
+\item 
+def \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1d384a4c485dfd93070783d560944a7c}{light}} (self)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a5345c9a2ea59bd07d739b0bac0ff7d13}{i2c}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1a114e5c853a1376185dd81322db03d2}{ALS\+\_\+\+I2\+CADDR}} = const(0x29)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a44957f072bdd586b86249e13fe76f2c4}{ALS\+\_\+\+CONTR\+\_\+\+REG}} = const(0x80)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aad604a53f62970960f278dec09c9b13a}{ALS\+\_\+\+MEAS\+\_\+\+RATE\+\_\+\+REG}} = const(0x85)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a18beda0a227be59fbfbd947a4b2f127f}{ALS\+\_\+\+DATA\+\_\+\+CH1\+\_\+\+LOW}} = const(0x88)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_afbfb716284ab3a0b97abc1f2f7d2f451}{ALS\+\_\+\+DATA\+\_\+\+CH1\+\_\+\+HIGH}} = const(0x89)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a2f49f530283a2a33618d5c751c930831}{ALS\+\_\+\+DATA\+\_\+\+CH0\+\_\+\+LOW}} = const(0x8A)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1afc9900a672e0426123b3078fa478e5}{ALS\+\_\+\+DATA\+\_\+\+CH0\+\_\+\+HIGH}} = const(0x8B)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aa2541f77d0d2a3b3a770ad14f4557e0a}{ALS\+\_\+\+GAIN\+\_\+1X}} = const(0x00)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a99d2e16a20e28c370f2c054c17320e52}{ALS\+\_\+\+GAIN\+\_\+2X}} = const(0x01)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_acedf62c5e90d92787b569f4e672ddba2}{ALS\+\_\+\+GAIN\+\_\+4X}} = const(0x02)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1a8a856b1f05292e07ec57c3870634fd}{ALS\+\_\+\+GAIN\+\_\+8X}} = const(0x03)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a3f7f4975f70dc2b4f5109d40d6685f6d}{ALS\+\_\+\+GAIN\+\_\+48X}} = const(0x06)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a96b52076feb57749719dae24cfd86e93}{ALS\+\_\+\+GAIN\+\_\+96X}} = const(0x07)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aabe8a8885370dc481ac32bcf5a7f03db}{ALS\+\_\+\+INT\+\_\+50}} = const(0x01)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_ad75a7b41d8bf07a640e6c4f2f5445581}{ALS\+\_\+\+INT\+\_\+100}} = const(0x00)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a3df676288fc78dc14f6f5f5306a7a5cf}{ALS\+\_\+\+INT\+\_\+150}} = const(0x04)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a29a4d505c16ad8d0d72d4594b12b9ca6}{ALS\+\_\+\+INT\+\_\+200}} = const(0x02)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a66654d7add55fdf18d6988a26e9900ab}{ALS\+\_\+\+INT\+\_\+250}} = const(0x05)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a5d64143e4e2bbfeb4f705a223e155909}{ALS\+\_\+\+INT\+\_\+300}} = const(0x06)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1495a02c70c068fbdb2c4f4a82a310b5}{ALS\+\_\+\+INT\+\_\+350}} = const(0x07)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a3e3fbf8e1f67a0cc90f68080947d8354}{ALS\+\_\+\+INT\+\_\+400}} = const(0x03)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a9a80c97ebe04f31bab987376590a6036}{ALS\+\_\+\+RATE\+\_\+50}} = const(0x00)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a0ba393d4f945f943fed391d67d4e1f6a}{ALS\+\_\+\+RATE\+\_\+100}} = const(0x01)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_ac17e500c53775d00ea30233a8fade82d}{ALS\+\_\+\+RATE\+\_\+200}} = const(0x02)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a4bd37304101c6084e88952dfc5cf6d98}{ALS\+\_\+\+RATE\+\_\+500}} = const(0x03)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a7fe0e1791dcd1988267857b6ce3e592a}{ALS\+\_\+\+RATE\+\_\+1000}} = const(0x04)
+\item 
+const \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a39e4d6c7110999cc47d4f0287b57d466}{ALS\+\_\+\+RATE\+\_\+2000}} = const(0x05)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aa85297278fee9274bc4defe1c8370af7}{\+\_\+get\+Contr}} (self, gain)
+\item 
+def \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aed0becdab6b0552d0e31e5fe280c60c5}{\+\_\+get\+Meas\+Rate}} (self, integration, rate)
+\item 
+def \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a99e707820e9f01c38d3615b328beb816}{\+\_\+get\+Word}} (self, high, low)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00014}{14}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a548c3a78f33027548d0f45a6f499e8d9}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a548c3a78f33027548d0f45a6f499e8d9}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def LTR329\+ALS01.\+LTR329\+ALS01.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pysense = {\ttfamily None},  }\item[{}]{sda = {\ttfamily \textquotesingle{}P22\textquotesingle{}},  }\item[{}]{scl = {\ttfamily \textquotesingle{}P21\textquotesingle{}},  }\item[{}]{gain = {\ttfamily \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aa2541f77d0d2a3b3a770ad14f4557e0a}{ALS\+\_\+\+GAIN\+\_\+1X}}},  }\item[{}]{integration = {\ttfamily \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_ad75a7b41d8bf07a640e6c4f2f5445581}{ALS\+\_\+\+INT\+\_\+100}}},  }\item[{}]{rate = {\ttfamily \mbox{\hyperlink{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a4bd37304101c6084e88952dfc5cf6d98}{ALS\+\_\+\+RATE\+\_\+500}}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00048}{48}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aa85297278fee9274bc4defe1c8370af7}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aa85297278fee9274bc4defe1c8370af7}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!\_getContr@{\_getContr}}
+\index{\_getContr@{\_getContr}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{\_getContr()}{\_getContr()}}
+{\footnotesize\ttfamily def LTR329\+ALS01.\+LTR329\+ALS01.\+\_\+get\+Contr (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{gain }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00062}{62}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aed0becdab6b0552d0e31e5fe280c60c5}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aed0becdab6b0552d0e31e5fe280c60c5}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!\_getMeasRate@{\_getMeasRate}}
+\index{\_getMeasRate@{\_getMeasRate}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{\_getMeasRate()}{\_getMeasRate()}}
+{\footnotesize\ttfamily def LTR329\+ALS01.\+LTR329\+ALS01.\+\_\+get\+Meas\+Rate (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{integration,  }\item[{}]{rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00065}{65}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a99e707820e9f01c38d3615b328beb816}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a99e707820e9f01c38d3615b328beb816}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!\_getWord@{\_getWord}}
+\index{\_getWord@{\_getWord}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{\_getWord()}{\_getWord()}}
+{\footnotesize\ttfamily def LTR329\+ALS01.\+LTR329\+ALS01.\+\_\+get\+Word (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{high,  }\item[{}]{low }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00068}{68}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1d384a4c485dfd93070783d560944a7c}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1d384a4c485dfd93070783d560944a7c}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!light@{light}}
+\index{light@{light}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{light()}{light()}}
+{\footnotesize\ttfamily def LTR329\+ALS01.\+LTR329\+ALS01.\+light (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00071}{71}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a44957f072bdd586b86249e13fe76f2c4}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a44957f072bdd586b86249e13fe76f2c4}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_CONTR\_REG@{ALS\_CONTR\_REG}}
+\index{ALS\_CONTR\_REG@{ALS\_CONTR\_REG}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_CONTR\_REG}{ALS\_CONTR\_REG}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+CONTR\+\_\+\+REG = const(0x80)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00017}{17}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1afc9900a672e0426123b3078fa478e5}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1afc9900a672e0426123b3078fa478e5}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_DATA\_CH0\_HIGH@{ALS\_DATA\_CH0\_HIGH}}
+\index{ALS\_DATA\_CH0\_HIGH@{ALS\_DATA\_CH0\_HIGH}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_DATA\_CH0\_HIGH}{ALS\_DATA\_CH0\_HIGH}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+DATA\+\_\+\+CH0\+\_\+\+HIGH = const(0x8B)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00023}{23}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a2f49f530283a2a33618d5c751c930831}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a2f49f530283a2a33618d5c751c930831}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_DATA\_CH0\_LOW@{ALS\_DATA\_CH0\_LOW}}
+\index{ALS\_DATA\_CH0\_LOW@{ALS\_DATA\_CH0\_LOW}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_DATA\_CH0\_LOW}{ALS\_DATA\_CH0\_LOW}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+DATA\+\_\+\+CH0\+\_\+\+LOW = const(0x8A)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00022}{22}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_afbfb716284ab3a0b97abc1f2f7d2f451}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_afbfb716284ab3a0b97abc1f2f7d2f451}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_DATA\_CH1\_HIGH@{ALS\_DATA\_CH1\_HIGH}}
+\index{ALS\_DATA\_CH1\_HIGH@{ALS\_DATA\_CH1\_HIGH}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_DATA\_CH1\_HIGH}{ALS\_DATA\_CH1\_HIGH}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+DATA\+\_\+\+CH1\+\_\+\+HIGH = const(0x89)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00021}{21}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a18beda0a227be59fbfbd947a4b2f127f}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a18beda0a227be59fbfbd947a4b2f127f}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_DATA\_CH1\_LOW@{ALS\_DATA\_CH1\_LOW}}
+\index{ALS\_DATA\_CH1\_LOW@{ALS\_DATA\_CH1\_LOW}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_DATA\_CH1\_LOW}{ALS\_DATA\_CH1\_LOW}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+DATA\+\_\+\+CH1\+\_\+\+LOW = const(0x88)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00020}{20}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aa2541f77d0d2a3b3a770ad14f4557e0a}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aa2541f77d0d2a3b3a770ad14f4557e0a}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_GAIN\_1X@{ALS\_GAIN\_1X}}
+\index{ALS\_GAIN\_1X@{ALS\_GAIN\_1X}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_GAIN\_1X}{ALS\_GAIN\_1X}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+GAIN\+\_\+1X = const(0x00)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00025}{25}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a99d2e16a20e28c370f2c054c17320e52}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a99d2e16a20e28c370f2c054c17320e52}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_GAIN\_2X@{ALS\_GAIN\_2X}}
+\index{ALS\_GAIN\_2X@{ALS\_GAIN\_2X}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_GAIN\_2X}{ALS\_GAIN\_2X}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+GAIN\+\_\+2X = const(0x01)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00026}{26}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a3f7f4975f70dc2b4f5109d40d6685f6d}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a3f7f4975f70dc2b4f5109d40d6685f6d}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_GAIN\_48X@{ALS\_GAIN\_48X}}
+\index{ALS\_GAIN\_48X@{ALS\_GAIN\_48X}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_GAIN\_48X}{ALS\_GAIN\_48X}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+GAIN\+\_\+48X = const(0x06)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00029}{29}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_acedf62c5e90d92787b569f4e672ddba2}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_acedf62c5e90d92787b569f4e672ddba2}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_GAIN\_4X@{ALS\_GAIN\_4X}}
+\index{ALS\_GAIN\_4X@{ALS\_GAIN\_4X}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_GAIN\_4X}{ALS\_GAIN\_4X}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+GAIN\+\_\+4X = const(0x02)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00027}{27}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1a8a856b1f05292e07ec57c3870634fd}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1a8a856b1f05292e07ec57c3870634fd}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_GAIN\_8X@{ALS\_GAIN\_8X}}
+\index{ALS\_GAIN\_8X@{ALS\_GAIN\_8X}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_GAIN\_8X}{ALS\_GAIN\_8X}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+GAIN\+\_\+8X = const(0x03)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00028}{28}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a96b52076feb57749719dae24cfd86e93}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a96b52076feb57749719dae24cfd86e93}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_GAIN\_96X@{ALS\_GAIN\_96X}}
+\index{ALS\_GAIN\_96X@{ALS\_GAIN\_96X}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_GAIN\_96X}{ALS\_GAIN\_96X}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+GAIN\+\_\+96X = const(0x07)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00030}{30}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1a114e5c853a1376185dd81322db03d2}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1a114e5c853a1376185dd81322db03d2}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_I2CADDR@{ALS\_I2CADDR}}
+\index{ALS\_I2CADDR@{ALS\_I2CADDR}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_I2CADDR}{ALS\_I2CADDR}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+I2\+CADDR = const(0x29)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00015}{15}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_ad75a7b41d8bf07a640e6c4f2f5445581}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_ad75a7b41d8bf07a640e6c4f2f5445581}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_INT\_100@{ALS\_INT\_100}}
+\index{ALS\_INT\_100@{ALS\_INT\_100}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_INT\_100}{ALS\_INT\_100}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+INT\+\_\+100 = const(0x00)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00033}{33}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a3df676288fc78dc14f6f5f5306a7a5cf}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a3df676288fc78dc14f6f5f5306a7a5cf}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_INT\_150@{ALS\_INT\_150}}
+\index{ALS\_INT\_150@{ALS\_INT\_150}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_INT\_150}{ALS\_INT\_150}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+INT\+\_\+150 = const(0x04)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00034}{34}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a29a4d505c16ad8d0d72d4594b12b9ca6}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a29a4d505c16ad8d0d72d4594b12b9ca6}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_INT\_200@{ALS\_INT\_200}}
+\index{ALS\_INT\_200@{ALS\_INT\_200}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_INT\_200}{ALS\_INT\_200}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+INT\+\_\+200 = const(0x02)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00035}{35}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a66654d7add55fdf18d6988a26e9900ab}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a66654d7add55fdf18d6988a26e9900ab}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_INT\_250@{ALS\_INT\_250}}
+\index{ALS\_INT\_250@{ALS\_INT\_250}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_INT\_250}{ALS\_INT\_250}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+INT\+\_\+250 = const(0x05)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00036}{36}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a5d64143e4e2bbfeb4f705a223e155909}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a5d64143e4e2bbfeb4f705a223e155909}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_INT\_300@{ALS\_INT\_300}}
+\index{ALS\_INT\_300@{ALS\_INT\_300}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_INT\_300}{ALS\_INT\_300}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+INT\+\_\+300 = const(0x06)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00037}{37}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1495a02c70c068fbdb2c4f4a82a310b5}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a1495a02c70c068fbdb2c4f4a82a310b5}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_INT\_350@{ALS\_INT\_350}}
+\index{ALS\_INT\_350@{ALS\_INT\_350}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_INT\_350}{ALS\_INT\_350}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+INT\+\_\+350 = const(0x07)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00038}{38}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a3e3fbf8e1f67a0cc90f68080947d8354}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a3e3fbf8e1f67a0cc90f68080947d8354}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_INT\_400@{ALS\_INT\_400}}
+\index{ALS\_INT\_400@{ALS\_INT\_400}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_INT\_400}{ALS\_INT\_400}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+INT\+\_\+400 = const(0x03)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00039}{39}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aabe8a8885370dc481ac32bcf5a7f03db}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aabe8a8885370dc481ac32bcf5a7f03db}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_INT\_50@{ALS\_INT\_50}}
+\index{ALS\_INT\_50@{ALS\_INT\_50}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_INT\_50}{ALS\_INT\_50}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+INT\+\_\+50 = const(0x01)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00032}{32}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aad604a53f62970960f278dec09c9b13a}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_aad604a53f62970960f278dec09c9b13a}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_MEAS\_RATE\_REG@{ALS\_MEAS\_RATE\_REG}}
+\index{ALS\_MEAS\_RATE\_REG@{ALS\_MEAS\_RATE\_REG}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_MEAS\_RATE\_REG}{ALS\_MEAS\_RATE\_REG}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+MEAS\+\_\+\+RATE\+\_\+\+REG = const(0x85)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00018}{18}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a0ba393d4f945f943fed391d67d4e1f6a}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a0ba393d4f945f943fed391d67d4e1f6a}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_RATE\_100@{ALS\_RATE\_100}}
+\index{ALS\_RATE\_100@{ALS\_RATE\_100}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_RATE\_100}{ALS\_RATE\_100}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+RATE\+\_\+100 = const(0x01)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00042}{42}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a7fe0e1791dcd1988267857b6ce3e592a}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a7fe0e1791dcd1988267857b6ce3e592a}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_RATE\_1000@{ALS\_RATE\_1000}}
+\index{ALS\_RATE\_1000@{ALS\_RATE\_1000}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_RATE\_1000}{ALS\_RATE\_1000}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+RATE\+\_\+1000 = const(0x04)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00045}{45}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_ac17e500c53775d00ea30233a8fade82d}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_ac17e500c53775d00ea30233a8fade82d}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_RATE\_200@{ALS\_RATE\_200}}
+\index{ALS\_RATE\_200@{ALS\_RATE\_200}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_RATE\_200}{ALS\_RATE\_200}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+RATE\+\_\+200 = const(0x02)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00043}{43}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a39e4d6c7110999cc47d4f0287b57d466}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a39e4d6c7110999cc47d4f0287b57d466}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_RATE\_2000@{ALS\_RATE\_2000}}
+\index{ALS\_RATE\_2000@{ALS\_RATE\_2000}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_RATE\_2000}{ALS\_RATE\_2000}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+RATE\+\_\+2000 = const(0x05)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00046}{46}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a9a80c97ebe04f31bab987376590a6036}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a9a80c97ebe04f31bab987376590a6036}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_RATE\_50@{ALS\_RATE\_50}}
+\index{ALS\_RATE\_50@{ALS\_RATE\_50}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_RATE\_50}{ALS\_RATE\_50}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+RATE\+\_\+50 = const(0x00)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00041}{41}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a4bd37304101c6084e88952dfc5cf6d98}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a4bd37304101c6084e88952dfc5cf6d98}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!ALS\_RATE\_500@{ALS\_RATE\_500}}
+\index{ALS\_RATE\_500@{ALS\_RATE\_500}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{ALS\_RATE\_500}{ALS\_RATE\_500}}
+{\footnotesize\ttfamily const LTR329\+ALS01.\+LTR329\+ALS01.\+ALS\+\_\+\+RATE\+\_\+500 = const(0x03)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00044}{44}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+\mbox{\Hypertarget{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a5345c9a2ea59bd07d739b0bac0ff7d13}\label{class_l_t_r329_a_l_s01_1_1_l_t_r329_a_l_s01_a5345c9a2ea59bd07d739b0bac0ff7d13}} 
+\index{LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}!i2c@{i2c}}
+\index{i2c@{i2c}!LTR329ALS01.LTR329ALS01@{LTR329ALS01.LTR329ALS01}}
+\doxysubsubsection{\texorpdfstring{i2c}{i2c}}
+{\footnotesize\ttfamily LTR329\+ALS01.\+LTR329\+ALS01.\+i2c}
+
+
+
+Definition at line \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source_l00050}{50}} of file \mbox{\hyperlink{_l_t_r329_a_l_s01_8py_source}{LTR329\+ALS01.\+py}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+PSE\+\_\+\+Lo\+Py/lib/\mbox{\hyperlink{_l_t_r329_a_l_s01_8py}{LTR329\+ALS01.\+py}}\end{DoxyCompactItemize}

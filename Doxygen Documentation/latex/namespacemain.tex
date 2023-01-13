@@ -1,0 +1,250 @@
+\hypertarget{namespacemain}{}\doxysection{main Namespace Reference}
+\label{namespacemain}\index{main@{main}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacemain_a005ec920b615cd2343dad719fbed9c50}{print\+\_\+hi}} (name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespacemain_adca5af965e1221d75ffd48f18329567c}{colors}} = \mbox{[}\char`\"{}\#cc0000\char`\"{}, \char`\"{}\#cc8500\char`\"{}, \char`\"{}\#cccc00\char`\"{}, \char`\"{}\#008000\char`\"{}, \char`\"{}\#0000cc\char`\"{}, \char`\"{}\#4b0082\char`\"{}, \char`\"{}\#ee82ee\char`\"{}\mbox{]}
+\item 
+Lo\+Ra \mbox{\hyperlink{namespacemain_a0b3940d243244a216b367df34cea1858}{lora}} = Lo\+Ra(mode=Lo\+Ra.\+LORAWAN, region=Lo\+Ra.\+EU868)
+\begin{DoxyCompactList}\small\item\em Initialise Lo\+Ra in LORAWAN mode. \end{DoxyCompactList}\item 
+ubinascii \mbox{\hyperlink{namespacemain_a1f164a82f8a30ae975ddc0aead588767}{app\+\_\+eui}} = ubinascii.\+unhexlify(\textquotesingle{}0000000000000000\textquotesingle{})
+\item 
+ubinascii \mbox{\hyperlink{namespacemain_ac5db4c1721271f1b05a5a28855cedb59}{app\+\_\+key}} = ubinascii.\+unhexlify(\textquotesingle{}C7470\+B6\+CCF12\+D08\+FC698\+C822\+A4712205\textquotesingle{})
+\item 
+ubinascii \mbox{\hyperlink{namespacemain_afd190d27f496e32445b47a34de85564e}{dev\+\_\+eui}} = ubinascii.\+unhexlify(\textquotesingle{}70\+B3\+D57\+ED0058597\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacemain_afbf6e755671291ee733920f78df93ec1}{activation}}
+\item 
+\mbox{\hyperlink{namespacemain_af8dd009326d9e366697bb3c70e328abb}{OTAA}}
+\item 
+\mbox{\hyperlink{namespacemain_a2a708cceb61767d02089c5d70a777b31}{auth}}
+\item 
+\mbox{\hyperlink{namespacemain_adda0bef0c5f610ffcc8392437981f576}{timeout}}
+\item 
+socket \mbox{\hyperlink{namespacemain_a4174290764f741485a89cdd57c013a9e}{s}} = socket.\+socket(socket.\+AF\+\_\+\+LORA, socket.\+SOCK\+\_\+\+RAW)
+\item 
+\mbox{\hyperlink{classpycoproc__1_1_1_pycoproc}{Pycoproc}} \mbox{\hyperlink{namespacemain_a8b64aa47a015aea3cb5e2b0a8c9d0329}{py}} = \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc}{Pycoproc}}(\mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a086e909f13ffba329def6d2d4763662b}{Pycoproc.\+PYSENSE}})
+\begin{DoxyCompactList}\small\item\em Main loop which sends the data. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2}{MPL3115\+A2}} \mbox{\hyperlink{namespacemain_a3c15f0db2c79bf156f4b6405bd054b8d}{mpp}} = \mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2}{MPL3115\+A2}}(\mbox{\hyperlink{namespacemain_a8b64aa47a015aea3cb5e2b0a8c9d0329}{py}},mode=PRESSURE)
+\item 
+\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20}{SI7006\+A20}} \mbox{\hyperlink{namespacemain_aa06f7de2a67135620bf97ac28f75662c}{si}} = \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20}{SI7006\+A20}}(\mbox{\hyperlink{namespacemain_a8b64aa47a015aea3cb5e2b0a8c9d0329}{py}})
+\item 
+int \mbox{\hyperlink{namespacemain_a61cd0d5ea99db740c95e101219fe4116}{pressure}} = int(mpp.\+pressure() $\ast$ 0.\+01 -\/ 900)
+\item 
+int \mbox{\hyperlink{namespacemain_a2257e9a239e523c8d42f39bf1d1ebcc3}{temperature}} = int(si.\+temperature())
+\item 
+int \mbox{\hyperlink{namespacemain_aafab0d5bd761f44b7dbf73f44cbd8ecb}{humidity}} = int(si.\+humid\+\_\+ambient(\mbox{\hyperlink{namespacemain_a2257e9a239e523c8d42f39bf1d1ebcc3}{temperature}}))
+\item 
+int \mbox{\hyperlink{namespacemain_ad271abbbe81ebe3b01d0a2b7de3e8e70}{loop}} = 0
+\item 
+element \mbox{\hyperlink{namespacemain_ad0eb82f2b6b24bc1432e59605a3e08ef}{element}} = element\mbox{[}1\+:\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacemain_a005ec920b615cd2343dad719fbed9c50}\label{namespacemain_a005ec920b615cd2343dad719fbed9c50}} 
+\index{main@{main}!print\_hi@{print\_hi}}
+\index{print\_hi@{print\_hi}!main@{main}}
+\doxysubsubsection{\texorpdfstring{print\_hi()}{print\_hi()}}
+{\footnotesize\ttfamily def main.\+print\+\_\+hi (\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_julian_receiver_2main_8py_source_l00010}{10}} of file \mbox{\hyperlink{_julian_receiver_2main_8py_source}{main.\+py}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacemain_afbf6e755671291ee733920f78df93ec1}\label{namespacemain_afbf6e755671291ee733920f78df93ec1}} 
+\index{main@{main}!activation@{activation}}
+\index{activation@{activation}!main@{main}}
+\doxysubsubsection{\texorpdfstring{activation}{activation}}
+{\footnotesize\ttfamily main.\+activation}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00032}{32}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_a1f164a82f8a30ae975ddc0aead588767}\label{namespacemain_a1f164a82f8a30ae975ddc0aead588767}} 
+\index{main@{main}!app\_eui@{app\_eui}}
+\index{app\_eui@{app\_eui}!main@{main}}
+\doxysubsubsection{\texorpdfstring{app\_eui}{app\_eui}}
+{\footnotesize\ttfamily ubinascii main.\+app\+\_\+eui = ubinascii.\+unhexlify(\textquotesingle{}0000000000000000\textquotesingle{})}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00027}{27}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_ac5db4c1721271f1b05a5a28855cedb59}\label{namespacemain_ac5db4c1721271f1b05a5a28855cedb59}} 
+\index{main@{main}!app\_key@{app\_key}}
+\index{app\_key@{app\_key}!main@{main}}
+\doxysubsubsection{\texorpdfstring{app\_key}{app\_key}}
+{\footnotesize\ttfamily ubinascii main.\+app\+\_\+key = ubinascii.\+unhexlify(\textquotesingle{}C7470\+B6\+CCF12\+D08\+FC698\+C822\+A4712205\textquotesingle{})}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00028}{28}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_a2a708cceb61767d02089c5d70a777b31}\label{namespacemain_a2a708cceb61767d02089c5d70a777b31}} 
+\index{main@{main}!auth@{auth}}
+\index{auth@{auth}!main@{main}}
+\doxysubsubsection{\texorpdfstring{auth}{auth}}
+{\footnotesize\ttfamily main.\+auth}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00032}{32}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_adca5af965e1221d75ffd48f18329567c}\label{namespacemain_adca5af965e1221d75ffd48f18329567c}} 
+\index{main@{main}!colors@{colors}}
+\index{colors@{colors}!main@{main}}
+\doxysubsubsection{\texorpdfstring{colors}{colors}}
+{\footnotesize\ttfamily list main.\+colors = \mbox{[}\char`\"{}\#cc0000\char`\"{}, \char`\"{}\#cc8500\char`\"{}, \char`\"{}\#cccc00\char`\"{}, \char`\"{}\#008000\char`\"{}, \char`\"{}\#0000cc\char`\"{}, \char`\"{}\#4b0082\char`\"{}, \char`\"{}\#ee82ee\char`\"{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00020}{20}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_afd190d27f496e32445b47a34de85564e}\label{namespacemain_afd190d27f496e32445b47a34de85564e}} 
+\index{main@{main}!dev\_eui@{dev\_eui}}
+\index{dev\_eui@{dev\_eui}!main@{main}}
+\doxysubsubsection{\texorpdfstring{dev\_eui}{dev\_eui}}
+{\footnotesize\ttfamily ubinascii main.\+dev\+\_\+eui = ubinascii.\+unhexlify(\textquotesingle{}70\+B3\+D57\+ED0058597\textquotesingle{})}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00029}{29}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_ad0eb82f2b6b24bc1432e59605a3e08ef}\label{namespacemain_ad0eb82f2b6b24bc1432e59605a3e08ef}} 
+\index{main@{main}!element@{element}}
+\index{element@{element}!main@{main}}
+\doxysubsubsection{\texorpdfstring{element}{element}}
+{\footnotesize\ttfamily element main.\+element = element\mbox{[}1\+:\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00087}{87}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_aafab0d5bd761f44b7dbf73f44cbd8ecb}\label{namespacemain_aafab0d5bd761f44b7dbf73f44cbd8ecb}} 
+\index{main@{main}!humidity@{humidity}}
+\index{humidity@{humidity}!main@{main}}
+\doxysubsubsection{\texorpdfstring{humidity}{humidity}}
+{\footnotesize\ttfamily ustruct main.\+humidity = int(si.\+humid\+\_\+ambient(\mbox{\hyperlink{namespacemain_a2257e9a239e523c8d42f39bf1d1ebcc3}{temperature}}))}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00067}{67}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_ad271abbbe81ebe3b01d0a2b7de3e8e70}\label{namespacemain_ad271abbbe81ebe3b01d0a2b7de3e8e70}} 
+\index{main@{main}!loop@{loop}}
+\index{loop@{loop}!main@{main}}
+\doxysubsubsection{\texorpdfstring{loop}{loop}}
+{\footnotesize\ttfamily int main.\+loop = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00082}{82}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_a0b3940d243244a216b367df34cea1858}\label{namespacemain_a0b3940d243244a216b367df34cea1858}} 
+\index{main@{main}!lora@{lora}}
+\index{lora@{lora}!main@{main}}
+\doxysubsubsection{\texorpdfstring{lora}{lora}}
+{\footnotesize\ttfamily Lo\+Ra main.\+lora = Lo\+Ra(mode=Lo\+Ra.\+LORAWAN, region=Lo\+Ra.\+EU868)}
+
+
+
+Initialise Lo\+Ra in LORAWAN mode. 
+
+Picks the region. 
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00024}{24}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_a3c15f0db2c79bf156f4b6405bd054b8d}\label{namespacemain_a3c15f0db2c79bf156f4b6405bd054b8d}} 
+\index{main@{main}!mpp@{mpp}}
+\index{mpp@{mpp}!main@{main}}
+\doxysubsubsection{\texorpdfstring{mpp}{mpp}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2}{MPL3115\+A2}} main.\+mpp = \mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2}{MPL3115\+A2}}(\mbox{\hyperlink{namespacemain_a8b64aa47a015aea3cb5e2b0a8c9d0329}{py}},mode=PRESSURE)}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00057}{57}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_af8dd009326d9e366697bb3c70e328abb}\label{namespacemain_af8dd009326d9e366697bb3c70e328abb}} 
+\index{main@{main}!OTAA@{OTAA}}
+\index{OTAA@{OTAA}!main@{main}}
+\doxysubsubsection{\texorpdfstring{OTAA}{OTAA}}
+{\footnotesize\ttfamily main.\+OTAA}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00032}{32}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_a61cd0d5ea99db740c95e101219fe4116}\label{namespacemain_a61cd0d5ea99db740c95e101219fe4116}} 
+\index{main@{main}!pressure@{pressure}}
+\index{pressure@{pressure}!main@{main}}
+\doxysubsubsection{\texorpdfstring{pressure}{pressure}}
+{\footnotesize\ttfamily ustruct main.\+pressure = int(mpp.\+pressure() $\ast$ 0.\+01 -\/ 900)}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00063}{63}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_a8b64aa47a015aea3cb5e2b0a8c9d0329}\label{namespacemain_a8b64aa47a015aea3cb5e2b0a8c9d0329}} 
+\index{main@{main}!py@{py}}
+\index{py@{py}!main@{main}}
+\doxysubsubsection{\texorpdfstring{py}{py}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc}{Pycoproc}} main.\+py = \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc}{Pycoproc}}(\mbox{\hyperlink{classpycoproc__1_1_1_pycoproc_a086e909f13ffba329def6d2d4763662b}{Pycoproc.\+PYSENSE}})}
+
+
+
+Main loop which sends the data. 
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00055}{55}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_a4174290764f741485a89cdd57c013a9e}\label{namespacemain_a4174290764f741485a89cdd57c013a9e}} 
+\index{main@{main}!s@{s}}
+\index{s@{s}!main@{main}}
+\doxysubsubsection{\texorpdfstring{s}{s}}
+{\footnotesize\ttfamily socket main.\+s = socket.\+socket(socket.\+AF\+\_\+\+LORA, socket.\+SOCK\+\_\+\+RAW)}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00041}{41}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_aa06f7de2a67135620bf97ac28f75662c}\label{namespacemain_aa06f7de2a67135620bf97ac28f75662c}} 
+\index{main@{main}!si@{si}}
+\index{si@{si}!main@{main}}
+\doxysubsubsection{\texorpdfstring{si}{si}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20}{SI7006\+A20}} main.\+si = \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20}{SI7006\+A20}}(\mbox{\hyperlink{namespacemain_a8b64aa47a015aea3cb5e2b0a8c9d0329}{py}})}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00059}{59}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_a2257e9a239e523c8d42f39bf1d1ebcc3}\label{namespacemain_a2257e9a239e523c8d42f39bf1d1ebcc3}} 
+\index{main@{main}!temperature@{temperature}}
+\index{temperature@{temperature}!main@{main}}
+\doxysubsubsection{\texorpdfstring{temperature}{temperature}}
+{\footnotesize\ttfamily ustruct main.\+temperature = int(si.\+temperature())}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00065}{65}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+
+\mbox{\Hypertarget{namespacemain_adda0bef0c5f610ffcc8392437981f576}\label{namespacemain_adda0bef0c5f610ffcc8392437981f576}} 
+\index{main@{main}!timeout@{timeout}}
+\index{timeout@{timeout}!main@{main}}
+\doxysubsubsection{\texorpdfstring{timeout}{timeout}}
+{\footnotesize\ttfamily main.\+timeout}
+
+
+
+Definition at line \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source_l00032}{32}} of file \mbox{\hyperlink{_p_s_e___lo_py_2main_8py_source}{main.\+py}}.
+

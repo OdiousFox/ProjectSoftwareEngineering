@@ -10,8 +10,13 @@ import paho.mqtt.client as mqtt
 import re
 import json
 
-#function that takes a json format message and decodes it into dictionary value/pairs.
+## @fn returnMessage(message)
+# function that takes a json format 'message' and decodes it into dictionary value/pairs.
+# It looks for specifics key words in the json 
+# @returns the decoded dictionary of values to store in the database.
+#
 def returnMessage(message):
+    
     message=message.decode()
     message="""{}""".format(message)
     '''
@@ -38,8 +43,15 @@ def returnMessage(message):
     
     #return dictionary type of the result.
     return inp
-## Calulate average value of payload
+
+## @fn update_avg(id)
+# Calculate average value of payload
+# It groups and aggrigates the values for each hour
+# Therefor only 24 hours a day to avoid having too many points on the graph. 
+# The values are returned in a dictionary format as well and immediately store in the various tables.
+#
 def updata_avg(id):
+    
     res=None
     if "py" in id:
         res= PyEntries.objects.filter(dev_uid=id)\
@@ -82,11 +94,15 @@ def updata_avg(id):
                         avg_sto[i][key]=None
    
     for i in avg_sto.keys():
+        ## Here the values that contain 'py' are store in the Py_Averages database
+        # To store a new value you create a new instance of that class with '.objects.create()'
+        # if an entry for that hour already exists it will update it to include the latest reading 
+        #
         if "py" in id:
+            
             que=Py_Averages.objects.filter(dev_uid=id,entry_hour=i)
             if(len(que)==0):
                 Py_Averages.objects.create(
-            #primary field has to directly reference that value
                 dev_uid=id, 
                 entry_hour=i,
                 light=avg_sto[i]["light"],
@@ -95,12 +111,15 @@ def updata_avg(id):
                 humidity=avg_sto[i]["humidity"])
             else:
                 Py_Averages.objects.filter(dev_uid=id, entry_hour=i).update(
-            #primary field has to directly reference that value
                 light=avg_sto[i]["light"],
                 temperature=avg_sto[i]["temperature"],
                 pressure=avg_sto[i]["pressure"],
                 humidity=avg_sto[i]["humidity"])
         else:
+            ## Here the values that contain 'py' are store in the Py_Averages database
+            # Lht devices either have an additional attribute for Outside Temp 'Temp_Ds or Humidity.
+            # if an entry for that hour already exists it will update it to include the latest reading 
+            #
             que=Lht_Averages.objects.filter(dev_uid=id,entry_hour=i)
             if(len(que)==0):
                 Lht_Averages.objects.create(
@@ -126,26 +145,35 @@ def updata_avg(id):
         
     return 
 
-
+## @fn client() 
+# responsible for fetch the data in json format from the TTN(The Things Network)
+# User name and password already included to login on request
+#
 def client():
     #login required to connect to the server
     username = "project-software-engineering@ttn"
     password = "NNSXS.DTT4HTNBXEQDZ4QYU6SG73Q2OXCERCZ6574RVXI.CQE6IG6FYNJOO2MOFMXZVWZE4GXTCC2YXNQNFDLQL4APZMWU6ZGA"
     
+    ## @fn on_connect()
     # The callback for when the client receives a CONNACK response from the server.
+    # Subscribing in on_connect() means that if we lose the connection and
+    # reconnect then subscriptions will be renewed.
+    #
     def on_connect(client, userdata, flags, rc):
         print("Connected with result code " + str(rc))
-
-        # Subscribing in on_connect() means that if we lose the connection and
-        # reconnect then subscriptions will be renewed.
         client.subscribe("extapi/data/esm")
 
+    ## @fn on_message()
     # The callback for when a PUBLISH message is received from the server.
+    #
     def on_message(client, userdata, msg):
-        #retrieved msg json is decoded with the returnMessage() method defined above.
+        ## retrieved msg json is decoded with the returnMessage() method defined above.
+        #
         values = returnMessage(msg.payload)
-        #since the values is a dictionary type you can directly check values in keys
+        ## since the values is a dictionary type you can directly check values in keys
         # if dev_id contains 'py' then store data in the PyEntries table 
+        # else store in the lhtEntries table.
+        #
         if "py" in values["dev_id"]: 
             try:
                 PyEntries.objects.create(
@@ -157,7 +185,6 @@ def client():
             pressure=values["payload"]["pressure"])
             except:
                 print("Cannot insert data from {}".format(values["dev_id"]))
-        #else store in the lhtEntries table.
         else:
             #try catch statement to deal with the difference of ILL_lx and TempC_DS values
             try:
@@ -181,7 +208,8 @@ def client():
                 TempC_SHT=values["payload"]["TempC_SHT"]
                 )
 
-        ## Store metadata
+        ## Store metadata in the same pass
+        #
         try:
             Meta_data.objects.create(
             dev_uid = values["dev_id"],
@@ -197,28 +225,22 @@ def client():
             print("Cannot update metadat for"+values["dev_id"])
         #get_values()
         
-        
-
-            
-
-            
-    #debugging method to check if everything connected successfully
+       
+    ## @fn on_log()        
+    # debugging method to check if everything connected successfully
+    #
     def on_log(client, userdata, level, buf):
         print("log: ", buf)
 
-   
-
-
-
-
-    #connect to the client to start collecting data
+    ## connect to the client to start collecting data
+    # calls the on_connect and on_message defined above
+    # client.on_log = on_log
+    # specify what MQTT is being used and the port number.
+    #
     client = mqtt.Client()
-    #calls the on_connect and on_message defined above
     client.on_connect = on_connect
     client.on_message = on_message
-    # client.on_log = on_log
     client.username_pw_set(username, password)
-    #specify what MQTT is being used and the port number.
     client.connect("eu1.cloud.thethings.network", 1883, 60)
     print("Hello")
     
@@ -226,8 +248,12 @@ def client():
     client.loop_start()
     client.subscribe("#") 
        
-    
-#Method that connects to the MQTT server to fetch the data in json format
+## @fn client_g3()   
+# Second thread function to fetch data from our own pycom device
+# Method connects to the MQTT server to fetch the data in json format
+# different username and password used in this case
+# all functions similar to the client() function
+#
 def client_g3():
     #login required to connect to the server
     username = "saxion-weather-station-2@ttn"
@@ -302,7 +328,10 @@ def client_g3():
     client.subscribe("#") 
     return 
     
-
+## @fn get_values()
+# Alternative method of calculating average values for every hour using the '.filter().annotate()' method.
+# alse return a disctionary value with key/value pairs
+#
 def get_values():
     global py_last_hour
     global lht_last_hour

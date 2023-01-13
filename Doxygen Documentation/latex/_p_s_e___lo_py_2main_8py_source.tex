@@ -1,0 +1,100 @@
+\hypertarget{_p_s_e___lo_py_2main_8py_source}{}\doxysection{main.\+py}
+\label{_p_s_e___lo_py_2main_8py_source}\index{PSE\_LoPy/main.py@{PSE\_LoPy/main.py}}
+\mbox{\hyperlink{_p_s_e___lo_py_2main_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00001}00001\ \textcolor{keyword}{from}\ network\ \textcolor{keyword}{import}\ LoRa}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00002}00002\ \textcolor{keyword}{import}\ socket}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00003}00003\ \textcolor{keyword}{import}\ time}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00004}00004\ \textcolor{keyword}{import}\ ubinascii}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00005}00005\ \textcolor{keyword}{from}\ pycoproc\_1\ \textcolor{keyword}{import}\ Pycoproc}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00007}00007\ \textcolor{keyword}{import}\ pycom}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00008}00008\ \textcolor{keyword}{import}\ machine}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00009}00009\ \textcolor{keyword}{import}\ ustruct}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00011}00011\ \textcolor{keyword}{from}\ LIS2HH12\ \textcolor{keyword}{import}\ LIS2HH12}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00012}00012\ \textcolor{keyword}{from}\ SI7006A20\ \textcolor{keyword}{import}\ SI7006A20}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00013}00013\ \textcolor{keyword}{from}\ LTR329ALS01\ \textcolor{keyword}{import}\ LTR329ALS01}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00014}00014\ \textcolor{keyword}{from}\ MPL3115A2\ \textcolor{keyword}{import}\ MPL3115A2,ALTITUDE,PRESSURE}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00016}00016\ pycom.heartbeat(\textcolor{keyword}{False})}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00017}00017\ pycom.rgbled(0x7f7f00)\ \textcolor{comment}{\#\ white}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00019}00019\ \textcolor{comment}{\#\ The\ colors\ of\ the\ rainbow\ in\ order.}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00020}\mbox{\hyperlink{namespacemain_adca5af965e1221d75ffd48f18329567c}{00020}}\ colors\ =\ [\textcolor{stringliteral}{"{}\#cc0000"{}},\ \textcolor{stringliteral}{"{}\#cc8500"{}},\ \textcolor{stringliteral}{"{}\#cccc00"{}},\ \textcolor{stringliteral}{"{}\#008000"{}},\ \textcolor{stringliteral}{"{}\#0000cc"{}},\ \textcolor{stringliteral}{"{}\#4b0082"{}},\ \textcolor{stringliteral}{"{}\#ee82ee"{}}]}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00024}\mbox{\hyperlink{namespacemain_a0b3940d243244a216b367df34cea1858}{00024}}\ lora\ =\ LoRa(mode=LoRa.LORAWAN,\ region=LoRa.EU868)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00026}00026\ \textcolor{comment}{\#\ Create\ an\ OTAA\ authentication\ parameters.}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00027}\mbox{\hyperlink{namespacemain_a1f164a82f8a30ae975ddc0aead588767}{00027}}\ app\_eui\ =\ ubinascii.unhexlify(\textcolor{stringliteral}{'0000000000000000'})}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00028}\mbox{\hyperlink{namespacemain_ac5db4c1721271f1b05a5a28855cedb59}{00028}}\ app\_key\ =\ ubinascii.unhexlify(\textcolor{stringliteral}{'C7470B6CCF12D08FC698C822A4712205'})}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00029}\mbox{\hyperlink{namespacemain_afd190d27f496e32445b47a34de85564e}{00029}}\ dev\_eui\ =\ ubinascii.unhexlify(\textcolor{stringliteral}{'70B3D57ED0058597'})}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00031}00031\ \textcolor{comment}{\#\ Join\ a\ network\ using\ OTAA\ (Over\ the\ Air\ Activation).}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00032}\mbox{\hyperlink{namespacemain_afbf6e755671291ee733920f78df93ec1}{00032}}\ lora.join(activation=LoRa.OTAA,\ auth=(dev\_eui,\ app\_eui,\ app\_key),\ timeout=0)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00034}00034\ \textcolor{comment}{\#\ Wait\ until\ the\ module\ has\ joined\ the\ network.}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00035}00035\ \textcolor{keywordflow}{while}\ \textcolor{keywordflow}{not}\ lora.has\_joined():}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00036}00036\ \ \ \ \ time.sleep(2.5)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00037}00037\ \ \ \ \ print(\textcolor{stringliteral}{'Not\ yet\ joined...'})}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00039}00039\ print(\textcolor{stringliteral}{'Joined'})}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00040}00040\ \textcolor{comment}{\#\ Create\ a\ LoRa\ socket.}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00041}\mbox{\hyperlink{namespacemain_a4174290764f741485a89cdd57c013a9e}{00041}}\ s\ =\ socket.socket(socket.AF\_LORA,\ socket.SOCK\_RAW)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00043}00043\ \textcolor{comment}{\#\ Set\ the\ LoRaWAN\ data\ rate.}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00044}00044\ s.setsockopt(socket.SOL\_LORA,\ socket.SO\_DR,\ 5)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00046}00046\ \textcolor{comment}{\#\ Make\ the\ socket\ blocking.}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00047}00047\ \textcolor{comment}{\#\ (waits\ for\ the\ data\ to\ be\ sent\ and\ for\ the\ 2\ receive\ windows\ to\ expire).}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00048}00048\ s.setblocking(\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00051}00051\ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{True}):}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00053}00053\ \ \ \ \ pycom.rgbled(0x0A0A08)\ \textcolor{comment}{\#\ White}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00054}00054\ \ \ \ \ \textcolor{comment}{\#\ Sets\ the\ current\ pyom\ board}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00055}\mbox{\hyperlink{namespacemain_a8b64aa47a015aea3cb5e2b0a8c9d0329}{00055}}\ \ \ \ \ py\ =\ \mbox{\hyperlink{classpycoproc__1_1_1_pycoproc}{Pycoproc}}(Pycoproc.PYSENSE)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00056}00056\ \ \ \ \ \textcolor{comment}{\#\ Gets\ pressure\ measurements}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00057}\mbox{\hyperlink{namespacemain_a3c15f0db2c79bf156f4b6405bd054b8d}{00057}}\ \ \ \ \ mpp\ =\ \mbox{\hyperlink{class_m_p_l3115_a2_1_1_m_p_l3115_a2}{MPL3115A2}}(py,mode=PRESSURE)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00058}00058\ \ \ \ \ \textcolor{comment}{\#\ Gets\ humidty\ and\ temperature\ measurements}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00059}\mbox{\hyperlink{namespacemain_aa06f7de2a67135620bf97ac28f75662c}{00059}}\ \ \ \ \ si\ =\ \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20}{SI7006A20}}(py)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00061}00061\ \ \ \ \ \textcolor{comment}{\#\ Get\ and\ convert\ pressure\ to\ a\ sendable\ value\ (max\ 255)}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00062}00062\ \ \ \ \ \textcolor{comment}{\#\ we\ convert\ the\ value\ back\ in\ TTN}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00063}\mbox{\hyperlink{namespacemain_a61cd0d5ea99db740c95e101219fe4116}{00063}}\ \ \ \ \ pressure\ =\ int(mpp.pressure()\ *\ 0.01\ -\/\ 900)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00064}00064\ \ \ \ \ \textcolor{comment}{\#\ Gets\ the\ temperature}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00065}\mbox{\hyperlink{namespacemain_a2257e9a239e523c8d42f39bf1d1ebcc3}{00065}}\ \ \ \ \ temperature\ =\ int(si.temperature())}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00066}00066\ \ \ \ \ \textcolor{comment}{\#\ Gets\ the\ humidity}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00067}\mbox{\hyperlink{namespacemain_aafab0d5bd761f44b7dbf73f44cbd8ecb}{00067}}\ \ \ \ \ humidity\ =\ int(si.humid\_ambient(temperature))}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00068}00068\ \ \ \ \ \textcolor{comment}{\#\ Prints\ values\ out\ for\ debugging}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00069}00069\ \ \ \ \ print(\textcolor{stringliteral}{"{}Pressure:\ "{}}\ +\ str(pressure))}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00070}00070\ \ \ \ \ print(\textcolor{stringliteral}{"{}Temperature:\ "{}}\ +\ str(temperature))}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00071}00071\ \ \ \ \ print(\textcolor{stringliteral}{"{}Humidity:\ "{}}\ +\ str(humidity))}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00072}00072\ \ \ \ \ \textcolor{comment}{\#\ Packs\ the\ set\ values\ into\ bytes}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00073}00073\ \ \ \ \ pressure\ =\ ustruct.pack(\textcolor{stringliteral}{'b'},\ pressure)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00074}00074\ \ \ \ \ temperature\ =\ ustruct.pack(\textcolor{stringliteral}{'b'},\ temperature)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00075}00075\ \ \ \ \ humidity\ =\ ustruct.pack(\textcolor{stringliteral}{'b'},\ humidity)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00078}00078\ \ \ \ \ \textcolor{comment}{\#\ Sends\ the\ packed\ values}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00079}00079\ \ \ \ \ s.send(pressure\ +\ temperature\ +\ humidity)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00080}00080\ \ \ \ \ \textcolor{comment}{\#\ Initialise\ a\ custom\ wait\ loop\ which\ sets\ the\ rgbled}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00081}00081\ \ \ \ \ \textcolor{comment}{\#\ to\ each\ color\ of\ the\ rainbow\ every\ 1\ second\ 70\ time.}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00082}\mbox{\hyperlink{namespacemain_ad271abbbe81ebe3b01d0a2b7de3e8e70}{00082}}\ \ \ \ \ loop\ =\ 0}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{while}\ loop\ !=\ 70:}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ loops\ through\ every\ color\ of\ the\ rainbow.}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ element\ \textcolor{keywordflow}{in}\ colors:}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Get\ a\ color}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00087}\mbox{\hyperlink{namespacemain_ad0eb82f2b6b24bc1432e59605a3e08ef}{00087}}\ \ \ \ \ \ \ \ \ \ \ \ \ element\ =\ element[1:]}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ print(element)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Set\ a\ color}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ pycom.rgbled(int(element,\ 16))}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Wait\ 1\ second}}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ time.sleep(1)}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00093}00093\ \ \ \ \ \ \ \ \ loop\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_p_s_e___lo_py_2main_8py_source_l00095}00095\ \ \ \ \ \textcolor{comment}{\#\ End\ code\ "{}Honk\ mi\ mi\ mi..."{}}}
+
+\end{DoxyCode}

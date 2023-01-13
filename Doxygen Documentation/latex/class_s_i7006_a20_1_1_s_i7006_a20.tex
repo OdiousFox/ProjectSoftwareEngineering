@@ -1,0 +1,245 @@
+\hypertarget{class_s_i7006_a20_1_1_s_i7006_a20}{}\doxysection{SI7006\+A20.\+SI7006\+A20 Class Reference}
+\label{class_s_i7006_a20_1_1_s_i7006_a20}\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a1dd543935c33b573b0d2c1df0f54350b}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, pysense=None, sda=\textquotesingle{}P22\textquotesingle{}, scl=\textquotesingle{}P21\textquotesingle{})
+\item 
+def \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a7b14b9fe6fbf18ef244035a1aa6b5211}{temperature}} (self)
+\item 
+def \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a5dce987e2c15447136f5c31a8ae34e2d}{humidity}} (self)
+\item 
+def \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_aa98e009fed2913d2ed97d726662b92f6}{read\+\_\+user\+\_\+reg}} (self)
+\item 
+def \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a698e2ae34f6f44fbf1efedf6219c3a64}{read\+\_\+heater\+\_\+reg}} (self)
+\item 
+def \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ac66b86ed5eec2095f0107b5917781266}{read\+\_\+electronic\+\_\+id}} (self)
+\item 
+def \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a2a45867957d5267b9d0871ad343bda84}{read\+\_\+firmware}} (self)
+\item 
+def \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ac00ae65107abe3d991af33c744f4071d}{read\+\_\+reg}} (self, reg\+\_\+addr)
+\item 
+def \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a05ade8a9b80ab4fd1ea4793aa06a6227}{write\+\_\+reg}} (self, reg\+\_\+addr, value)
+\item 
+def \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a15b3a93200a830057db9888e1bbab54f}{dew\+\_\+point}} (self)
+\item 
+def \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab4293e8a1b6e7039e0bd262d734bfdac}{humid\+\_\+ambient}} (self, t\+\_\+ambient, dew\+\_\+p=None)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}{i2c}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a03fdf30346b212116df4493fdcd64484}{SI7006\+A20\+\_\+\+I2\+C\+\_\+\+ADDR}} = const(0x40)
+\item 
+const \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a5773b14cbe90b11eadfe02a2e7da2a26}{TEMP\+\_\+\+NOHOLDMASTER}} = const(0x\+F3)
+\item 
+const \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a250c8c54049a43d09415e9af6e374023}{HUMD\+\_\+\+NOHOLDMASTER}} = const(0x\+F5)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{class_s_i7006_a20_1_1_s_i7006_a20_a17335bb2273c7a3e1973a6d5777f825b}{\+\_\+get\+Word}} (self, high, low)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb} class for handling the temperature sensor SI7006-A20
+    +/- 1 deg C error for temperature
+    +/- 5% error for relative humidity
+    datasheet available at https://www.silabs.com/documents/public/data-sheets/Si7006-A20.pdf \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00017}{17}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_a1dd543935c33b573b0d2c1df0f54350b}\label{class_s_i7006_a20_1_1_s_i7006_a20_a1dd543935c33b573b0d2c1df0f54350b}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def SI7006\+A20.\+SI7006\+A20.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pysense = {\ttfamily None},  }\item[{}]{sda = {\ttfamily \textquotesingle{}P22\textquotesingle{}},  }\item[{}]{scl = {\ttfamily \textquotesingle{}P21\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00028}{28}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_a17335bb2273c7a3e1973a6d5777f825b}\label{class_s_i7006_a20_1_1_s_i7006_a20_a17335bb2273c7a3e1973a6d5777f825b}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!\_getWord@{\_getWord}}
+\index{\_getWord@{\_getWord}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{\_getWord()}{\_getWord()}}
+{\footnotesize\ttfamily def SI7006\+A20.\+SI7006\+A20.\+\_\+get\+Word (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{high,  }\item[{}]{low }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00034}{34}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_a15b3a93200a830057db9888e1bbab54f}\label{class_s_i7006_a20_1_1_s_i7006_a20_a15b3a93200a830057db9888e1bbab54f}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!dew\_point@{dew\_point}}
+\index{dew\_point@{dew\_point}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{dew\_point()}{dew\_point()}}
+{\footnotesize\ttfamily def SI7006\+A20.\+SI7006\+A20.\+dew\+\_\+point (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} computing the dew pointe temperature (deg C) for the current Temperature and Humidity measured pair
+    at dew-point temperature the relative humidity is 100% \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00100}{100}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_ab4293e8a1b6e7039e0bd262d734bfdac}\label{class_s_i7006_a20_1_1_s_i7006_a20_ab4293e8a1b6e7039e0bd262d734bfdac}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!humid\_ambient@{humid\_ambient}}
+\index{humid\_ambient@{humid\_ambient}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{humid\_ambient()}{humid\_ambient()}}
+{\footnotesize\ttfamily def SI7006\+A20.\+SI7006\+A20.\+humid\+\_\+ambient (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{t\+\_\+ambient,  }\item[{}]{dew\+\_\+p = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} returns the relative humidity compensated for the current Ambient temperature
+    for ex: T-Ambient is 24.4 degC, but sensor indicates Temperature = 31.65 degC and Humidity = 47.3%
+            -> then the actual Relative Humidity is 72.2%
+    this is computed because the dew-point should be the same \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00109}{109}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_a5dce987e2c15447136f5c31a8ae34e2d}\label{class_s_i7006_a20_1_1_s_i7006_a20_a5dce987e2c15447136f5c31a8ae34e2d}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!humidity@{humidity}}
+\index{humidity@{humidity}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{humidity()}{humidity()}}
+{\footnotesize\ttfamily def SI7006\+A20.\+SI7006\+A20.\+humidity (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} obtaining the relative humidity(%) measured by sensor \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00047}{47}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_ac66b86ed5eec2095f0107b5917781266}\label{class_s_i7006_a20_1_1_s_i7006_a20_ac66b86ed5eec2095f0107b5917781266}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!read\_electronic\_id@{read\_electronic\_id}}
+\index{read\_electronic\_id@{read\_electronic\_id}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{read\_electronic\_id()}{read\_electronic\_id()}}
+{\footnotesize\ttfamily def SI7006\+A20.\+SI7006\+A20.\+read\+\_\+electronic\+\_\+id (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} reading electronic identifier \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00070}{70}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_a2a45867957d5267b9d0871ad343bda84}\label{class_s_i7006_a20_1_1_s_i7006_a20_a2a45867957d5267b9d0871ad343bda84}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!read\_firmware@{read\_firmware}}
+\index{read\_firmware@{read\_firmware}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{read\_firmware()}{read\_firmware()}}
+{\footnotesize\ttfamily def SI7006\+A20.\+SI7006\+A20.\+read\+\_\+firmware (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} reading firmware version \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00081}{81}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_a698e2ae34f6f44fbf1efedf6219c3a64}\label{class_s_i7006_a20_1_1_s_i7006_a20_a698e2ae34f6f44fbf1efedf6219c3a64}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!read\_heater\_reg@{read\_heater\_reg}}
+\index{read\_heater\_reg@{read\_heater\_reg}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{read\_heater\_reg()}{read\_heater\_reg()}}
+{\footnotesize\ttfamily def SI7006\+A20.\+SI7006\+A20.\+read\+\_\+heater\+\_\+reg (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} reading the heater configuration register \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00063}{63}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_ac00ae65107abe3d991af33c744f4071d}\label{class_s_i7006_a20_1_1_s_i7006_a20_ac00ae65107abe3d991af33c744f4071d}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!read\_reg@{read\_reg}}
+\index{read\_reg@{read\_reg}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{read\_reg()}{read\_reg()}}
+{\footnotesize\ttfamily def SI7006\+A20.\+SI7006\+A20.\+read\+\_\+reg (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{reg\+\_\+addr }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} reading a register \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00088}{88}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_aa98e009fed2913d2ed97d726662b92f6}\label{class_s_i7006_a20_1_1_s_i7006_a20_aa98e009fed2913d2ed97d726662b92f6}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!read\_user\_reg@{read\_user\_reg}}
+\index{read\_user\_reg@{read\_user\_reg}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{read\_user\_reg()}{read\_user\_reg()}}
+{\footnotesize\ttfamily def SI7006\+A20.\+SI7006\+A20.\+read\+\_\+user\+\_\+reg (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} reading the user configuration register \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00056}{56}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_a7b14b9fe6fbf18ef244035a1aa6b5211}\label{class_s_i7006_a20_1_1_s_i7006_a20_a7b14b9fe6fbf18ef244035a1aa6b5211}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!temperature@{temperature}}
+\index{temperature@{temperature}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{temperature()}{temperature()}}
+{\footnotesize\ttfamily def SI7006\+A20.\+SI7006\+A20.\+temperature (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} obtaining the temperature(degrees Celsius) measured by sensor \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00037}{37}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_a05ade8a9b80ab4fd1ea4793aa06a6227}\label{class_s_i7006_a20_1_1_s_i7006_a20_a05ade8a9b80ab4fd1ea4793aa06a6227}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!write\_reg@{write\_reg}}
+\index{write\_reg@{write\_reg}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{write\_reg()}{write\_reg()}}
+{\footnotesize\ttfamily def SI7006\+A20.\+SI7006\+A20.\+write\+\_\+reg (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{reg\+\_\+addr,  }\item[{}]{value }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb} writing a register \end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00095}{95}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_a250c8c54049a43d09415e9af6e374023}\label{class_s_i7006_a20_1_1_s_i7006_a20_a250c8c54049a43d09415e9af6e374023}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!HUMD\_NOHOLDMASTER@{HUMD\_NOHOLDMASTER}}
+\index{HUMD\_NOHOLDMASTER@{HUMD\_NOHOLDMASTER}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{HUMD\_NOHOLDMASTER}{HUMD\_NOHOLDMASTER}}
+{\footnotesize\ttfamily const SI7006\+A20.\+SI7006\+A20.\+HUMD\+\_\+\+NOHOLDMASTER = const(0x\+F5)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00026}{26}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}\label{class_s_i7006_a20_1_1_s_i7006_a20_ab6f8442f1ff685e4f9026b71f0ec2d13}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!i2c@{i2c}}
+\index{i2c@{i2c}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{i2c}{i2c}}
+{\footnotesize\ttfamily SI7006\+A20.\+SI7006\+A20.\+i2c}
+
+
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00030}{30}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_a03fdf30346b212116df4493fdcd64484}\label{class_s_i7006_a20_1_1_s_i7006_a20_a03fdf30346b212116df4493fdcd64484}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!SI7006A20\_I2C\_ADDR@{SI7006A20\_I2C\_ADDR}}
+\index{SI7006A20\_I2C\_ADDR@{SI7006A20\_I2C\_ADDR}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{SI7006A20\_I2C\_ADDR}{SI7006A20\_I2C\_ADDR}}
+{\footnotesize\ttfamily const SI7006\+A20.\+SI7006\+A20.\+SI7006\+A20\+\_\+\+I2\+C\+\_\+\+ADDR = const(0x40)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00023}{23}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+\mbox{\Hypertarget{class_s_i7006_a20_1_1_s_i7006_a20_a5773b14cbe90b11eadfe02a2e7da2a26}\label{class_s_i7006_a20_1_1_s_i7006_a20_a5773b14cbe90b11eadfe02a2e7da2a26}} 
+\index{SI7006A20.SI7006A20@{SI7006A20.SI7006A20}!TEMP\_NOHOLDMASTER@{TEMP\_NOHOLDMASTER}}
+\index{TEMP\_NOHOLDMASTER@{TEMP\_NOHOLDMASTER}!SI7006A20.SI7006A20@{SI7006A20.SI7006A20}}
+\doxysubsubsection{\texorpdfstring{TEMP\_NOHOLDMASTER}{TEMP\_NOHOLDMASTER}}
+{\footnotesize\ttfamily const SI7006\+A20.\+SI7006\+A20.\+TEMP\+\_\+\+NOHOLDMASTER = const(0x\+F3)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_s_i7006_a20_8py_source_l00025}{25}} of file \mbox{\hyperlink{_s_i7006_a20_8py_source}{SI7006\+A20.\+py}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+PSE\+\_\+\+Lo\+Py/lib/\mbox{\hyperlink{_s_i7006_a20_8py}{SI7006\+A20.\+py}}\end{DoxyCompactItemize}
