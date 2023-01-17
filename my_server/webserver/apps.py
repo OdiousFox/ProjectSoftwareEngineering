@@ -11,7 +11,7 @@ class WebserverConfig(AppConfig):
         if settings.DEV_SERVER and settings.USE_NGROK:
             # pyngrok will only be installed, and should only ever be initialized, in a dev environment
             from pyngrok import ngrok, conf
-            conf.get_default().auth_token = "2J6nufQ6WydYr3RaavyPVzWJ80s_3iJ9HbB6uAffAEuUkx5Vd"
+            conf.get_default().auth_token = "2KTQt5BvgH1vpA4RSPhJ4t1zV5k_51GtWeaQxKEtsr7hCTMMm"
             # Get the dev server port (defaults to 8000 for Django, can be overridden with the
             # last arg when calling `runserver`)
             conf.get_default().region = "eu"
