@@ -3,7 +3,6 @@ from .models import PyEntries
 from .models import LhtEntries
 from .models import Py_Averages
 from .models import Lht_Averages
-from datetime import timedelta
 from django.db.models.functions import ExtractHour, ExtractMinute
 from django.db.models import Avg, Value, Case, When
 import paho.mqtt.client as mqtt
@@ -50,6 +49,7 @@ def returnMessage(message):
 # Therefor only 24 hours a day to avoid having too many points on the graph. 
 # The values are returned in a dictionary format as well and immediately store in the various tables.
 #
+
 def updata_avg(id):
     
     res=None

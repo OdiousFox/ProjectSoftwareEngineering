@@ -1,21 +1,21 @@
 
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
-
+from django.db.models import Avg, Value, Case, When
 from django.template import loader
 from .models import Py_Averages
 from .models import Lht_Averages
 from .models import Meta_data
 from .models import PyEntries
 from .models import LhtEntries
-
+from django.db.models.functions import ExtractHour
 from datetime import timedelta
 import re
 import math
 from threading import Thread
 from . import mqtt_py
-
-
+import json
+import asyncio
 def start_func(func):
     t=Thread(target=func)
     t.setDaemon=True
@@ -53,21 +53,82 @@ def formatJson(data):
     for cont in data:
         for key in cont.keys():
             if key != "entry_id" and key!= "dev_uid" and cont[key] is not None:
-              out[key].append(cont[key])
-              if key == "ILL_lx" :
+                if key == "ILL_lx" :
                 ## Convert Lux to percentage in linear scale 0 -> 255
-                if "light_intensity" not in out.keys():
-                    out["light_intensity"]=[(convertLux(cont[key])/255)*100]
+                    if "light_intensity" not in out.keys():
+                        out["light_intensity"]=[(convertLux(cont[key])/255)*100]
+                    else:
+                        out["light_intensity"].append((convertLux(cont[key])/255)*100)
+                elif key =="light":
+                    if "light_intensity" not in out.keys():
+                        out["light_intensity"]=[cont[key]/255*100]
+                    else:
+                        out["light_intensity"].append(cont[key]/255*100)
+                elif key == "temperature" or key =="TempC_SHT":
+                    if "Inside_Temperature" not in out.keys():
+                        out["Inside_Temperature"]=[cont[key]]
+                    else:
+                        out["Inside_Temperature"].append(cont[key])
+                elif key == "Hum_SHT" or key == "humidity":
+                    if "Humidity" not in out.keys():
+                        out["Humidity"]=[cont[key]]
+                    else:
+                        out["Humidity"].append(cont[key])
+                elif key =="TempC_DS":
+                    if "Outside_Temperature" not in out.keys():
+                        out["Outside_Temperature"]=[cont[key]]
+                    else:
+                        out["Outside_Temperature"].append(cont[key])
                 else:
-                    out["light_intensity"].append((convertLux(cont[key])/255)*100)
-                
-              elif key =="light":
-                if "light_intensity" not in out.keys():
-                    out["light_intensity"]=[cont[key]/255*100]
-                else:
-                    out["light_intensity"].append(cont[key]/255*100)
-                
+                    out[key].append(cont[key])
+    ## Remove empty key from the result
+    empty_keys = [k for k in out if len(out[k])==0]
+    for key in empty_keys:
+        
+        del out[key]            
     return out 
+def spec_formatJson(inp):
+    
+    res= formatJson(inp)
+   
+    prev_hour = None
+    index = 0
+   
+    cur_hour = None
+    
+    hash_map={}
+    ind = -1
+    for index in range(0,len(res["hour"])):
+        cur_hour=res["hour"][index]
+        if cur_hour !=prev_hour:
+            ind = ind + 1
+            hash_map[ind]={}
+            for key in res:
+                hash_map[ind][key]=[]
+            for key in res:
+                hash_map[ind][key].append(res[key][index])
+        else:
+            for key in res:
+                hash_map[ind][key].append(res[key][index])
+        prev_hour = cur_hour
+    out ={}
+    for key in res:
+        if key != "hour":
+            out[key]=[]
+   
+    for ind_key in hash_map:
+        change_hour = False
+        for key in hash_map[ind_key]:
+            if key != "entry_date" and key !="hour":
+                out[key].append(sum(hash_map[ind_key][key])/len(hash_map[ind_key][key]))
+            elif key == "entry_date":
+                dt = hash_map[ind_key][key][0].replace(minute=0,second=0,microsecond=0)
+               
+                out[key].append(dt)
+            else:
+                continue
+    
+    return out
 
 # @brief Return default Json api which only has average values
 def default_api():
@@ -108,10 +169,11 @@ def spec_api(time):
         ndev_id=dev_id.replace("-","_")
         b = PyEntries.objects.filter(dev_uid=dev_id).values().last()
         earlier = b["entry_date"]-timedelta(days=int(time[0]), hours=int(time[2]))
-        print(earlier)
+        #print(earlier)
         c = PyEntries.objects.filter(dev_uid=dev_id,entry_date__range=(earlier,b["entry_date"]))\
+            .annotate(hour=ExtractHour("entry_date"))\
             .values()
-        out[ndev_id]=formatJson(c)
+        out[ndev_id]=spec_formatJson(c)
         out[ndev_id]["meta_data"]=formatMetadata(Meta_data.objects.filter(dev_uid=dev_id).values().last())
     a = LhtEntries.objects.values("dev_uid").distinct()
     for id in a:
@@ -119,17 +181,19 @@ def spec_api(time):
         ndev_id=dev_id.replace("-","_")
         b = LhtEntries.objects.filter(dev_uid=dev_id).values().last()
         earlier = b["entry_date"]-timedelta(days=int(time[0]), hours=int(time[2]))
-        print(earlier)
+        #print(earlier)
         c = LhtEntries.objects.filter(dev_uid=dev_id,entry_date__range=(earlier,b["entry_date"]))\
+            .annotate(hour=ExtractHour("entry_date"))\
             .values()
-        out[ndev_id]=formatJson(c)
+        out[ndev_id]=spec_formatJson(c)
         out[ndev_id]["meta_data"]=formatMetadata(Meta_data.objects.filter(dev_uid=dev_id).values().last())
     
     return out
 ## Documentaion for fetch_api() function
 # @brief fetches and returns the data on request depending on the request query.
+
 def fetch_api(request):
-    print(request.headers)
+    #print(request.headers)
     out = {}
     if("Time-period" not in request.headers ):
         out = default_api()
