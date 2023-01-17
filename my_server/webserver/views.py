@@ -169,10 +169,11 @@ def spec_api(time):
         ndev_id=dev_id.replace("-","_")
         b = PyEntries.objects.filter(dev_uid=dev_id).values().last()
         earlier = b["entry_date"]-timedelta(days=int(time[0]), hours=int(time[2]))
-        #print(earlier)
-        c = PyEntries.objects.filter(dev_uid=dev_id,entry_date__range=(earlier,b["entry_date"]))\
+       
+        c = PyEntries.objects.filter(dev_uid=dev_id,entry_date__range=[earlier,b["entry_date"]])\
             .annotate(hour=ExtractHour("entry_date"))\
             .values()
+        print(c)
         out[ndev_id]=spec_formatJson(c)
         out[ndev_id]["meta_data"]=formatMetadata(Meta_data.objects.filter(dev_uid=dev_id).values().last())
     a = LhtEntries.objects.values("dev_uid").distinct()
@@ -180,14 +181,16 @@ def spec_api(time):
         dev_id=id["dev_uid"]
         ndev_id=dev_id.replace("-","_")
         b = LhtEntries.objects.filter(dev_uid=dev_id).values().last()
+        print(b)
         earlier = b["entry_date"]-timedelta(days=int(time[0]), hours=int(time[2]))
-        #print(earlier)
-        c = LhtEntries.objects.filter(dev_uid=dev_id,entry_date__range=(earlier,b["entry_date"]))\
+        
+        c = LhtEntries.objects.filter(dev_uid=dev_id,entry_date__range=[earlier,b["entry_date"]])\
             .annotate(hour=ExtractHour("entry_date"))\
             .values()
+       
         out[ndev_id]=spec_formatJson(c)
         out[ndev_id]["meta_data"]=formatMetadata(Meta_data.objects.filter(dev_uid=dev_id).values().last())
-    
+    #print(json.dumps(out, indent=4, sort_keys=True, default=str))
     return out
 ## Documentaion for fetch_api() function
 # @brief fetches and returns the data on request depending on the request query.
