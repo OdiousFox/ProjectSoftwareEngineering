@@ -198,7 +198,8 @@ def client():
                 TempC_SHT=values["payload"]["TempC_SHT"]
                 )
             except:
-                LhtEntries.objects.create(
+                try:
+                    LhtEntries.objects.create(
                 dev_uid=values["dev_id"],
                 entry_date=values["time"],
                 BatV=values["payload"]["BatV"],
@@ -207,6 +208,8 @@ def client():
                 TempC_DS=values["payload"]["TempC_DS"],
                 TempC_SHT=values["payload"]["TempC_SHT"]
                 )
+                except:
+                    pass
 
         ## Store metadata in the same pass
         #
