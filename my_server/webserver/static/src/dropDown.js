@@ -10,3 +10,8 @@ const selectedValues = [].filter
     .map(option => option.text)
 return selectedValues
 }
+
+function getSliderOption(selectedID){
+  var selection = document.getElementById(selectedID);
+  return selection.value;
+}

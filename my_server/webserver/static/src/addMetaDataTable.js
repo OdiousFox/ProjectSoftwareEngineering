@@ -1,4 +1,4 @@
-async function getDataFromUrl(url){
+async function getDataFromUrlMetaData(url){
     const response = await fetch(url,{
         method: "get",
         headers: new Headers({
@@ -12,20 +12,14 @@ async function getDataFromUrl(url){
     return response.json();
 }
 
-async function generateTable() {
-    var url = "https://99b4-2001-1c06-180b-b600-c6dd-83ad-209c-52e5.eu.ngrok.io/webserver/api/";
+async function addMetaDataTable(topDiv) {
+    var url = window.location.href+"api";
 
-    var data = await getDataFromUrl(url);
+    var data = await getDataFromUrlMetaData(url);
 
     var all_devices = [];       // a list of all the de devices
-    var meta_data = [];
-
     for (device in data) {
         all_devices.push(device);
-    }
-
-    for (var i = 0; i < 1; i++) {
-        meta_data.push(data[all_devices[0]].meta_data);
     }
 
     // creates a <table> element and a <tbody> element
@@ -71,8 +65,6 @@ async function generateTable() {
     }
 
     for (var i = 0; i < all_devices.length; i++){
-        console.log("length of all devices: " + all_devices.length);
-
         const row = document.createElement("tr");
 
         const cell = document.createElement("td");
@@ -114,10 +106,11 @@ async function generateTable() {
     tbl.appendChild(tblHead);
     // put the <tbody> in the <table>
     tbl.appendChild(tblBody);
-    // appends <table> into <body>
-    document.head.appendChild(tbl);
-    document.body.appendChild(tbl);
+
     // sets the border attribute of tbl to '2'
     tbl.setAttribute("border", "1");
+
+    topDiv.appendChild(tbl);
+    addRemoveButton(tbl);
 }
   
