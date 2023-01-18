@@ -64,11 +64,23 @@ def formatJson(data):
                         out["light_intensity"]=[cont[key]/255*100]
                     else:
                         out["light_intensity"].append(cont[key]/255*100)
-                elif key == "temperature" or key =="TempC_SHT":
+                elif key == "temperature":
                     if "Inside_Temperature" not in out.keys():
                         out["Inside_Temperature"]=[cont[key]]
                     else:
                         out["Inside_Temperature"].append(cont[key])
+                elif key == "TempC_SHT":
+                    if cont["dev_uid"] == "lht-saxion":
+                        if "Inside_Temperature" not in out.keys():
+                            out["Inside_Temperature"]=[cont[key]]
+                        else:
+                            out["Inside_Temperature"].append(cont[key])
+                    else:
+                        if "Outside_Temperature" not in out.keys():
+                            out["Outside_Temperature"]=[cont[key]]
+                        else:
+                            out["Outside_Temperature"].append(cont[key])
+
                 elif key == "Hum_SHT" or key == "humidity":
                     if "Humidity" not in out.keys():
                         out["Humidity"]=[cont[key]]
@@ -173,7 +185,7 @@ def spec_api(time):
         c = PyEntries.objects.filter(dev_uid=dev_id,entry_date__range=[earlier,b["entry_date"]])\
             .annotate(hour=ExtractHour("entry_date"))\
             .values()
-        print(c)
+        
         out[ndev_id]=spec_formatJson(c)
         out[ndev_id]["meta_data"]=formatMetadata(Meta_data.objects.filter(dev_uid=dev_id).values().last())
     a = LhtEntries.objects.values("dev_uid").distinct()
@@ -181,7 +193,7 @@ def spec_api(time):
         dev_id=id["dev_uid"]
         ndev_id=dev_id.replace("-","_")
         b = LhtEntries.objects.filter(dev_uid=dev_id).values().last()
-        print(b)
+       
         earlier = b["entry_date"]-timedelta(days=int(time[0]), hours=int(time[2]))
         
         c = LhtEntries.objects.filter(dev_uid=dev_id,entry_date__range=[earlier,b["entry_date"]])\
