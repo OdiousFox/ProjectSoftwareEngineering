@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_0',['name',['../classwebserver_1_1apps_1_1_webserver_config.html#a2bff904e76a4bc335dea6ac941c851c5',1,'webserver::apps::WebserverConfig']]]
+  ['pressure_0',['pressure',['../classwebserver_1_1models_1_1_py_entries.html#a20a921394328eeb1011211ef686ba04d',1,'webserver.models.PyEntries.pressure()'],['../classwebserver_1_1models_1_1_py___averages.html#a1eaee527a7d3c71b78979b9d7c5fe029',1,'webserver.models.Py_Averages.pressure()']]]
 ];

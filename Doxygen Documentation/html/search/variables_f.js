@@ -1,12 +1,8 @@
 var searchData=
 [
-  ['reg_0',['reg',['../classpycoproc__1_1_1_pycoproc.html#a1b7d6759ab009053cc90513b28c877c9',1,'pycoproc_1::Pycoproc']]],
-  ['reg_5faddrh_1',['REG_ADDRH',['../classpycoproc__1_1_1_pycoproc.html#a90bec03e6fec8568e6ecc5ead5a5097f',1,'pycoproc_1::Pycoproc']]],
-  ['reg_5faddrl_2',['REG_ADDRL',['../classpycoproc__1_1_1_pycoproc.html#a6903816dc7a91a96f6fcf97a9094c7ef',1,'pycoproc_1::Pycoproc']]],
-  ['reg_5fand_3',['REG_AND',['../classpycoproc__1_1_1_pycoproc.html#a29d1d9700af74b6991ea8cedc886298c',1,'pycoproc_1::Pycoproc']]],
-  ['reg_5fcmd_4',['REG_CMD',['../classpycoproc__1_1_1_pycoproc.html#afdd4a38c3a92cbb2ec3d78cdcc635231',1,'pycoproc_1::Pycoproc']]],
-  ['reg_5for_5',['REG_OR',['../classpycoproc__1_1_1_pycoproc.html#a00503bd01981ccdbbc3b2c116bba0741',1,'pycoproc_1::Pycoproc']]],
-  ['reg_5fxor_6',['REG_XOR',['../classpycoproc__1_1_1_pycoproc.html#ad7828e1cc65a0355ffb1d93701c2bfd7',1,'pycoproc_1::Pycoproc']]],
-  ['root_5furlconf_7',['ROOT_URLCONF',['../namespacemy__server_1_1settings.html#aa68f843834f88b5ca7adfb49acb0f725',1,'my_server::settings']]],
-  ['rssi_8',['rssi',['../classwebserver_1_1models_1_1_meta__data.html#a652b8028e66735b383c885be243ecaa1',1,'webserver::models::Meta_data']]]
+  ['tempc_5fds_0',['TempC_DS',['../classwebserver_1_1models_1_1_lht_entries.html#afee38d3530c8ce757ce8d19d1decfb7d',1,'webserver.models.LhtEntries.TempC_DS()'],['../classwebserver_1_1models_1_1_lht___averages.html#a29a301319f980880027c2392c8db4a52',1,'webserver.models.Lht_Averages.TempC_DS()']]],
+  ['tempc_5fsht_1',['TempC_SHT',['../classwebserver_1_1models_1_1_lht_entries.html#a9e0a3b5cc7143279a353ccb92fe1163b',1,'webserver.models.LhtEntries.TempC_SHT()'],['../classwebserver_1_1models_1_1_lht___averages.html#a46efa40fed4383c7035c9e6c7580c7dc',1,'webserver.models.Lht_Averages.TempC_SHT()']]],
+  ['temperature_2',['temperature',['../classwebserver_1_1models_1_1_py_entries.html#a164ce87ec8a01487478f3cc11ed5bf41',1,'webserver.models.PyEntries.temperature()'],['../classwebserver_1_1models_1_1_py___averages.html#a46323ba58dac8b4084516c5d17e665b9',1,'webserver.models.Py_Averages.temperature()']]],
+  ['templates_3',['TEMPLATES',['../namespacemy__server_1_1settings.html#aa2b7ed52e0eafb538d6a4af36c5de47c',1,'my_server::settings']]],
+  ['time_5fzone_4',['TIME_ZONE',['../namespacemy__server_1_1settings.html#ad0fd22be037fa111119a204dfc10763f',1,'my_server::settings']]]
 ];

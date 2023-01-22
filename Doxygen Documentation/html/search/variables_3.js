@@ -1,25 +1,10 @@
 var searchData=
 [
-  ['clk_5fcal_5ffactor_0',['clk_cal_factor',['../classpycoproc__1_1_1_pycoproc.html#a5ec533003db21f7b4dc8b01edf138130',1,'pycoproc_1::Pycoproc']]],
-  ['cmd_5fbaud_5fchange_1',['CMD_BAUD_CHANGE',['../classpycoproc__1_1_1_pycoproc.html#a0da37d7b1b045b3190afc24cd8899216',1,'pycoproc_1::Pycoproc']]],
-  ['cmd_5fcalibrate_2',['CMD_CALIBRATE',['../classpycoproc__1_1_1_pycoproc.html#a28aa615515a2a87615522e71639d5cf9',1,'pycoproc_1::Pycoproc']]],
-  ['cmd_5fdfu_3',['CMD_DFU',['../classpycoproc__1_1_1_pycoproc.html#a8ebd867926a8d0e005b17d901b4cbff5',1,'pycoproc_1::Pycoproc']]],
-  ['cmd_5ffw_5fver_4',['CMD_FW_VER',['../classpycoproc__1_1_1_pycoproc.html#a49f1eb85909d8998a39a8ef3179a6ebc',1,'pycoproc_1::Pycoproc']]],
-  ['cmd_5fgo_5fsleep_5',['CMD_GO_SLEEP',['../classpycoproc__1_1_1_pycoproc.html#a45f02a7e6d671436ea06631cc8fe044c',1,'pycoproc_1::Pycoproc']]],
-  ['cmd_5fhw_5fver_6',['CMD_HW_VER',['../classpycoproc__1_1_1_pycoproc.html#a181d8f348a39d1cb882acee3e2e5c6b7',1,'pycoproc_1::Pycoproc']]],
-  ['cmd_5fmagic_7',['CMD_MAGIC',['../classpycoproc__1_1_1_pycoproc.html#af76cf10ffeefdba969e8296050dce0af',1,'pycoproc_1::Pycoproc']]],
-  ['cmd_5fpeek_8',['CMD_PEEK',['../classpycoproc__1_1_1_pycoproc.html#a49960066b90a25447b7fdc21fd08a8bf',1,'pycoproc_1::Pycoproc']]],
-  ['cmd_5fpoke_9',['CMD_POKE',['../classpycoproc__1_1_1_pycoproc.html#a4d2bcef67aafab262b01acd4d37dd495',1,'pycoproc_1::Pycoproc']]],
-  ['cmd_5fprod_5fid_10',['CMD_PROD_ID',['../classpycoproc__1_1_1_pycoproc.html#a5e40814afafc36b1524f1b63f9bd322f',1,'pycoproc_1::Pycoproc']]],
-  ['cmd_5fsetup_5fsleep_11',['CMD_SETUP_SLEEP',['../classpycoproc__1_1_1_pycoproc.html#a674e474b27325c6d02123c8f21d5c3e2',1,'pycoproc_1::Pycoproc']]],
-  ['colors_12',['colors',['../namespacemain.html#adca5af965e1221d75ffd48f18329567c',1,'main']]],
-  ['cors_5fallow_5fall_5forigins_13',['CORS_ALLOW_ALL_ORIGINS',['../namespacemy__server_1_1settings.html#ae4b6215a03bfd7bad1a70f41ad7337fc',1,'my_server::settings']]],
-  ['cors_5fallow_5fcredentials_14',['CORS_ALLOW_CREDENTIALS',['../namespacemy__server_1_1settings.html#aa1e03dcfc6cfb5ee3be732ce7a364d5b',1,'my_server::settings']]],
-  ['cors_5fallow_5fheaders_15',['CORS_ALLOW_HEADERS',['../namespacemy__server_1_1settings.html#a222279774f3b61a58e9bd7cdc9c69d36',1,'my_server::settings']]],
-  ['cors_5fexpose_5fheaders_16',['CORS_EXPOSE_HEADERS',['../namespacemy__server_1_1settings.html#a5f59d1fec8e3d3201e7dd7e61403ba10',1,'my_server::settings']]],
-  ['ctrl1_5freg_17',['CTRL1_REG',['../class_l_i_s2_h_h12_1_1_l_i_s2_h_h12.html#af22477882855c74b06d879ca5b410539',1,'LIS2HH12::LIS2HH12']]],
-  ['ctrl2_5freg_18',['CTRL2_REG',['../class_l_i_s2_h_h12_1_1_l_i_s2_h_h12.html#a92e509852504d71501ee20151ce83149',1,'LIS2HH12::LIS2HH12']]],
-  ['ctrl3_5freg_19',['CTRL3_REG',['../class_l_i_s2_h_h12_1_1_l_i_s2_h_h12.html#a514d4d61214d33a484f8cadf0db8b91e',1,'LIS2HH12::LIS2HH12']]],
-  ['ctrl4_5freg_20',['CTRL4_REG',['../class_l_i_s2_h_h12_1_1_l_i_s2_h_h12.html#a9319debf138fdf54939e41bd62b8a933',1,'LIS2HH12::LIS2HH12']]],
-  ['ctrl5_5freg_21',['CTRL5_REG',['../class_l_i_s2_h_h12_1_1_l_i_s2_h_h12.html#ad5e644f6e5cbe7f2d17a88014f796bb7',1,'LIS2HH12::LIS2HH12']]]
+  ['databases_0',['DATABASES',['../namespacemy__server_1_1settings.html#ae36cc23886729c838572ebdb90b3c2b4',1,'my_server::settings']]],
+  ['debug_1',['DEBUG',['../namespacemy__server_1_1settings.html#a51e2fdfadc2fc77ede3b88d126ec9ffb',1,'my_server::settings']]],
+  ['default_5fauto_5ffield_2',['default_auto_field',['../classwebserver_1_1apps_1_1_webserver_config.html#ae6609ca6d9b54798e97f434c57264ef4',1,'webserver::apps::WebserverConfig']]],
+  ['default_5fauto_5ffield_3',['DEFAULT_AUTO_FIELD',['../namespacemy__server_1_1settings.html#a1d00ab05e7340107d2b906cadfd77853',1,'my_server::settings']]],
+  ['dependencies_4',['dependencies',['../classwebserver_1_1migrations_1_10001__initial_1_1_migration.html#a2d9a9a9e9b5824d0f6e9dd06adf4b8f9',1,'webserver.migrations.0001_initial.Migration.dependencies()'],['../classwebserver_1_1migrations_1_10002__meta__data__rename__entry__date__lht__averages__entry__hour__and__more_1_1_migration.html#a435d09e0a55159b457251bbe31126fa2',1,'webserver.migrations.0002_meta_data_rename_entry_date_lht_averages_entry_hour_and_more.Migration.dependencies()'],['../classwebserver_1_1migrations_1_10003__alter__lht__averages__ill__lx__and__more_1_1_migration.html#a4a38ee0b0a12a53461f424d326630646',1,'webserver.migrations.0003_alter_lht_averages_ill_lx_and_more.Migration.dependencies()'],['../classwebserver_1_1migrations_1_10004__remove__meta__data__loc__alt_1_1_migration.html#a26f50aad6e028858cd994b85ea9aebec',1,'webserver.migrations.0004_remove_meta_data_loc_alt.Migration.dependencies()'],['../classwebserver_1_1migrations_1_10005__rename__loc__lat__meta__data__latitude__and__more_1_1_migration.html#aaa4b638f9d3eaca6b5cb3e861373c568',1,'webserver.migrations.0005_rename_loc_lat_meta_data_latitude_and_more.Migration.dependencies()'],['../classwebserver_1_1migrations_1_10006__py__averages__humidity__pyentries__humidity_1_1_migration.html#a336e42eddf6503a26bc3405e49dc77d8',1,'webserver.migrations.0006_py_averages_humidity_pyentries_humidity.Migration.dependencies()'],['../classwebserver_1_1migrations_1_10007__alter__py__averages__light__alter__pyentries__light_1_1_migration.html#a1e1eaca65bf5a42a3e4adadcb402b33b',1,'webserver.migrations.0007_alter_py_averages_light_alter_pyentries_light.Migration.dependencies()']]],
+  ['dev_5fserver_5',['DEV_SERVER',['../namespacemy__server_1_1settings.html#aaf6e87ba32e62034b15e86c4fd163d30',1,'my_server::settings']]],
+  ['dev_5fuid_6',['dev_uid',['../classwebserver_1_1models_1_1_py_entries.html#a3c5425c9e72275689b71da3793158643',1,'webserver.models.PyEntries.dev_uid()'],['../classwebserver_1_1models_1_1_py___averages.html#a2403bc97b288e8401df2660bebceaa68',1,'webserver.models.Py_Averages.dev_uid()'],['../classwebserver_1_1models_1_1_lht_entries.html#a042c73ca3e8cf025f3ac09ebe9289f75',1,'webserver.models.LhtEntries.dev_uid()'],['../classwebserver_1_1models_1_1_lht___averages.html#ac01f53d53be332b9bb84229414d56a76',1,'webserver.models.Lht_Averages.dev_uid()'],['../classwebserver_1_1models_1_1_meta__data.html#abb6d06b1b285b85f3df8d133e4ecc06f',1,'webserver.models.Meta_data.dev_uid()']]]
 ];

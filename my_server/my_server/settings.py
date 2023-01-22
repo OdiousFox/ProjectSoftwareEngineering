@@ -49,28 +49,26 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    
-     "corsheaders.middleware.CorsMiddleware",
+     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-   
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
-   
 ]
-
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
+#Allow to be access from every url
+CORS_ALLOW_ALL_ORIGINS = True 
+#Allow cookies to be included in cross-site HTTP request
+CORS_ALLOW_CREDENTIALS = True 
+# Allow these headers to have in JSON APIs request
 CORS_ALLOW_HEADERS = list(default_headers) + [
     'ngrok-skip-browser-warning',
     'time-period',
 ]
 CORS_EXPOSE_HEADERS = [
-   "ngrok-skip-browser-warning",
+   'ngrok-skip-browser-warning',
    'time-period',
 ]
 

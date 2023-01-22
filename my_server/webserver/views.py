@@ -16,6 +16,8 @@ from threading import Thread
 from . import mqtt_py
 import json
 import asyncio
+## Documentaion for start_func() function
+# @brief start listening data from sensor
 def start_func(func):
     t=Thread(target=func)
     t.setDaemon=True
@@ -26,26 +28,27 @@ start_func(mqtt_py.client_g3)
 #returns result in webformat
 ## Return the default website .
 def init(request):
-    
     tem=loader.get_template("index.html")
     return HttpResponse(tem.render())
-
+## Documentaion for convertLux() function
+# @brief Convert Lux (logarithmic scale) to linear scale(0 - 255)
 def convertLux(lux):
     if(lux > 0):
         res=math.log10(lux)*(255/math.log10(65000))
         return res
     else:
         return 0
+## Documentaion for formatMetadata(data) function
+# @brief convert QuerySet type to Python type Dictionary from Metadata table
 def formatMetadata(data):
-    
     out = {}
     for key in data.keys():
         if key != "entry_id" and key != "dev_uid":
             out[key]=str(data[key])
     return out
-#takes data from tables and returns it in json format to be used to pass it to the website.
+## Documentaion for formatJson(data) function
+# @brief convert QuerySet type to Python Dictionary type to be used to pass it to the website.
 def formatJson(data):
-    
     out={}
     for key in data[0].keys():
         if key != "entry_id" and key!= "dev_uid" and data[0][key] is not None:
@@ -96,18 +99,15 @@ def formatJson(data):
     ## Remove empty key from the result
     empty_keys = [k for k in out if len(out[k])==0]
     for key in empty_keys:
-        
         del out[key]            
     return out 
+## Documentaion for spec_formatJson(inp) function
+# @brief Return Python dictionary type for special request of json
 def spec_formatJson(inp):
-    
     res= formatJson(inp)
-   
     prev_hour = None
     index = 0
-   
     cur_hour = None
-    
     hash_map={}
     ind = -1
     for index in range(0,len(res["hour"])):
@@ -129,7 +129,7 @@ def spec_formatJson(inp):
             out[key]=[]
    
     for ind_key in hash_map:
-        change_hour = False
+      
         for key in hash_map[ind_key]:
             if key != "entry_date" and key !="hour":
                 out[key].append(sum(hash_map[ind_key][key])/len(hash_map[ind_key][key]))
@@ -141,11 +141,9 @@ def spec_formatJson(inp):
                 continue
     
     return out
-
-# @brief Return default Json api which only has average values
+## Documentaion for default_api() function
+# @brief Return Python dictionary which only has average values
 def default_api():
-    # 
-    
     out ={}
     res=Lht_Averages.objects.values("dev_uid").distinct()
     for id in res:
@@ -208,7 +206,6 @@ def spec_api(time):
 # @brief fetches and returns the data on request depending on the request query.
 
 def fetch_api(request):
-    #print(request.headers)
     out = {}
     if("Time-period" not in request.headers ):
         out = default_api()
@@ -216,7 +213,6 @@ def fetch_api(request):
         out = default_api()
     else:
         out= spec_api(request.headers["Time-period"])
-    
     response=JsonResponse(out)
     response["Access-Control-Allow-Origin"] = "*"
     response["Access-Control-Allow-Methods"] = "GET, OPTIONS, POST"

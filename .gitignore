@@ -7,5 +7,7 @@ py*
 sql*
 uvi*
 ng*
+gunicorn
+JulianReceiver/**
 .vscode/**
 .idea/**

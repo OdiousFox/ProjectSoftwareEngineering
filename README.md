@@ -1,5 +1,8 @@
 # ProjectSoftwareEngineering
-
+The repository of all team: https://github.com/OdiousFox/ProjectSoftwareEngineering.git
+The experiment repository of frontend team: https://github.com/09victor09/09victor09.github.io
+Note that the "my_server" folder contains code of backend team, the "PSE_LoPy" contains code of hardware team and the "website source code" contains code of frontend team
+Regard to Doxygen, only the backend team has doxygen document since doxygen does not seem to support Javascript, HTML or CSS 
 ## How to run webserver
 The webserver is running using Django framework. Therefore, you need to have python version 3.x to run. Dowload the python interpreter, then you need to create virtual environment in python. Run the following command
 ```python=

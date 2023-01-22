@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="src/dropDown.js"></script>
+  <script src="src/addRemoveElements.js"></script>
+  <script src="src/addWeatherChart.js"></script>
+  <script src="src/addMetaDataTable.js"></script>
+
+  <link rel="stylesheet" href="styles/styles.css">
+  <title>Weather App</title>
+</head>
+
+<body>
+  <div class="pageGrid">
+    <header>Weather Chart</header>
+    <left-column>
+      <h1>Menu options: </h1>
+      <br>
+
+      <form>
+        <p>Select an output type:</p>
+        <select id="output_type">
+          <option>Inside Temperature</option>
+          <option>Outside Temperature</option>
+          <option>Light Intensity</option>
+          <option>Humidity</option>
+          <option>Pressure</option>
+        </select>
+        <br>
+        <br>
+
+        <p>Select one or more devices:</p>
+        <select id="devices" multiple>
+          <option>py_wierden</option>
+          <option>py_saxion</option>
+          <option>py_group3</option>
+          <option>lht_saxion</option>
+          <option>lht_wierden</option>
+          <option>lht_gronau</option>
+        </select>
+      </form>
+      <br>
+        
+      <p>Select a time range:</p>
+      <div class="range-slider">
+        <input type="checkbox" id="enableHourSlider">
+        <p>Hours:</p>
+        <input type="range" min="0" max="24" value="0" id="hourSlider" disabled="disabled" oninput="this.nextElementSibling.value = this.value">
+        <output>0</output>
+      </div>
+      <div class="range-slider">
+        <input type="checkbox" id="enableDaySlider">
+        <p>Days:</p>
+        <input type="range" min="0" max="30" value="0" id="daySlider" disabled="disabled" oninput="this.nextElementSibling.value = this.value">
+        <output>0</output>
+      </div>
+      <br>
+      
+      <script>
+        // get references to the checkbox and the slider
+        var hourCheckbox = document.getElementById("enableHourSlider");
+        var dayCheckbox = document.getElementById("enableDaySlider");
+        var hourSlider = document.getElementById("hourSlider");
+        var daySlider = document.getElementById("daySlider");
+
+        hourCheckbox.addEventListener("change", function(){
+          hourSlider.disabled = !hourCheckbox.checked;
+          dayCheckbox.checked = false;
+          daySlider.disabled = true;
+          daySlider.value = 0;
+          daySlider.nextElementSibling.value = 0;
+        })
+
+        dayCheckbox.addEventListener("change", function(){
+          daySlider.disabled = !dayCheckbox.checked;
+          hourCheckbox.checked = false;
+          hourSlider.disabled = true;
+          hourSlider.value = 0;
+          hourSlider.nextElementSibling.value = 0;
+        })
+      </script>
+
+      <button onclick="addWeatherChart(getDropDownOption('output_type'), getMultipleDropDownOption('devices'), getSliderOption('hourSlider'), getSliderOption('daySlider'), document.getElementById('chartGridDiv'))">Display Graph</button>
+      <br>
+      <button onclick="addMetaDataTable(document.getElementById('chartGridDiv'))">Display MetaData</button>
+    </left-column>
+    <right-colum>
+      <div id="chartGridDiv" class="chart-grid"></div>
+    </right-colum>
+    <footer>Esther Belinfante, Zibusiso Masuku, Hoàng Minh Lê, Iulian Cioloca and Victor van Vugt</footer>
+  </div>
+</body>
+</html>

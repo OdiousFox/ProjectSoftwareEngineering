@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['readme_2emd_0',['Readme.md',['../my__server_2_readme_8md.html',1,'']]],
-  ['readme_2emd_1',['README.md',['../_readme_8md.html',1,'']]]
+  ['urls_2epy_0',['urls.py',['../my__server_2urls_8py.html',1,'(Global Namespace)'],['../webserver_2urls_8py.html',1,'(Global Namespace)']]]
 ];
